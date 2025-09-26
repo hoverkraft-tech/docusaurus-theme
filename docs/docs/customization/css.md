@@ -4,28 +4,25 @@ sidebar_position: 3
 
 # Custom CSS
 
-Learn how to add custom CSS and override theme styles effectively.
+While the Hoverkraft theme enforces strict branding, you can still add custom CSS for **content styling** without overriding theme colors or layout.
+
+## What You Can Customize
+
+✅ **Content-specific styling** for your documentation  
+✅ **Additional utility classes** for your content  
+✅ **Component styling** that doesn't conflict with theme branding  
+✅ **Page-specific enhancements** using standard Docusaurus methods  
+
+## What You Cannot Override
+
+❌ **Theme colors** - Primary, secondary, and accent colors are fixed  
+❌ **Header and footer** - Layout and branding are enforced  
+❌ **Logo and branding elements** - These maintain consistent Hoverkraft identity  
+❌ **Core typography** - Font families and hierarchies are standardized  
 
 ## Adding Custom CSS
 
-### Method 1: Theme Configuration
-
-Add custom CSS files through theme configuration:
-
-```javascript title="docusaurus.config.js"
-const config = {
-  themeConfig: {
-    hoverkraft: {
-      customCss: [
-        './src/css/custom-theme.css',
-        './src/css/overrides.css',
-      ],
-    },
-  },
-};
-```
-
-### Method 2: Docusaurus Custom CSS
+### Recommended Method: Docusaurus Custom CSS
 
 Use Docusaurus's built-in custom CSS system:
 
@@ -44,7 +41,7 @@ const config = {
 };
 ```
 
-### Method 3: Direct Import
+### Direct Import in Components
 
 Import CSS files directly in your components:
 
@@ -56,419 +53,244 @@ export default function MyComponent() {
 }
 ```
 
-## CSS Architecture
+## Allowed Customizations
 
-### Recommended File Structure
+### Content-Specific Styling
 
-Organize your CSS files for maintainability:
+Style your documentation content without affecting theme branding:
 
-```
-src/
-├── css/
-│   ├── custom.css           # Main custom styles
-│   ├── variables.css        # CSS custom properties
-│   ├── components.css       # Component-specific styles
-│   ├── overrides.css        # Theme overrides
-│   └── utilities.css        # Utility classes
-```
-
-### CSS Variables Strategy
-
-Define reusable CSS custom properties:
-
-```css title="src/css/variables.css"
-:root {
-  /* Custom spacing scale */
-  --hk-spacing-xs: 0.25rem;
-  --hk-spacing-sm: 0.5rem;
-  --hk-spacing-md: 1rem;
-  --hk-spacing-lg: 2rem;
-  --hk-spacing-xl: 3rem;
-  
-  /* Custom border radius */
-  --hk-radius-sm: 0.25rem;
-  --hk-radius-md: 0.5rem;
-  --hk-radius-lg: 1rem;
-  
-  /* Custom shadows */
-  --hk-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
-  --hk-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --hk-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
-}
-```
-
-## Overriding Theme Styles
-
-### Component-Specific Overrides
-
-Target specific theme components:
-
-```css title="src/css/overrides.css"
-/* Override header styling */
-.hoverkraft-header {
-  background: linear-gradient(135deg, #007acc, #0088d4);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-/* Override footer styling */
-.hoverkraft-footer {
-  background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
-  border-top: 3px solid var(--hk-color-accent);
-}
-
-/* Override logo styling */
-.hoverkraft-logo__image {
-  height: 36px;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
-  transition: transform 0.2s ease;
-}
-
-.hoverkraft-logo:hover .hoverkraft-logo__image {
-  transform: scale(1.05);
-}
-```
-
-### Docusaurus Component Overrides
-
-Override built-in Docusaurus components:
-
-```css title="src/css/overrides.css"
-/* Customize navbar */
-.navbar {
-  box-shadow: var(--hk-shadow-md);
-  backdrop-filter: blur(8px);
-}
-
-.navbar__title {
-  font-weight: 700;
-  color: var(--hk-color-primary);
-}
-
-/* Customize sidebar */
-.theme-doc-sidebar-container {
-  background-color: var(--hk-color-light);
-  border-right: 2px solid var(--hk-color-primary);
-}
-
-.menu__link {
-  border-radius: var(--hk-radius-sm);
-  transition: all 0.2s ease;
-}
-
-.menu__link:hover {
-  background-color: var(--hk-color-primary);
-  color: white;
-  transform: translateX(4px);
-}
-```
-
-## Custom Components
-
-### Creating Utility Classes
-
-Build a utility class system:
-
-```css title="src/css/utilities.css"
-/* Spacing utilities */
-.hk-p-xs { padding: var(--hk-spacing-xs); }
-.hk-p-sm { padding: var(--hk-spacing-sm); }
-.hk-p-md { padding: var(--hk-spacing-md); }
-.hk-p-lg { padding: var(--hk-spacing-lg); }
-
-.hk-m-xs { margin: var(--hk-spacing-xs); }
-.hk-m-sm { margin: var(--hk-spacing-sm); }
-.hk-m-md { margin: var(--hk-spacing-md); }
-.hk-m-lg { margin: var(--hk-spacing-lg); }
-
-/* Color utilities */
-.hk-text-primary { color: var(--hk-color-primary); }
-.hk-text-secondary { color: var(--hk-color-secondary); }
-.hk-text-accent { color: var(--hk-color-accent); }
-
-.hk-bg-primary { background-color: var(--hk-color-primary); }
-.hk-bg-light { background-color: var(--hk-color-light); }
-
-/* Border utilities */
-.hk-border-primary { border: 1px solid var(--hk-color-primary); }
-.hk-border-radius { border-radius: var(--hk-radius-md); }
-
-/* Shadow utilities */
-.hk-shadow-sm { box-shadow: var(--hk-shadow-sm); }
-.hk-shadow-md { box-shadow: var(--hk-shadow-md); }
-.hk-shadow-lg { box-shadow: var(--hk-shadow-lg); }
-```
-
-### Custom Card Components
-
-Create reusable card styles:
-
-```css title="src/css/components.css"
-/* Custom card component */
-.hk-card {
+```css title="src/css/custom.css"
+/* Custom content styling - ALLOWED */
+.my-content-card {
   background: white;
-  border-radius: var(--hk-radius-lg);
-  box-shadow: var(--hk-shadow-md);
-  padding: var(--hk-spacing-lg);
-  margin-bottom: var(--hk-spacing-md);
-  border-left: 4px solid var(--hk-color-primary);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin: 1rem 0;
 }
 
-.hk-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--hk-shadow-lg);
+.my-info-box {
+  background-color: #f8f9fa;
+  border-left: 4px solid var(--hk-color-primary); /* Use theme colors */
+  padding: 1rem;
+  margin: 1rem 0;
 }
 
-.hk-card__title {
-  color: var(--hk-color-primary);
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: var(--hk-spacing-sm);
-}
-
-.hk-card__content {
-  color: var(--ifm-color-content);
-  line-height: 1.6;
-}
-
-/* Card variants */
-.hk-card--accent {
-  border-left-color: var(--hk-color-accent);
-}
-
-.hk-card--accent .hk-card__title {
-  color: var(--hk-color-accent);
-}
-
-.hk-card--secondary {
-  border-left-color: var(--hk-color-secondary);
-}
-
-.hk-card--secondary .hk-card__title {
-  color: var(--hk-color-secondary);
+.my-code-example {
+  background: #f6f8fa;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  padding: 1rem;
+  font-family: 'Consolas', monospace;
 }
 ```
 
-### Button Components
+### Utility Classes
 
-Create consistent button styles:
+Create utility classes for your content:
 
-```css title="src/css/components.css"
-/* Custom button system */
-.hk-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: var(--hk-radius-md);
+```css title="src/css/custom.css"
+/* Spacing utilities - ALLOWED */
+.my-spacing-sm { margin: 0.5rem; }
+.my-spacing-md { margin: 1rem; }
+.my-spacing-lg { margin: 2rem; }
+
+.my-text-center { text-align: center; }
+.my-text-right { text-align: right; }
+
+/* Content-specific utilities - ALLOWED */
+.my-highlight {
+  background-color: rgba(0, 122, 204, 0.1); /* Semi-transparent primary */
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+}
+
+.my-emphasis {
   font-weight: 600;
-  font-size: 0.9rem;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  color: var(--hk-color-primary); /* Use theme color */
+}
+```
+
+### Component Enhancements
+
+Enhance your content components while respecting theme branding:
+
+```css title="src/css/custom.css"
+/* Documentation-specific enhancements - ALLOWED */
+.api-endpoint {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 0.375rem;
+  padding: 0.75rem;
+  font-family: monospace;
+  margin: 1rem 0;
 }
 
-.hk-button:hover {
-  text-decoration: none;
-  transform: translateY(-1px);
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
 }
 
-/* Button variants */
-.hk-button--primary {
-  background-color: var(--hk-color-primary);
+.feature-card {
+  background: white;
+  border: 1px solid #e1e4e8;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  text-align: center;
+}
+```
+
+## What to Avoid
+
+### Don't Override Theme Branding
+
+```css title="src/css/custom.css"
+/* DON'T DO THIS - Theme colors are fixed */
+:root {
+  --hk-color-primary: #ff0000; /* ❌ Will be ignored */
+}
+
+.hoverkraft-header {
+  background: #purple; /* ❌ Don't override theme components */
+}
+
+.hoverkraft-logo__text {
+  color: #green; /* ❌ Don't change branding elements */
+}
+```
+
+### Don't Break Responsive Design
+
+```css title="src/css/custom.css"
+/* DON'T DO THIS - Breaks responsive layout */
+.my-component {
+  width: 1200px; /* ❌ Fixed widths break mobile */
+  position: fixed; /* ❌ Can interfere with theme layout */
+}
+
+/* DO THIS INSTEAD - Responsive and flexible */
+.my-component {
+  max-width: 100%;
+  width: min(1200px, 100% - 2rem);
+  margin: 0 auto;
+}
+```
+
+## Working With Theme Colors
+
+While you can't change theme colors, you can use them in your custom styles:
+
+```css title="src/css/custom.css"
+/* Use theme colors in your custom components */
+.my-alert {
+  border-left: 4px solid var(--hk-color-accent);
+  background: rgba(255, 107, 53, 0.1);
+  padding: 1rem;
+}
+
+.my-button {
+  background: var(--hk-color-primary);
   color: white;
-}
-
-.hk-button--primary:hover {
-  background-color: var(--ifm-color-primary-dark);
-  color: white;
-}
-
-.hk-button--accent {
-  background-color: var(--hk-color-accent);
-  color: white;
-}
-
-.hk-button--outline {
-  background-color: transparent;
-  color: var(--hk-color-primary);
-  border: 2px solid var(--hk-color-primary);
-}
-
-.hk-button--outline:hover {
-  background-color: var(--hk-color-primary);
-  color: white;
-}
-
-/* Button sizes */
-.hk-button--small {
+  border: none;
   padding: 0.5rem 1rem;
-  font-size: 0.8rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
 }
 
-.hk-button--large {
-  padding: 1rem 2rem;
-  font-size: 1rem;
+.my-button:hover {
+  background: var(--ifm-color-primary-dark); /* Use Docusaurus variants */
 }
 ```
 
 ## Responsive Design
 
-### Mobile-First Approach
-
-Use mobile-first responsive design:
+Ensure your customizations work on all devices:
 
 ```css title="src/css/custom.css"
-/* Mobile styles (base) */
-.hk-container {
+/* Mobile-first responsive design */
+.my-content {
   padding: 1rem;
-  max-width: 100%;
 }
 
-.hk-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-}
-
-/* Tablet styles */
 @media (min-width: 768px) {
-  .hk-container {
+  .my-content {
     padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .hk-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-  }
-}
-
-/* Desktop styles */
-@media (min-width: 1024px) {
-  .hk-grid {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 2rem;
-  }
-}
-```
-
-### Responsive Typography
-
-Scale typography across devices:
-
-```css title="src/css/custom.css"
-/* Responsive font sizes */
-.hk-title {
-  font-size: 1.5rem;
-  line-height: 1.3;
-}
-
-@media (min-width: 768px) {
-  .hk-title {
-    font-size: 2rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .hk-title {
-    font-size: 2.5rem;
+  .my-content {
+    padding: 3rem;
   }
-}
-```
-
-## Dark Mode Support
-
-### Dark Mode Variables
-
-Define dark mode color variants:
-
-```css title="src/css/custom.css"
-/* Light mode (default) */
-:root {
-  --hk-bg-primary: #ffffff;
-  --hk-bg-secondary: #f8f9fa;
-  --hk-text-primary: #333333;
-  --hk-border-color: #e1e5e9;
-}
-
-/* Dark mode */
-[data-theme='dark'] {
-  --hk-bg-primary: #1a1a1a;
-  --hk-bg-secondary: #2d2d2d;
-  --hk-text-primary: #ffffff;
-  --hk-border-color: #444444;
-}
-
-/* Apply variables */
-.hk-card {
-  background-color: var(--hk-bg-primary);
-  color: var(--hk-text-primary);
-  border-color: var(--hk-border-color);
-}
-```
-
-## Performance Optimization
-
-### CSS Organization
-
-Optimize CSS loading and performance:
-
-```css title="src/css/custom.css"
-/* Critical styles first */
-:root {
-  /* Essential variables */
-}
-
-/* Layout styles */
-.hoverkraft-theme { /* ... */ }
-
-/* Component styles */
-.hk-card { /* ... */ }
-
-/* Utility classes last */
-.hk-p-sm { /* ... */ }
-```
-
-### Minimize CSS
-
-Use efficient selectors and avoid redundancy:
-
-```css title="src/css/custom.css"
-/* Efficient - single class */
-.hk-button {
-  /* All button styles */
-}
-
-/* Less efficient - multiple selectors */
-.btn, button, .button {
-  /* Duplicate styles */
 }
 ```
 
 ## Best Practices
 
-### CSS Naming Conventions
+### Naming Conventions
+- Use **descriptive class names** like `.my-feature-card`
+- **Prefix your classes** to avoid conflicts (e.g., `.my-`, `.project-`)
+- Follow **BEM methodology** for complex components
 
-Use consistent naming:
-
-- **Theme prefix**: `hk-` for Hoverkraft-specific classes
-- **BEM methodology**: `block__element--modifier`
-- **Semantic names**: `primary`, `secondary`, not `blue`, `gray`
-
-### CSS Organization
-
-- **Group related styles** together
-- **Use CSS custom properties** for reusable values
-- **Comment complex styles** for maintainability
-- **Test responsive behavior** across devices
-
-### Performance Tips
-
-- **Minimize CSS specificity** conflicts
+### Performance
+- **Minimize CSS size** by avoiding redundant rules
 - **Use efficient selectors** (avoid deep nesting)
-- **Leverage CSS custom properties** for dynamic theming
-- **Optimize for critical rendering path**
+- **Group related styles** together for better maintainability
+
+### Compatibility
+- **Test on different screen sizes** to ensure responsive behavior
+- **Use theme CSS variables** when available
+- **Avoid overriding theme classes** to prevent conflicts
+
+## Example: Custom Documentation Card
+
+Here's a complete example of allowed customization:
+
+```css title="src/css/custom.css"
+/* Custom documentation card component */
+.doc-card {
+  background: white;
+  border: 1px solid #e1e4e8;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  margin: 1rem 0;
+  transition: box-shadow 0.2s ease;
+}
+
+.doc-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.doc-card__title {
+  color: var(--hk-color-primary);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.doc-card__content {
+  color: var(--ifm-color-content);
+  line-height: 1.6;
+}
+
+.doc-card__footer {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e1e4e8;
+  font-size: 0.875rem;
+  color: var(--hk-color-secondary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .doc-card {
+    padding: 1rem;
+    margin: 0.75rem 0;
+  }
+}
+```
+
+This approach lets you enhance your content while maintaining the consistent Hoverkraft branding that the theme enforces.

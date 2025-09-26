@@ -4,50 +4,26 @@ sidebar_position: 3
 
 # Logo Component
 
-The Logo component provides flexible branding options for your site header.
+The Logo component enforces consistent Hoverkraft branding with a fixed text logo.
 
 ## Overview
 
-The Hoverkraft Logo component offers:
+The Hoverkraft Logo component:
 
-- **Image logo support** with proper accessibility
-- **Text fallback** when no image is configured
-- **Configurable links** for logo click behavior
+- **Displays "Hoverkraft" text** with consistent styling
+- **Links to homepage** by default
+- **Maintains brand consistency** across all sites  
 - **Responsive sizing** across different screen sizes
 
-## Configuration Options
+## Fixed Branding
 
-### Image Logo
+The logo is **not configurable** and always displays "Hoverkraft" as a text logo to ensure consistent brand identity across all Hoverkraft documentation projects.
 
-Configure an image logo through theme config:
+## Implementation
 
-```javascript title="docusaurus.config.js"
-const config = {
-  themeConfig: {
-    hoverkraft: {
-      logo: {
-        src: '/img/hoverkraft-logo.svg',  // Path to logo file
-        alt: 'Hoverkraft Logo',          // Alt text for accessibility
-        href: 'https://hoverkraft.tech', // Click destination
-      },
-    },
-  },
-};
-```
-
-#### Logo File Requirements
-
-- **Format**: SVG recommended for scalability, PNG/JPG supported
-- **Size**: Optimized for 32px height (will scale automatically)
-- **Location**: Place in `static/img/` directory
-- **Naming**: Use descriptive names like `company-logo.svg`
-
-### Text Logo
-
-When no image is configured, the component displays "Hoverkraft" as styled text:
+The logo component automatically renders:
 
 ```jsx
-// Default text logo rendering
 <a href="/" className="hoverkraft-logo hoverkraft-logo--text">
   <span className="hoverkraft-logo__text">Hoverkraft</span>
 </a>
@@ -55,9 +31,9 @@ When no image is configured, the component displays "Hoverkraft" as styled text:
 
 ## Styling
 
-### Default Styles
+### Fixed Styles
 
-The logo component includes these default styles:
+The logo component uses these enforced styles:
 
 ```css
 .hoverkraft-logo {
@@ -67,11 +43,6 @@ The logo component includes these default styles:
   color: inherit;
 }
 
-.hoverkraft-logo__image {
-  height: 32px;
-  width: auto;
-}
-
 .hoverkraft-logo--text .hoverkraft-logo__text {
   font-size: 1.25rem;
   font-weight: 700;
@@ -79,60 +50,34 @@ The logo component includes these default styles:
 }
 ```
 
-### Customizing Logo Styles
+### Brand Consistency
 
-Override logo appearance in your custom CSS:
+The logo styling is **intentionally fixed** to maintain:
 
-```css title="src/css/custom.css"
-/* Customize logo container */
-.hoverkraft-logo {
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  transition: background-color 0.2s ease;
-}
-
-.hoverkraft-logo:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-/* Customize image logo */
-.hoverkraft-logo__image {
-  height: 40px; /* Increase size */
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
-}
-
-/* Customize text logo */
-.hoverkraft-logo--text .hoverkraft-logo__text {
-  background: linear-gradient(45deg, #00aaff, #007acc);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-```
+- **Consistent appearance** across all Hoverkraft sites
+- **Professional branding** that's immediately recognizable  
+- **Accessibility standards** with proper contrast and focus states
+- **Responsive behavior** that works on all screen sizes
 
 ## Responsive Behavior
 
 ### Desktop
-- **Full logo size** with hover effects
-- **Proper alignment** with navigation items
-- **Clear visual hierarchy** in header
+- **Full logo size** with proper alignment in header
+- **Clear visual hierarchy** with navigation items
+- **Professional appearance** in all contexts
 
 ### Mobile
-- **Maintained proportions** at smaller screen sizes
-- **Touch-friendly target** area for tapping
+- **Proportional scaling** at smaller screen sizes
+- **Touch-friendly target** area for navigation
 - **Optimized spacing** for mobile layouts
 
-### Logo Sizing
+### Automatic Sizing
 
-The logo automatically scales based on screen size:
+The logo automatically scales appropriately:
 
 ```css
-/* Responsive logo sizing */
+/* Responsive logo sizing - handled automatically */
 @media (max-width: 768px) {
-  .hoverkraft-logo__image {
-    height: 28px; /* Slightly smaller on mobile */
-  }
-  
   .hoverkraft-logo--text .hoverkraft-logo__text {
     font-size: 1.1rem;
   }
@@ -141,102 +86,58 @@ The logo automatically scales based on screen size:
 
 ## Accessibility
 
-### Alt Text
+### Built-in Accessibility
 
-Always provide meaningful alt text for image logos:
-
-```javascript
-logo: {
-  src: '/img/my-logo.svg',
-  alt: 'My Company - Return to homepage', // Descriptive alt text
-}
-```
-
-### Keyboard Navigation
-
-The logo component supports:
-
-- **Tab navigation** for keyboard users
-- **Enter/Space activation** for following links
-- **Focus indicators** for accessibility compliance
-
-### Screen Reader Support
+The logo component includes:
 
 - **Semantic markup** with proper link structure
-- **Descriptive text** for logo purpose
-- **Skip link compatibility** for navigation
+- **Keyboard navigation** support (tab/enter)
+- **Focus indicators** for accessibility compliance
+- **Screen reader friendly** with clear navigation purpose
 
-## Advanced Usage
+### WCAG Compliance
 
-### Multiple Logo Variations
+The fixed styling ensures:
 
-Handle different logos for different contexts:
+- **High contrast ratios** for text visibility
+- **Sufficient color contrast** in all themes
+- **Proper focus management** for keyboard users
+- **Screen reader compatibility** with semantic HTML
 
-```javascript title="docusaurus.config.js"
-const isDarkTheme = process.env.THEME_MODE === 'dark';
+## Why No Customization?
 
-const config = {
-  themeConfig: {
-    hoverkraft: {
-      logo: {
-        src: isDarkTheme ? '/img/logo-light.svg' : '/img/logo-dark.svg',
-        alt: 'Hoverkraft Logo',
-      },
-    },
-  },
-};
-```
+### Brand Protection
 
-### Custom Logo Component
+The fixed logo ensures that:
 
-For advanced customization, swizzle the Logo component:
+- **All Hoverkraft documentation** shares consistent branding
+- **Brand recognition** is maintained across projects
+- **Professional standards** are enforced automatically
+- **Visual identity** remains cohesive
 
-```bash
-npx docusaurus swizzle @hoverkraft-tech/docusaurus-theme Logo --typescript
-```
+### Simplified Maintenance
 
-Then customize the component directly:
+With no customization options:
 
-```tsx title="src/theme/Logo/index.tsx"
-export default function HoverkraftLogo(): JSX.Element {
-  const { hoverkraft } = useThemeConfig() as ThemeConfig;
-  
-  return (
-    <a href="/" className="hoverkraft-logo custom-logo">
-      {hoverkraft?.logo ? (
-        <div className="logo-container">
-          <img
-            src={hoverkraft.logo.src}
-            alt={hoverkraft.logo.alt || 'Logo'}
-            className="hoverkraft-logo__image"
-          />
-          <span className="logo-tagline">Documentation</span>
-        </div>
-      ) : (
-        <span className="hoverkraft-logo__text">Custom Brand</span>
-      )}
-    </a>
-  );
-}
-```
+- **No configuration** decisions needed
+- **Faster setup** for new projects
+- **Consistent behavior** across all implementations
+- **Reduced support** complexity
+
+### Quality Assurance
+
+The fixed implementation guarantees:
+
+- **Tested accessibility** across all use cases
+- **Proper responsive behavior** on all devices
+- **Consistent performance** without configuration issues
+- **Professional appearance** in all contexts
 
 ## Integration Notes
 
 - **Automatic inclusion** in Layout component header
-- **Theme config integration** for easy customization  
-- **CSS custom properties** support for dynamic theming
-- **Hot reloading** support during development
+- **No configuration required** - works out of the box
+- **Theme integration** with consistent styling
+- **Hot reloading support** during development
 
-## Best Practices
-
-### Logo Files
-- Use **vector formats** (SVG) when possible for crisp scaling
-- Optimize **file sizes** for fast loading
-- Provide **multiple sizes** if using raster formats
-- Use **descriptive filenames** for maintenance
-
-### Configuration
-- Always include **alt text** for accessibility
-- Use **absolute URLs** for external link destinations
-- Test **logo scaling** across different screen sizes
-- Verify **color contrast** against header background
+The logo component is designed to provide consistent, professional Hoverkraft branding without any setup or configuration requirements.

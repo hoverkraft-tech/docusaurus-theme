@@ -32,13 +32,13 @@ yarn add @hoverkraft-tech/docusaurus-theme
 
 ### 2. Add Theme to Configuration
 
-Add the theme to your `docusaurus.config.js`:
+Add the theme to your `docusaurus.config.js` - **no additional configuration needed**:
 
 ```javascript title="docusaurus.config.js"
 const config = {
   // ... other configuration
   
-  // Add the Hoverkraft theme
+  // Add the Hoverkraft theme - that's it!
   themes: ['@hoverkraft-tech/docusaurus-theme'],
   
   // ... rest of configuration
@@ -47,28 +47,7 @@ const config = {
 export default config;
 ```
 
-### 3. Basic Theme Configuration
-
-Add basic theme configuration to your `docusaurus.config.js`:
-
-```javascript title="docusaurus.config.js"
-const config = {
-  // ... other configuration
-  
-  themeConfig: {
-    // ... other theme config
-    
-    // Hoverkraft theme configuration
-    hoverkraft: {
-      colors: {
-        primary: '#007acc',     // Optional: override primary color
-        secondary: '#6c757d',   // Optional: override secondary color  
-        accent: '#ff6b35',      // Optional: override accent color
-      },
-    },
-  },
-};
-```
+**Note**: Unlike other themes, the Hoverkraft theme requires **zero configuration**. It automatically applies consistent Hoverkraft branding.
 
 ## Verify Installation
 
@@ -84,13 +63,13 @@ Or with yarn:
 yarn start
 ```
 
-You should now see your site using the Hoverkraft theme with the default branding and styling applied.
+You should now see your site using the Hoverkraft theme with the official branding applied automatically.
 
 ## Next Steps
 
-- [**Configure the theme**](./configuration) with custom colors and options
-- [**Customize components**](./customization/colors) to match your brand
-- Explore the [**component documentation**](./components/layout) for advanced features
+- Read about the [**opinionated design philosophy**](./configuration) behind the theme
+- Explore the [**component documentation**](./components/layout) to understand the theme structure
+- Check the [**migration guide**](./migration) if upgrading from a customizable version
 
 ## Troubleshooting
 
@@ -99,14 +78,14 @@ You should now see your site using the Hoverkraft theme with the default brandin
 **Theme not loading?**
 - Ensure you've added the theme to the `themes` array in your config
 - Check that the package is properly installed in your `node_modules`
-- Restart your development server after configuration changes
-
-**TypeScript errors?**
-- The theme includes full TypeScript definitions
-- Make sure your TypeScript version is compatible (5.0+)
-- Check that your `tsconfig.json` includes the theme types
+- Restart your development server after adding the theme
 
 **Build failures?**
-- Ensure all peer dependencies are installed
-- Check that your Docusaurus version is 3.0+
+- Ensure all peer dependencies are installed (Docusaurus 3.0+)
+- Check that your Node.js version is 18+ 
 - Review the console output for specific error messages
+
+**Previous customizations not working?**
+- The Hoverkraft theme enforces strict branding and ignores customization options
+- Remove any `hoverkraft` configuration from your `themeConfig`
+- See the [migration guide](./migration) for details

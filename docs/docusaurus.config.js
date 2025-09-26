@@ -134,14 +134,8 @@ const config = {
         darkTheme: prismThemes.dracula,
       },
       
-      // Hoverkraft theme configuration - demonstrating the theme's features
-      hoverkraft: {
-        colors: {
-          primary: '#007acc',
-          secondary: '#6c757d',
-          accent: '#ff6b35',
-        },
-      },
+      // Hoverkraft theme - no configuration needed
+      // The theme automatically applies consistent branding
     }),
 };
 

@@ -4,46 +4,66 @@ sidebar_position: 1
 
 # Getting Started
 
-Welcome to the **Hoverkraft Docusaurus Theme**! This theme provides a consistent design system and branding for all Hoverkraft documentation projects.
+Welcome to the **Hoverkraft Docusaurus Theme**! This is a strictly opinionated theme that enforces consistent Hoverkraft branding across all documentation projects.
 
 ## Overview
 
-The Hoverkraft theme is a custom Docusaurus theme that:
+The Hoverkraft theme is designed with an **opinionated philosophy** that:
 
-- 🎨 **Applies Hoverkraft branding** with official colors and typography
+- 🎨 **Enforces Hoverkraft branding** with fixed colors, typography, and layout
 - 📱 **Provides responsive design** that works on all device sizes
-- ⚡ **Offers easy customization** through configuration options
-- 🧩 **Includes reusable components** like Layout, Footer, and Logo
-- 🔧 **Supports theming** with CSS custom properties
+- ⚡ **Requires zero configuration** - just install and use
+- 🧩 **Includes standardized components** with consistent styling
+- 🔧 **Maintains brand consistency** across all Hoverkraft projects
+
+## Opinionated Design Philosophy
+
+This theme intentionally **removes customization options** to ensure:
+
+- **Brand Consistency**: Every Hoverkraft documentation site looks professional and consistent
+- **Reduced Complexity**: No configuration means faster setup and fewer ways to break
+- **Quality Standards**: Enforced design patterns and accessibility best practices
+- **Team Efficiency**: Focus on content, not design decisions
 
 ## What's Included
 
 ### Core Components
 
-- **Layout**: Main page wrapper with Hoverkraft styling
-- **Footer**: Professional footer with multiple sections and links
-- **Logo**: Configurable logo component supporting images or text
+- **Layout**: Standardized page wrapper with Hoverkraft header and footer
+- **Footer**: Professional multi-section footer with company information
+- **Logo**: Fixed "Hoverkraft" text branding (no custom logos allowed)
 
-### Design System
+### Fixed Design System
 
-- **Color Palette**: Primary (#007acc), Secondary (#6c757d), Accent (#ff6b35)
-- **Typography**: Inter font family with professional styling
+- **Color Palette**: Primary (#007acc), Secondary (#6c757d), Accent (#ff6b35) - **not customizable**
+- **Typography**: Inter font family with professional hierarchy - **not customizable**
 - **Responsive Breakpoints**: Mobile-first design approach
-- **CSS Variables**: Easy theming and customization
+- **CSS Variables**: Internal use only - **not exposed for customization**
 
 ### Development Features
 
 - **TypeScript Support**: Full type definitions
-- **Theme Validation**: Joi schema validation for configuration
+- **Minimal Configuration**: No theme-specific options required
 - **Hot Reloading**: Development-friendly setup
+- **Standard Docusaurus**: Full compatibility with all Docusaurus features
 
 ## Next Steps
 
 1. [**Install the theme**](./installation) in your Docusaurus project
-2. [**Configure the theme**](./configuration) to match your needs
-3. [**Customize components**](./customization/colors) to fit your brand
-4. Explore the [**component documentation**](./components/layout) for advanced usage
+2. **Start building** - no configuration required!
+3. Explore the [**component documentation**](./components/layout) for reference
 
 ## Live Demo
 
-This documentation site itself is built using the Hoverkraft theme, demonstrating all the features and components in action!
+This documentation site itself is built using the Hoverkraft theme, demonstrating the enforced branding and professional appearance!
+
+## Why Opinionated?
+
+By removing customization options, this theme ensures that:
+
+- All Hoverkraft documentation maintains a **consistent professional appearance**
+- Teams can **focus on content creation** rather than design decisions  
+- **Brand recognition** is maintained across all Hoverkraft properties
+- **Setup time is minimized** - no complex configuration needed
+
+The result is a cohesive ecosystem of documentation that looks and feels distinctly Hoverkraft.

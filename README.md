@@ -1,6 +1,6 @@
 # @hoverkraft-tech/docusaurus-theme
 
-A custom Docusaurus theme that applies Hoverkraft branding and design guidelines to documentation sites.
+A strictly opinionated Docusaurus theme that enforces Hoverkraft branding guidelines for all Hoverkraft documentation projects.
 
 ## Installation
 
@@ -18,64 +18,29 @@ Add the theme to your Docusaurus configuration file (`docusaurus.config.js`):
 module.exports = {
   // ... other config
   themes: ['@hoverkraft-tech/docusaurus-theme'],
-  themeConfig: {
-    // ... other theme config
-    hoverkraft: {
-      colors: {
-        primary: '#007acc',     // Optional: override primary color
-        secondary: '#6c757d',   // Optional: override secondary color
-        accent: '#ff6b35',      // Optional: override accent color
-      },
-      logo: {
-        src: '/img/logo.svg',   // Optional: custom logo
-        alt: 'Hoverkraft Logo',
-        href: '/',
-      },
-    },
-  },
+  // No additional configuration required - theme enforces Hoverkraft branding
 };
 ```
 
-## Configuration Options
+## Strict Branding Enforcement
 
-The theme accepts the following configuration options under `themeConfig.hoverkraft`:
+This theme is **opinionated by design** and enforces the official Hoverkraft branding guidelines:
 
-### `colors` (optional)
+- **Fixed Color Palette**: Primary (#007acc), Secondary (#6c757d), Accent (#ff6b35)
+- **Standard Typography**: Inter font family with consistent hierarchy
+- **Hoverkraft Logo**: Uses "Hoverkraft" text branding - no customization allowed
+- **Consistent Layout**: Standardized header, footer, and content structure
 
-Customize the color palette used by the theme:
-
-- `primary`: Primary brand color (default: `#007acc`)
-- `secondary`: Secondary color (default: `#6c757d`)
-- `accent`: Accent color for highlights (default: `#ff6b35`)
-
-### `logo` (optional)
-
-Configure a custom logo:
-
-- `src`: Path to the logo image (required if logo is specified)
-- `alt`: Alt text for the logo (optional)
-- `href`: Link destination when logo is clicked (optional, defaults to `/`)
-
-### `customCss` (optional)
-
-Array of paths to additional CSS files to include:
-
-```javascript
-hoverkraft: {
-  customCss: [
-    './src/css/custom.css',
-  ],
-}
-```
+**No customization options are provided.** This ensures brand consistency across all Hoverkraft documentation projects.
 
 ## Features
 
 This theme provides:
 
-- **Hoverkraft Branding**: Applies the official Hoverkraft color palette and typography
+- **Enforced Hoverkraft Branding**: Official color palette, typography, and layout
 - **Responsive Design**: Mobile-first responsive layout
-- **Customizable**: Override colors and add custom styling
-- **Accessible**: Built with accessibility best practices
+- **Professional Components**: Standardized header, footer, and page structure  
+- **Accessibility**: Built with accessibility best practices
 - **Print-friendly**: Optimized print styles
 
 ## Development
