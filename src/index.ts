@@ -8,7 +8,7 @@ export default function themeHoverkraft(
   _options: ThemeConfig
 ): Plugin<undefined> {
   return {
-    name: '@hoverkraft-tech/docusaurus-theme',
+    name: '@hoverkraft/docusaurus-theme',
 
     getThemePath() {
       return path.resolve(__dirname, './theme');

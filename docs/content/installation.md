@@ -21,13 +21,13 @@ Before installing the theme, make sure you have:
 Install the theme from NPM:
 
 ```bash
-npm install @hoverkraft-tech/docusaurus-theme
+npm install @hoverkraft/docusaurus-theme
 ```
 
 Or with yarn:
 
 ```bash
-yarn add @hoverkraft-tech/docusaurus-theme
+yarn add @hoverkraft/docusaurus-theme
 ```
 
 ### 2. Add Theme to Configuration
@@ -39,7 +39,7 @@ const config = {
   // ... other configuration
   
   // Add the Hoverkraft theme - that's it!
-  themes: ['@hoverkraft-tech/docusaurus-theme'],
+  themes: ['@hoverkraft/docusaurus-theme'],
   
   // ... rest of configuration
 };

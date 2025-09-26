@@ -1,5 +1,5 @@
 {
-  "name": "@hoverkraft-tech/docusaurus-theme",
+  "name": "@hoverkraft/docusaurus-theme",
   "version": "0.1.0",
   "description": "Hoverkraft theme for Docusaurus",
   "main": "lib/index.js",

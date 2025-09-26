@@ -1,13 +1,13 @@
-# @hoverkraft-tech/docusaurus-theme
+# @hoverkraft/docusaurus-theme
 
 A strictly opinionated Docusaurus theme that enforces Hoverkraft branding guidelines for all Hoverkraft documentation projects.
 
 ## Installation
 
 ```bash
-npm install @hoverkraft-tech/docusaurus-theme
+npm install @hoverkraft/docusaurus-theme
 # or
-yarn add @hoverkraft-tech/docusaurus-theme
+yarn add @hoverkraft/docusaurus-theme
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ Add the theme to your Docusaurus configuration file (`docusaurus.config.js`):
 ```javascript
 module.exports = {
   // ... other config
-  themes: ['@hoverkraft-tech/docusaurus-theme'],
+  themes: ['@hoverkraft/docusaurus-theme'],
   // No additional configuration required - theme enforces Hoverkraft branding
 };
 ```

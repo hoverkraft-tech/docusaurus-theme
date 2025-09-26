@@ -125,7 +125,7 @@ Target mobile devices specifically:
 For advanced customization, you can swizzle the Layout component:
 
 ```bash
-npx docusaurus swizzle @hoverkraft-tech/docusaurus-theme Layout --typescript
+npx docusaurus swizzle @hoverkraft/docusaurus-theme Layout --typescript
 ```
 
 This creates a copy of the Layout component in your project that you can modify directly.

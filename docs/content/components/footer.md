@@ -107,7 +107,7 @@ Override footer styles in your custom CSS:
 To add custom content to the footer, you can swizzle the component:
 
 ```bash
-npx docusaurus swizzle @hoverkraft-tech/docusaurus-theme Footer --typescript
+npx docusaurus swizzle @hoverkraft/docusaurus-theme Footer --typescript
 ```
 
 Then modify the component to include your custom sections:

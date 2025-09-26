@@ -47,7 +47,7 @@ The theme enforces branding automatically with no configuration needed:
 
 ```javascript
 const config = {
-  themes: ['@hoverkraft-tech/docusaurus-theme'],
+  themes: ['@hoverkraft/docusaurus-theme'],
   // No additional configuration required - branding applied automatically
 };
 ```
@@ -68,14 +68,14 @@ Built with modern development practices:
 Installation is straightforward:
 
 ```bash
-npm install @hoverkraft-tech/docusaurus-theme
+npm install @hoverkraft/docusaurus-theme
 ```
 
 Add the theme to your Docusaurus configuration:
 
 ```javascript
 module.exports = {
-  themes: ['@hoverkraft-tech/docusaurus-theme'],
+  themes: ['@hoverkraft/docusaurus-theme'],
   // ... rest of your config
 };
 ```
@@ -148,7 +148,7 @@ All future enhancements will maintain strict adherence to the [Hoverkraft Brandi
 The Hoverkraft theme is open source and welcomes community contributions:
 
 - **GitHub Repository**: [hoverkraft-tech/docusaurus-theme](https://github.com/hoverkraft-tech/docusaurus-theme)
-- **NPM Package**: [@hoverkraft-tech/docusaurus-theme](https://www.npmjs.com/package/@hoverkraft-tech/docusaurus-theme)
+- **NPM Package**: [@hoverkraft/docusaurus-theme](https://www.npmjs.com/package/@hoverkraft/docusaurus-theme)
 - **Documentation**: [This site](/) serves as comprehensive documentation
 
 We'd love to hear your feedback and see how you're using the theme in your projects!
@@ -158,7 +158,7 @@ We'd love to hear your feedback and see how you're using the theme in your proje
 Ready to give your documentation a professional look? Install the Hoverkraft theme today:
 
 ```bash
-npm install @hoverkraft-tech/docusaurus-theme
+npm install @hoverkraft/docusaurus-theme
 ```
 
 Visit our [Getting Started guide](/docs/getting-started) for detailed installation instructions and examples.

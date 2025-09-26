@@ -61,7 +61,7 @@ const config = {
   ],
 
   // Use the Hoverkraft theme
-  themes: ['@hoverkraft-tech/docusaurus-theme'],
+  themes: ['@hoverkraft/docusaurus-theme'],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -123,7 +123,7 @@ const config = {
               },
               {
                 label: 'NPM Package',
-                href: 'https://www.npmjs.com/package/@hoverkraft-tech/docusaurus-theme',
+                href: 'https://www.npmjs.com/package/@hoverkraft/docusaurus-theme',
               },
             ],
           },

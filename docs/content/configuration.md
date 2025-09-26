@@ -21,7 +21,7 @@ Simply add the theme to your Docusaurus configuration:
 
 ```javascript title="docusaurus.config.js"
 const config = {
-  themes: ['@hoverkraft-tech/docusaurus-theme'],
+  themes: ['@hoverkraft/docusaurus-theme'],
   // No additional configuration required
 };
 
@@ -76,7 +76,7 @@ const config = {
   tagline: 'My project tagline',
   
   // Standard Docusaurus configuration works normally
-  themes: ['@hoverkraft-tech/docusaurus-theme'],
+  themes: ['@hoverkraft/docusaurus-theme'],
   
   themeConfig: {
     navbar: {
@@ -128,7 +128,7 @@ const config = {
   baseUrl: '/',
   
   // Apply Hoverkraft theme
-  themes: ['@hoverkraft-tech/docusaurus-theme'],
+  themes: ['@hoverkraft/docusaurus-theme'],
   
   presets: [
     [

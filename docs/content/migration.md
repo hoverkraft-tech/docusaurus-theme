@@ -44,7 +44,7 @@ const config = {
 ```javascript title="docusaurus.config.js"
 const config = {
   // Add Hoverkraft theme
-  themes: ['@hoverkraft-tech/docusaurus-theme'],
+  themes: ['@hoverkraft/docusaurus-theme'],
   
   themeConfig: {
     // Keep existing configuration
@@ -149,7 +149,7 @@ npm uninstall @docusaurus/theme-bootstrap
 #### Install Hoverkraft Theme
 
 ```bash
-npm install @hoverkraft-tech/docusaurus-theme
+npm install @hoverkraft/docusaurus-theme
 ```
 
 #### Update Configuration
@@ -160,7 +160,7 @@ const config = {
   // themes: ['bootstrap'],
   
   // Add Hoverkraft theme
-  themes: ['@hoverkraft-tech/docusaurus-theme'],
+  themes: ['@hoverkraft/docusaurus-theme'],
   
   themeConfig: {
     // Update bootstrap-specific config to standard Docusaurus config
@@ -279,14 +279,14 @@ export default function MyComponent() {
 
 1. **Install Hoverkraft theme**
    ```bash
-   npm install @hoverkraft-tech/docusaurus-theme
+   npm install @hoverkraft/docusaurus-theme
    ```
 
 2. **Add to configuration**
    ```javascript title="docusaurus.config.js"
    const config = {
      themes: [
-       '@hoverkraft-tech/docusaurus-theme',
+       '@hoverkraft/docusaurus-theme',
        // Keep existing themes temporarily
      ],
    };
