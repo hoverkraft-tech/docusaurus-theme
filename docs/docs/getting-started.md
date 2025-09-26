@@ -35,10 +35,11 @@ This theme intentionally **removes customization options** to ensure:
 
 ### Fixed Design System
 
-- **Color Palette**: Primary (#007acc), Secondary (#6c757d), Accent (#ff6b35) - **not customizable**
-- **Typography**: Inter font family with professional hierarchy - **not customizable**
+- **Official Branding**: Colors, typography, and layout from the [Hoverkraft Branding Guidelines](https://github.com/hoverkraft-tech/branding) - **not customizable**
 - **Responsive Breakpoints**: Mobile-first design approach
 - **CSS Variables**: Internal use only - **not exposed for customization**
+
+For complete branding specifications including color values, typography scales, and design principles, refer to the [Hoverkraft Branding Repository](https://github.com/hoverkraft-tech/branding).
 
 ### Development Features
 

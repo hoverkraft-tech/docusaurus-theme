@@ -4,35 +4,37 @@ sidebar_position: 2
 
 # Footer Component
 
-The Footer component provides a professional, multi-section footer for your Docusaurus site.
+The Footer component provides a professional, multi-section footer with enforced Hoverkraft branding.
 
 ## Overview
 
-The Hoverkraft Footer component includes:
+The Hoverkraft Footer component features:
 
-- **Multiple sections** for organizing links and content
-- **Responsive design** that stacks on mobile devices
-- **Professional styling** with gradients and hover effects
-- **Consistent branding** with Hoverkraft colors
+- **Fixed branding elements** from the [Hoverkraft Branding Guidelines](https://github.com/hoverkraft-tech/branding)
+- **Responsive design** that stacks appropriately on mobile devices
+- **Professional styling** with consistent colors and typography
+- **Standard sections** for company information and resources
 
-## Default Structure
+## Fixed Structure
 
-The footer is divided into three main sections:
+The footer structure is standardized and cannot be customized:
 
 ### Company Section
-- **Hoverkraft branding** and tagline
-- **Company description** and messaging
-- **Primary brand positioning**
+- **Hoverkraft branding** and official messaging
+- **Company description** per branding guidelines
+- **Consistent brand positioning**
 
-### Resources Section
-- **Documentation links** for easy navigation
-- **Blog and community** links
-- **User resources** and guides
+### Resources Section  
+- **Documentation links** for site navigation
+- **Community and support** links
+- **Standard resource** categories
 
 ### Company Information
-- **About and contact** information
-- **Career opportunities** link
-- **Additional company** pages
+- **About and contact** information  
+- **Legal and policy** links
+- **Standard company** pages
+
+All content and styling follows the specifications in the [Hoverkraft Branding Repository](https://github.com/hoverkraft-tech/branding).
 
 ## Styling Features
 

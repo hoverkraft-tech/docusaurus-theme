@@ -4,21 +4,32 @@ sidebar_position: 1
 
 # Colors
 
-The Hoverkraft theme uses a **fixed color palette** that cannot be customized to ensure consistent branding.
+The Hoverkraft theme uses the **official Hoverkraft color palette** that cannot be customized to ensure consistent branding.
 
-## Official Hoverkraft Color Palette
+## Official Branding Reference
 
-The theme enforces these exact colors across all documentation sites:
+For complete color specifications, usage guidelines, and design principles, refer to the **[Hoverkraft Branding Repository](https://github.com/hoverkraft-tech/branding)**.
+
+The branding repository contains:
+- Official color palette with hex values
+- Color usage guidelines and examples
+- Accessibility compliance documentation
+- Print and digital specifications
+- Brand application examples
+
+## Theme Implementation
+
+The theme automatically applies the official Hoverkraft colors:
 
 <div className="color-demo">
   <div className="color-swatch color-swatch--primary">
-    Primary<br/>#007acc
+    Primary<br/>Hoverkraft Blue
   </div>
   <div className="color-swatch color-swatch--secondary">
-    Secondary<br/>#6c757d  
+    Secondary<br/>Professional Gray  
   </div>
   <div className="color-swatch color-swatch--accent">
-    Accent<br/>#ff6b35
+    Accent<br/>Hoverkraft Orange
   </div>
 </div>
 
@@ -26,9 +37,9 @@ These colors are **permanently fixed** and are applied automatically when you in
 
 ## Why Fixed Colors?
 
-**Brand Consistency**: Every Hoverkraft documentation site must maintain the same professional appearance and brand recognition.
+**Brand Consistency**: Every Hoverkraft documentation site must maintain the same professional appearance and brand recognition as defined in the [Hoverkraft Branding Guidelines](https://github.com/hoverkraft-tech/branding).
 
-**Quality Standards**: These colors have been carefully selected for:
+**Quality Standards**: The colors have been carefully selected and documented in the branding repository for:
 - Accessibility compliance (WCAG guidelines)
 - Optimal contrast ratios for readability  
 - Professional appearance across all contexts
@@ -36,95 +47,41 @@ These colors are **permanently fixed** and are applied automatically when you in
 
 **Reduced Complexity**: With fixed colors, there are no configuration decisions to make and no ways for color choices to break the design.
 
-## Color Usage Throughout the Theme
+## CSS Implementation
 
-### Primary Color (#007acc)
-- Header background
-- Primary buttons and CTAs
-- Link colors  
-- Active navigation items
-- Brand accents
-
-### Secondary Color (#6c757d)
-- Supporting text
-- Borders and dividers
-- Secondary buttons
-- Metadata and captions
-
-### Accent Color (#ff6b35)
-- Highlights and warnings
-- Progress indicators
-- Call-to-action elements
-- Special emphasis
-
-## CSS Custom Properties
-
-While you cannot override the theme colors, the theme internally uses CSS custom properties for consistency:
+The theme uses CSS custom properties internally for consistency:
 
 ```css
 /* These are set automatically by the theme - do not override */
 :root {
-  --hk-color-primary: #007acc;
-  --hk-color-secondary: #6c757d;
-  --hk-color-accent: #ff6b35;
-  --hk-color-dark: #1a1a1a;
-  --hk-color-light: #f8f9fa;
+  --hk-color-primary: /* Official Hoverkraft Blue */;
+  --hk-color-secondary: /* Official Professional Gray */;
+  --hk-color-accent: /* Official Hoverkraft Orange */;
+  --hk-color-dark: /* Official Dark Color */;
+  --hk-color-light: /* Official Light Color */;
 }
 ```
 
 :::warning
-**Do not attempt to override these values.** The theme is designed to enforce these exact colors for brand consistency.
+**Do not attempt to override these values.** The theme is designed to enforce the exact colors specified in the [Hoverkraft Branding Guidelines](https://github.com/hoverkraft-tech/branding).
 :::
 
-## Dark Mode Support
+## Accessibility & Standards
 
-The theme automatically handles dark mode color variations:
+All color combinations meet accessibility standards as documented in the [Hoverkraft Branding Repository](https://github.com/hoverkraft-tech/branding):
 
-```css
-/* Light mode (default) */
-:root {
-  --hk-color-primary: #007acc;
-  --hk-color-background: #ffffff;
-  --hk-color-text: #333333;
-}
-
-/* Dark mode (automatic) */
-[data-theme='dark'] {
-  --hk-color-primary: #33a3dd;
-  --hk-color-background: #1a1a1a;
-  --hk-color-text: #ffffff;
-}
-```
-
-These variations are also **fixed** and ensure proper contrast in both light and dark modes.
-
-## Accessibility
-
-The enforced color palette meets or exceeds WCAG accessibility standards:
-
-- **Contrast Ratios**: All text/background combinations meet AA standards
+- **WCAG AA Compliance**: All text/background combinations meet accessibility standards
 - **Color-Blind Friendly**: Colors are distinguishable for users with color vision deficiencies  
 - **High Contrast**: Text remains readable in all contexts
 - **Print-Friendly**: Colors work well in print and grayscale
-
-## Brand Colors in Context
-
-You can see how these colors work together throughout this documentation site:
-
-- **Headers and navigation** use the primary blue
-- **Body text and UI elements** use the secondary gray
-- **Call-to-action elements** use the accent orange
-- **All combinations** maintain professional consistency
-
-This consistent color usage creates a cohesive brand experience across all Hoverkraft documentation properties.
 
 ## Migration from Customizable Versions
 
 If you previously used a version that allowed color customization:
 
 1. **Remove color overrides** from your configuration
-2. **Update your custom CSS** to work with the fixed palette  
-3. **Test your content** to ensure it works with the enforced colors
-4. **Enjoy the simplified workflow** with no color decisions needed!
+2. **Refer to the branding repository** for official color specifications
+3. **Update your custom CSS** to work with the fixed palette  
+4. **Test your content** to ensure it works with the enforced colors
 
-The fixed color palette will ensure your documentation looks professional and on-brand automatically.
+The fixed color palette ensures your documentation automatically follows the [Hoverkraft Branding Guidelines](https://github.com/hoverkraft-tech/branding).

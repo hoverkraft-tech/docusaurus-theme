@@ -26,12 +26,13 @@ module.exports = {
 
 This theme is **opinionated by design** and enforces the official Hoverkraft branding guidelines:
 
-- **Fixed Color Palette**: Primary (#007acc), Secondary (#6c757d), Accent (#ff6b35)
-- **Standard Typography**: Inter font family with consistent hierarchy
-- **Hoverkraft Logo**: Uses "Hoverkraft" text branding - no customization allowed
+- **Official Hoverkraft Branding**: Colors, typography, and design elements from the [Hoverkraft Branding Guidelines](https://github.com/hoverkraft-tech/branding)
+- **Fixed Implementation**: No customization options to ensure brand consistency
 - **Consistent Layout**: Standardized header, footer, and content structure
 
 **No customization options are provided.** This ensures brand consistency across all Hoverkraft documentation projects.
+
+For detailed branding specifications, color palettes, typography guidelines, and design principles, see the official [Hoverkraft Branding Repository](https://github.com/hoverkraft-tech/branding).
 
 ## Features
 

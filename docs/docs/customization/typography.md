@@ -4,353 +4,68 @@ sidebar_position: 2
 
 # Typography
 
-Customize the typography and font system of the Hoverkraft Docusaurus theme.
+The Hoverkraft theme uses **fixed typography** specifications that cannot be customized to ensure consistent branding.
 
-## Default Typography
+## Official Typography Guidelines
 
-The Hoverkraft theme uses a carefully selected typography stack:
+For complete typography specifications, font selections, and usage guidelines, refer to the **[Hoverkraft Branding Repository](https://github.com/hoverkraft-tech/branding)**.
 
-### Font Families
+The branding repository contains:
+- Official font family selections
+- Typography scale and sizing specifications
+- Line height and spacing guidelines
+- Font weight and style definitions
+- Accessibility considerations for typography
+
+## Theme Implementation
+
+The Hoverkraft theme automatically applies the official typography system as defined in the [Hoverkraft Branding Guidelines](https://github.com/hoverkraft-tech/branding):
+
+### Fixed Font System
+- **Font Families**: As specified in the branding guidelines
+- **Font Sizes**: Modular scale from the official specifications
+- **Font Weights**: Standardized hierarchy
+- **Line Heights**: Optimized for readability per branding standards
+
+### Typography Scale
+
+The theme uses the official modular scale for consistent typography across all documentation sites.
+
+:::info
+For detailed font size specifications, line heights, and font weight mappings, see the [Hoverkraft Branding Repository](https://github.com/hoverkraft-tech/branding).
+:::
+
+## Why Fixed Typography?
+
+**Brand Consistency**: Typography is a key component of brand identity. The fixed system ensures that all Hoverkraft documentation maintains the same professional typographic standards as defined in the [Hoverkraft Branding Guidelines](https://github.com/hoverkraft-tech/branding).
+
+**Accessibility**: The typography specifications have been selected to meet accessibility requirements for readability and contrast.
+
+**Professional Standards**: Consistent typography creates a cohesive reading experience across all Hoverkraft documentation properties.
+
+## Responsive Behavior
+
+The typography system automatically adjusts across different screen sizes according to the specifications in the [Hoverkraft Branding Repository](https://github.com/hoverkraft-tech/branding):
+
+- **Mobile optimization**: Font sizes scale appropriately for small screens
+- **Desktop enhancement**: Optimal reading experience on larger displays
+- **Print compatibility**: Typography works well in print contexts
+
+## Implementation Notes
+
+The theme applies typography through CSS custom properties, but these values are **not exposed for customization** to maintain brand consistency:
 
 ```css
-/* Base font family */
---ifm-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 
-                        'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 
-                        'Cantarell', sans-serif;
-
-/* Monospace font family */
---ifm-font-family-monospace: 'JetBrains Mono', 'Fira Code', 'Consolas', 
-                             'Monaco', 'Courier New', monospace;
-```
-
-### Font Sizes
-
-The theme uses a modular scale for consistent typography:
-
-| Element | Size | CSS Variable |
-|---------|------|--------------|
-| Body text | 16px | `--ifm-font-size-base` |
-| Small text | 14px | `--ifm-font-size-small` |
-| Large text | 18px | `--ifm-font-size-large` |
-| H1 | 32px | `--ifm-h1-font-size` |
-| H2 | 24px | `--ifm-h2-font-size` |
-| H3 | 20px | `--ifm-h3-font-size` |
-
-## Customizing Typography
-
-### Using Web Fonts
-
-Add custom web fonts to your site:
-
-```css title="src/css/custom.css"
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-/* Override font family */
+/* Typography applied automatically - do not override */
 :root {
-  --ifm-font-family-base: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  --ifm-font-family-base: /* As specified in branding guidelines */;
+  --ifm-font-family-monospace: /* As specified in branding guidelines */;
+  /* Font sizes, weights, and other typography values */
 }
 ```
 
-### Self-Hosted Fonts
+## Content Typography
 
-Host fonts locally for better performance:
+While the base typography system is fixed, you can still create content-specific enhancements that work within the branding guidelines. Refer to the [Custom CSS documentation](./css) for allowed customizations that don't conflict with the official branding.
 
-```css title="src/css/custom.css"
-/* Define font faces */
-@font-face {
-  font-family: 'CustomSans';
-  src: url('/fonts/CustomSans-Regular.woff2') format('woff2'),
-       url('/fonts/CustomSans-Regular.woff') format('woff');
-  font-weight: 400;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'CustomSans';
-  src: url('/fonts/CustomSans-Bold.woff2') format('woff2'),
-       url('/fonts/CustomSans-Bold.woff') format('woff');
-  font-weight: 700;
-  font-display: swap;
-}
-
-/* Apply custom font */
-:root {
-  --ifm-font-family-base: 'CustomSans', sans-serif;
-}
-```
-
-### Font Size Customization
-
-Adjust the typography scale:
-
-```css title="src/css/custom.css"
-:root {
-  /* Increase base font size */
-  --ifm-font-size-base: 18px;
-  
-  /* Adjust heading sizes */
-  --ifm-h1-font-size: 2.5rem;
-  --ifm-h2-font-size: 2rem;
-  --ifm-h3-font-size: 1.5rem;
-  --ifm-h4-font-size: 1.25rem;
-  --ifm-h5-font-size: 1.125rem;
-  --ifm-h6-font-size: 1rem;
-}
-```
-
-## Advanced Typography Features
-
-### Font Loading Optimization
-
-Optimize font loading performance:
-
-```css title="src/css/custom.css"
-/* Preload critical fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
-
-/* Font display strategy */
-@font-face {
-  font-family: 'CustomFont';
-  src: url('/fonts/custom.woff2') format('woff2');
-  font-display: swap; /* Improve loading performance */
-}
-```
-
-### Responsive Typography
-
-Create responsive font sizes:
-
-```css title="src/css/custom.css"
-/* Base sizes */
-:root {
-  --ifm-font-size-base: 16px;
-  --ifm-h1-font-size: 2rem;
-}
-
-/* Larger screens */
-@media (min-width: 768px) {
-  :root {
-    --ifm-font-size-base: 18px;
-    --ifm-h1-font-size: 2.5rem;
-  }
-}
-
-/* Extra large screens */
-@media (min-width: 1200px) {
-  :root {
-    --ifm-font-size-base: 20px;
-    --ifm-h1-font-size: 3rem;
-  }
-}
-```
-
-### Custom Font Weights
-
-Define specific font weights for different elements:
-
-```css title="src/css/custom.css"
-:root {
-  /* Font weight scale */
-  --ifm-font-weight-light: 300;
-  --ifm-font-weight-normal: 400;
-  --ifm-font-weight-semibold: 500;
-  --ifm-font-weight-bold: 600;
-  --ifm-font-weight-bolder: 700;
-}
-
-/* Apply to specific elements */
-h1, h2, h3 {
-  font-weight: var(--ifm-font-weight-bold);
-}
-
-.navbar__title {
-  font-weight: var(--ifm-font-weight-bolder);
-}
-
-.menu__link {
-  font-weight: var(--ifm-font-weight-semibold);
-}
-```
-
-## Typography for Different Content Types
-
-### Code and Technical Content
-
-Customize code typography:
-
-```css title="src/css/custom.css"
-/* Code blocks */
-.theme-code-block {
-  --ifm-font-family-monospace: 'Fira Code', 'JetBrains Mono', monospace;
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-/* Inline code */
-code {
-  font-family: var(--ifm-font-family-monospace);
-  font-size: 0.9em;
-  background-color: var(--ifm-color-emphasis-100);
-  padding: 0.2em 0.4em;
-  border-radius: 0.25em;
-}
-```
-
-### Documentation Content
-
-Optimize typography for documentation:
-
-```css title="src/css/custom.css"
-/* Article content */
-.theme-doc-markdown {
-  line-height: 1.7;
-  font-size: 16px;
-}
-
-/* Improve readability */
-.theme-doc-markdown p {
-  margin-bottom: 1.2em;
-}
-
-.theme-doc-markdown ul, 
-.theme-doc-markdown ol {
-  padding-left: 1.5em;
-}
-
-.theme-doc-markdown li {
-  margin-bottom: 0.5em;
-}
-```
-
-### Blog Content
-
-Style blog posts differently:
-
-```css title="src/css/custom.css"
-/* Blog post typography */
-.blog-wrapper article {
-  font-size: 18px;
-  line-height: 1.8;
-}
-
-.blog-wrapper h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  line-height: 1.2;
-}
-
-.blog-wrapper h2 {
-  font-size: 1.8rem;
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
-}
-```
-
-## Accessibility Considerations
-
-### Font Size and Readability
-
-Ensure text is readable for all users:
-
-```css title="src/css/custom.css"
-/* Minimum font sizes */
-:root {
-  --ifm-font-size-base: max(16px, 1rem); /* Never smaller than 16px */
-}
-
-/* Improve line height for readability */
-body {
-  line-height: 1.6;
-}
-
-/* Ensure sufficient contrast */
-.theme-doc-markdown {
-  color: var(--ifm-color-content);
-}
-```
-
-### Responsive Text Scaling
-
-Support user zoom and text scaling:
-
-```css title="src/css/custom.css"
-/* Use relative units */
-h1 {
-  font-size: 2rem; /* Scales with user preferences */
-}
-
-/* Avoid fixed pixel values for text */
-.content {
-  font-size: 1rem; /* Not 16px */
-  line-height: 1.5; /* Not 24px */
-}
-```
-
-## Performance Optimization
-
-### Font Loading Strategy
-
-Optimize font loading for performance:
-
-```html title="static/fonts.html"
-<!-- Preload critical fonts -->
-<link rel="preload" href="/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/Inter-Bold.woff2" as="font" type="font/woff2" crossorigin>
-```
-
-### Font Subsetting
-
-Load only the characters you need:
-
-```css title="src/css/custom.css"
-/* Load specific font subsets */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&subset=latin&display=swap');
-```
-
-## Common Typography Patterns
-
-### Corporate Style
-
-```css title="src/css/custom.css"
-:root {
-  --ifm-font-family-base: 'Arial', sans-serif;
-  --ifm-font-size-base: 16px;
-  --ifm-line-height-base: 1.5;
-}
-
-h1, h2, h3 {
-  font-weight: 600;
-  color: #2c3e50;
-}
-```
-
-### Modern/Tech Style
-
-```css title="src/css/custom.css"
-:root {
-  --ifm-font-family-base: 'Inter', sans-serif;
-  --ifm-font-size-base: 17px;
-  --ifm-line-height-base: 1.6;
-}
-
-h1, h2, h3 {
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-```
-
-### Editorial Style
-
-```css title="src/css/custom.css"
-:root {
-  --ifm-font-family-base: 'Georgia', serif;
-  --ifm-font-size-base: 18px;
-  --ifm-line-height-base: 1.7;
-}
-
-h1, h2, h3 {
-  font-family: 'Helvetica Neue', sans-serif;
-  font-weight: 300;
-}
-```
+For any questions about typography usage or implementation, consult the [Hoverkraft Branding Repository](https://github.com/hoverkraft-tech/branding) for authoritative guidelines.

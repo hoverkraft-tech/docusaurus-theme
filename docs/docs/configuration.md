@@ -30,20 +30,22 @@ export default config;
 
 ## What's Enforced
 
+The theme automatically applies the [Official Hoverkraft Branding Guidelines](https://github.com/hoverkraft-tech/branding):
+
 ### Official Hoverkraft Color Palette
 
 <div className="color-demo">
-  <div className="color-swatch color-swatch--primary">Primary<br/>#007acc</div>
-  <div className="color-swatch color-swatch--secondary">Secondary<br/>#6c757d</div>
-  <div className="color-swatch color-swatch--accent">Accent<br/>#ff6b35</div>
+  <div className="color-swatch color-swatch--primary">Primary<br/>Hoverkraft Blue</div>
+  <div className="color-swatch color-swatch--secondary">Secondary<br/>Professional Gray</div>
+  <div className="color-swatch color-swatch--accent">Accent<br/>Hoverkraft Orange</div>
 </div>
 
-These colors are **fixed** and cannot be overridden to ensure brand consistency.
+These colors are **fixed** and cannot be overridden. For complete color specifications and usage guidelines, see the [Hoverkraft Branding Repository](https://github.com/hoverkraft-tech/branding).
 
 ### Standard Typography
 
-- **Font Family**: Inter with system fallbacks
-- **Font Sizes**: Consistent modular scale
+- **Font Family**: As specified in the [Hoverkraft Branding Guidelines](https://github.com/hoverkraft-tech/branding)
+- **Font Sizes**: Consistent modular scale from the branding specifications
 - **Font Weights**: Standardized hierarchy
 - **Line Heights**: Optimized for readability
 

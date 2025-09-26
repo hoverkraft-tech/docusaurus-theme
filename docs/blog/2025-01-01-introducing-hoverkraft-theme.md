@@ -22,43 +22,31 @@ As Hoverkraft continues to grow and develop new projects, maintaining consistent
 
 ## What's Included
 
-### 🎨 Professional Design System
+### 🎨 Enforced Professional Design System
 
-The theme includes a complete design system with:
+The theme implements the official [Hoverkraft Branding Guidelines](https://github.com/hoverkraft-tech/branding):
 
-- **Hoverkraft color palette**: Primary (#007acc), Secondary (#6c757d), Accent (#ff6b35)
-- **Typography system**: Inter font family with professional hierarchy
-- **Responsive layouts**: Mobile-first design that works on all devices
-- **Consistent spacing**: Modular scale for predictable layouts
+- **Official Hoverkraft branding**: Colors, typography, and design elements from the branding repository
+- **Consistent layouts**: Mobile-first design that works on all devices
+- **Professional spacing**: Modular scale for predictable layouts
+- **Brand compliance**: Automatic enforcement of branding standards
 
-### 🧩 Reusable Components
+### 🧩 Standardized Components
 
-Three core components provide the foundation:
+Core components provide consistent branding:
 
-- **Layout**: Main page wrapper with responsive structure
+- **Layout**: Main page wrapper with Hoverkraft branding
 - **Footer**: Multi-section footer with company information and links
-- **Logo**: Configurable logo component supporting images or text
+- **Logo**: Fixed "Hoverkraft" text branding for consistency
 
-### ⚙️ Easy Configuration
+### ⚙️ Zero Configuration Required
 
-Simple theme configuration through `docusaurus.config.js`:
+The theme enforces branding automatically with no configuration needed:
 
 ```javascript
 const config = {
   themes: ['@hoverkraft-tech/docusaurus-theme'],
-  themeConfig: {
-    hoverkraft: {
-      colors: {
-        primary: '#007acc',
-        secondary: '#6c757d', 
-        accent: '#ff6b35',
-      },
-      logo: {
-        src: '/img/logo.svg',
-        alt: 'Company Logo',
-      },
-    },
-  },
+  // No additional configuration required - branding applied automatically
 };
 ```
 
@@ -68,6 +56,8 @@ Built with modern development practices:
 
 - **TypeScript support**: Full type definitions for better DX
 - **Hot reloading**: Instant feedback during development
+- **Enforced branding**: Automatic application of [Hoverkraft Branding Guidelines](https://github.com/hoverkraft-tech/branding)
+- **Comprehensive documentation**: This site itself demonstrates the theme!
 - **CSS custom properties**: Easy theming and customization
 - **Comprehensive documentation**: This site itself demonstrates the theme!
 
@@ -88,89 +78,68 @@ module.exports = {
 };
 ```
 
-Start your development server and see the Hoverkraft branding applied immediately!
+Start your development server and see the official Hoverkraft branding applied automatically!
 
-## Customization Options
+## Enforced Branding Standards
 
-### Colors
+The theme automatically applies the [Official Hoverkraft Branding Guidelines](https://github.com/hoverkraft-tech/branding) with no configuration required:
 
-Override the default color palette to match your project:
+### Fixed Color Palette
+- Consistent application of official Hoverkraft colors
+- No customization allowed to ensure brand consistency
+- Automatically optimized for accessibility and readability
 
-```javascript
-hoverkraft: {
-  colors: {
-    primary: '#0066cc',     // Custom primary
-    secondary: '#777777',   // Custom secondary
-    accent: '#ff5722',      // Custom accent
-  },
-}
-```
+### Standardized Typography
+- Official font families and sizing from the branding guidelines
+- Professional hierarchy maintained across all documentation
+- Optimized for readability and web performance
 
-### Logo
+### Professional Layout
+- Consistent header with "Hoverkraft" branding
+- Standardized footer with company information
+- Responsive design that works on all devices
 
-Add your custom logo or use the text fallback:
-
-```javascript
-hoverkraft: {
-  logo: {
-    src: '/img/my-logo.svg',
-    alt: 'My Project Logo',
-    href: 'https://myproject.com',
-  },
-}
-```
-
-### Advanced Styling
-
-Add custom CSS for deeper customization:
-
-```css
-.hoverkraft-header {
-  background: linear-gradient(135deg, #007acc, #0088d4);
-}
-
-.hoverkraft-footer {
-  border-top: 3px solid var(--hk-color-accent);
-}
-```
+For complete branding specifications, refer to the [Hoverkraft Branding Repository](https://github.com/hoverkraft-tech/branding).
 
 ## Real-World Usage
 
-This documentation site is built using the Hoverkraft theme, demonstrating all features in action. You can see:
+This documentation site is built using the Hoverkraft theme, demonstrating the enforced branding in action. You can see:
 
 - **Responsive design** working across different screen sizes
-- **Consistent branding** throughout all pages
+- **Consistent branding** throughout all pages  
 - **Professional typography** in the documentation content
-- **Custom components** like cards and buttons in action
+- **Official color palette** applied consistently
 
 ## Migration from Classic Theme
 
-Migrating from `@docusaurus/theme-classic` is seamless:
+Migrating from `@docusaurus/theme-classic` is straightforward:
 
-1. **Install the Hoverkraft theme** - it extends the classic theme
-2. **Add theme configuration** - existing config continues to work
-3. **Customize colors and branding** - use new Hoverkraft options
-4. **Test and deploy** - minimal breaking changes
+1. **Install the Hoverkraft theme** - it enforces Hoverkraft branding automatically
+2. **Remove custom branding** - the theme handles all branding decisions
+3. **No configuration needed** - branding is applied automatically
+4. **Test and deploy** - enjoy the simplified setup!
 
 ## Performance & Accessibility
 
-The theme is built with performance and accessibility in mind:
+The theme is built with performance and accessibility in mind, following the [Hoverkraft Branding Guidelines](https://github.com/hoverkraft-tech/branding):
 
 - **Lightweight CSS**: Efficient styles with minimal overhead
-- **Responsive images**: Optimized logo and image handling
+- **Optimized branding assets**: Performance-optimized implementation of brand elements  
 - **Semantic HTML**: Proper document structure for screen readers
 - **Keyboard navigation**: Full keyboard accessibility support
-- **High contrast**: Colors meet WCAG accessibility guidelines
+- **WCAG compliance**: Colors and contrast ratios meet accessibility guidelines
 
 ## Future Plans
 
-We're just getting started! Upcoming features include:
+We're committed to maintaining brand consistency while improving the theme:
 
-- **Additional component variants**: More footer and header options
-- **Dark mode enhancements**: Better dark theme support
-- **Animation system**: Subtle animations for enhanced UX
-- **Template gallery**: Pre-built page templates for common use cases
-- **Plugin integrations**: Better integration with popular Docusaurus plugins
+- **Enhanced performance**: Ongoing optimization of branding asset delivery
+- **Better accessibility**: Continued improvements to meet evolving standards
+- **Updated branding**: Automatic updates when branding guidelines evolve
+- **Developer experience**: Better tooling for theme integration
+- **Documentation improvements**: Enhanced guides and examples
+
+All future enhancements will maintain strict adherence to the [Hoverkraft Branding Guidelines](https://github.com/hoverkraft-tech/branding).
 
 ## Community & Feedback
 
