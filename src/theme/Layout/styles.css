@@ -7,7 +7,7 @@
   --hk-color-accent: #ff6b35;
   --hk-color-dark: #1a1a1a;
   --hk-color-light: #f8f9fa;
-  
+
   /* Override Docusaurus default colors with Hoverkraft branding */
   --ifm-color-primary: var(--hk-color-primary);
   --ifm-color-primary-dark: #006bb3;
@@ -16,15 +16,19 @@
   --ifm-color-primary-light: #0088d4;
   --ifm-color-primary-lighter: #0099ee;
   --ifm-color-primary-lightest: #00aaff;
-  
+
   /* Secondary colors */
   --ifm-color-secondary: var(--hk-color-secondary);
   --ifm-color-info: var(--hk-color-primary);
   --ifm-color-warning: var(--hk-color-accent);
-  
+
   /* Typography */
-  --ifm-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-  --ifm-font-family-monospace: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+  --ifm-font-family-base:
+    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', sans-serif;
+  --ifm-font-family-monospace:
+    'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'Courier New',
+    monospace;
 }
 
 .hoverkraft-theme {
@@ -99,15 +103,15 @@
   .hoverkraft-header {
     padding: 0.75rem 1rem;
   }
-  
+
   .hoverkraft-header h1 {
     font-size: 1.25rem;
   }
-  
+
   .hoverkraft-main {
     padding: 1rem;
   }
-  
+
   .hoverkraft-footer {
     padding: 0.75rem 1rem;
   }
@@ -118,7 +122,7 @@
   .hoverkraft-theme {
     font-size: 12pt;
   }
-  
+
   .hoverkraft-header,
   .hoverkraft-footer {
     background-color: transparent !important;

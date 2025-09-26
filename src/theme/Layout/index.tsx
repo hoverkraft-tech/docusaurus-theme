@@ -18,7 +18,7 @@ interface Props {
 
 export default function HoverkraftLayout(props: Props): JSX.Element {
   const { hoverkraft } = useThemeConfig() as ThemeConfig;
-  
+
   React.useEffect(() => {
     // Apply Hoverkraft branding styles
     if (hoverkraft?.colors) {
@@ -27,7 +27,10 @@ export default function HoverkraftLayout(props: Props): JSX.Element {
         root.style.setProperty('--hk-color-primary', hoverkraft.colors.primary);
       }
       if (hoverkraft.colors.secondary) {
-        root.style.setProperty('--hk-color-secondary', hoverkraft.colors.secondary);
+        root.style.setProperty(
+          '--hk-color-secondary',
+          hoverkraft.colors.secondary
+        );
       }
       if (hoverkraft.colors.accent) {
         root.style.setProperty('--hk-color-accent', hoverkraft.colors.accent);
@@ -42,9 +45,7 @@ export default function HoverkraftLayout(props: Props): JSX.Element {
           <HoverkraftLogo />
           <h1>Documentation</h1>
         </header>
-        <main className="hoverkraft-main">
-          {props.children}
-        </main>
+        <main className="hoverkraft-main">{props.children}</main>
         <HoverkraftFooter />
       </div>
     </div>

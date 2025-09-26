@@ -4,14 +4,9 @@ import type { ThemeConfig } from './types';
 const path = require('path');
 
 export default function themeHoverkraft(
-  context: LoadContext,
-  options: ThemeConfig
+  _context: LoadContext,
+  _options: ThemeConfig
 ): Plugin<undefined> {
-  const {
-    baseUrl,
-    i18n: { currentLocale, localeConfigs, defaultLocale },
-  } = context;
-
   return {
     name: '@hoverkraft-tech/docusaurus-theme',
 
@@ -27,7 +22,8 @@ export default function themeHoverkraft(
       return {
         'theme.NotFound.title': 'Page Not Found',
         'theme.NotFound.p1': 'We could not find what you were looking for.',
-        'theme.NotFound.p2': 'Please contact the owner of the site that linked you to the original URL and let them know their link is broken.',
+        'theme.NotFound.p2':
+          'Please contact the owner of the site that linked you to the original URL and let them know their link is broken.',
       };
     },
   };
