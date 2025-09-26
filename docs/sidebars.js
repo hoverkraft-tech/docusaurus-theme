@@ -23,11 +23,6 @@ const sidebars = {
       label: 'Components',
       items: ['components/layout', 'components/footer', 'components/logo'],
     },
-    {
-      type: 'category', 
-      label: 'Customization',
-      items: ['customization/colors', 'customization/typography', 'customization/css'],
-    },
     'migration',
   ],
 };
