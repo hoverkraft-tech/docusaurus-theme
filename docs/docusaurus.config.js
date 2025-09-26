@@ -60,7 +60,10 @@ const config = {
     ],
   ],
 
-  // Use the Hoverkraft theme
+  // For local development, you can use a relative path:
+  // themes: [require.resolve('..')],
+  
+  // For production, use the published package:
   themes: ['@hoverkraft/docusaurus-theme'],
 
   themeConfig:

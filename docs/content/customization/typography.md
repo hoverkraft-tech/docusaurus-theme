@@ -2,70 +2,40 @@
 sidebar_position: 2
 ---
 
-# Typography
+# Typography - No Customization Allowed
 
-The Hoverkraft theme uses **fixed typography** specifications that cannot be customized to ensure consistent branding.
+The Hoverkraft theme enforces **strict typography standards** and **does not allow any customization** of fonts, sizes, or typographic elements.
 
-## Official Typography Guidelines
+## Official Typography Authority
 
-For complete typography specifications, font selections, and usage guidelines, refer to the **[Hoverkraft Branding Repository](https://github.com/hoverkraft-tech/branding)**.
+All typography specifications are defined and maintained in the **[Hoverkraft Branding Repository](https://github.com/hoverkraft-tech/branding)**.
 
-The branding repository contains:
-- Official font family selections
-- Typography scale and sizing specifications
-- Line height and spacing guidelines
-- Font weight and style definitions
-- Accessibility considerations for typography
+## Fixed Typography Implementation
 
-## Theme Implementation
+The theme automatically applies the official typography system. **No configuration is required or allowed.**
 
-The Hoverkraft theme automatically applies the official typography system as defined in the [Hoverkraft Branding Guidelines](https://github.com/hoverkraft-tech/branding):
-
-### Fixed Font System
-- **Font Families**: As specified in the branding guidelines
-- **Font Sizes**: Modular scale from the official specifications
-- **Font Weights**: Standardized hierarchy
-- **Line Heights**: Optimized for readability per branding standards
-
-### Typography Scale
-
-The theme uses the official modular scale for consistent typography across all documentation sites.
-
-:::info
-For detailed font size specifications, line heights, and font weight mappings, see the [Hoverkraft Branding Repository](https://github.com/hoverkraft-tech/branding).
+:::warning No Customization
+**Typography cannot be customized, overridden, or modified in any way.** This ensures consistent brand identity and readability across all Hoverkraft documentation projects.
 :::
 
-## Why Fixed Typography?
+## Why No Typography Customization?
 
-**Brand Consistency**: Typography is a key component of brand identity. The fixed system ensures that all Hoverkraft documentation maintains the same professional typographic standards as defined in the [Hoverkraft Branding Guidelines](https://github.com/hoverkraft-tech/branding).
+**Brand Consistency**: Typography is a core component of brand identity. Fixed typography ensures all Hoverkraft documentation maintains identical professional standards.
 
-**Accessibility**: The typography specifications have been selected to meet accessibility requirements for readability and contrast.
+**Accessibility**: Typography specifications are optimized for readability and meet accessibility requirements.
 
-**Professional Standards**: Consistent typography creates a cohesive reading experience across all Hoverkraft documentation properties.
+**Reduced Complexity**: No font decisions are needed. Simply install the theme and the correct typography is applied automatically.
 
-## Responsive Behavior
+## Typography Applied Automatically
 
-The typography system automatically adjusts across different screen sizes according to the specifications in the [Hoverkraft Branding Repository](https://github.com/hoverkraft-tech/branding):
+The theme applies the complete official typography system:
 
-- **Mobile optimization**: Font sizes scale appropriately for small screens
-- **Desktop enhancement**: Optimal reading experience on larger displays
-- **Print compatibility**: Typography works well in print contexts
+- **Font Families**: As specified in the branding guidelines
+- **Font Sizes**: Modular scale from official specifications  
+- **Font Weights**: Standardized hierarchy
+- **Line Heights**: Optimized for readability
+- **Responsive Behavior**: Automatic scaling for all devices
 
-## Implementation Notes
+## For Complete Specifications
 
-The theme applies typography through CSS custom properties, but these values are **not exposed for customization** to maintain brand consistency:
-
-```css
-/* Typography applied automatically - do not override */
-:root {
-  --ifm-font-family-base: /* As specified in branding guidelines */;
-  --ifm-font-family-monospace: /* As specified in branding guidelines */;
-  /* Font sizes, weights, and other typography values */
-}
-```
-
-## Content Typography
-
-While the base typography system is fixed, you can still create content-specific enhancements that work within the branding guidelines. Refer to the [Custom CSS documentation](./css) for allowed customizations that don't conflict with the official branding.
-
-For any questions about typography usage or implementation, consult the [Hoverkraft Branding Repository](https://github.com/hoverkraft-tech/branding) for authoritative guidelines.
+For detailed typography guidelines, font specifications, and usage standards, refer to the **[Hoverkraft Branding Repository](https://github.com/hoverkraft-tech/branding)**.
