@@ -39,6 +39,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          path: 'content',
           sidebarPath: './sidebars.js',
           editUrl:
             'https://github.com/hoverkraft-tech/docusaurus-theme/tree/main/docs/',

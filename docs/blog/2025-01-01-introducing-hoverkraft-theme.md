@@ -1,7 +1,9 @@
 ---
 slug: introducing-hoverkraft-theme
 title: Introducing the Hoverkraft Docusaurus Theme
-authors: [hoverkraft]
+authors: 
+  - name: Hoverkraft
+    title: Hoverkraft Team
 tags: [theme, docusaurus, branding, announcement]
 ---
 
