@@ -8,18 +8,17 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Hoverkraft Theme Example',
-  tagline: 'Example documentation using the Hoverkraft theme',
+  title: 'Hoverkraft Theme',
+  tagline: 'Official Docusaurus theme for Hoverkraft projects',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://hoverkraft-tech.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/docusaurus-theme/',
 
   // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
   organizationName: 'hoverkraft-tech', // Usually your GitHub org/user name.
   projectName: 'docusaurus-theme', // Usually your repo name.
 
@@ -41,10 +40,8 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/hoverkraft-tech/docusaurus-theme/tree/main/example/',
+            'https://github.com/hoverkraft-tech/docusaurus-theme/tree/main/docs/',
         },
         blog: {
           showReadingTime: true,
@@ -52,14 +49,8 @@ const config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/hoverkraft-tech/docusaurus-theme/tree/main/example/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
+            'https://github.com/hoverkraft-tech/docusaurus-theme/tree/main/docs/',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -77,7 +68,7 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'Hoverkraft Docs',
+        title: 'Hoverkraft Theme',
         logo: {
           alt: 'Hoverkraft Logo',
           src: 'img/logo.svg',
@@ -87,7 +78,7 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Documentation',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
@@ -101,11 +92,15 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'Documentation',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'Getting Started',
+                to: '/docs/getting-started',
+              },
+              {
+                label: 'Configuration',
+                to: '/docs/configuration',
               },
             ],
           },
@@ -118,6 +113,19 @@ const config = {
               },
             ],
           },
+          {
+            title: 'More',
+            items: [
+              {
+                label: 'Blog',
+                to: '/blog',
+              },
+              {
+                label: 'NPM Package',
+                href: 'https://www.npmjs.com/package/@hoverkraft-tech/docusaurus-theme',
+              },
+            ],
+          },
         ],
         copyright: `Copyright © ${new Date().getFullYear()} Hoverkraft. Built with Docusaurus.`,
       },
@@ -126,7 +134,7 @@ const config = {
         darkTheme: prismThemes.dracula,
       },
       
-      // Hoverkraft theme configuration
+      // Hoverkraft theme configuration - demonstrating the theme's features
       hoverkraft: {
         colors: {
           primary: '#007acc',

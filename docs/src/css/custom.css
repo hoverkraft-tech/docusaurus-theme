@@ -28,3 +28,44 @@
   --ifm-color-primary-lightest: #66d1ff;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+/* Demo styles for showcasing theme features */
+.theme-demo {
+  padding: 1rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-global-radius);
+  margin: 1rem 0;
+}
+
+.color-demo {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+
+.color-swatch {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--ifm-global-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 0.8rem;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.color-swatch--primary {
+  background-color: var(--ifm-color-primary);
+}
+
+.color-swatch--secondary {
+  background-color: var(--hk-color-secondary, #6c757d);
+}
+
+.color-swatch--accent {
+  background-color: var(--hk-color-accent, #ff6b35);
+}
