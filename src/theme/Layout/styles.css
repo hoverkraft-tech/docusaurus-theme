@@ -1,0 +1,127 @@
+/* Hoverkraft Theme Branding Styles */
+
+:root {
+  /* Hoverkraft Color Palette */
+  --hk-color-primary: #007acc;
+  --hk-color-secondary: #6c757d;
+  --hk-color-accent: #ff6b35;
+  --hk-color-dark: #1a1a1a;
+  --hk-color-light: #f8f9fa;
+  
+  /* Override Docusaurus default colors with Hoverkraft branding */
+  --ifm-color-primary: var(--hk-color-primary);
+  --ifm-color-primary-dark: #006bb3;
+  --ifm-color-primary-darker: #0066aa;
+  --ifm-color-primary-darkest: #005588;
+  --ifm-color-primary-light: #0088d4;
+  --ifm-color-primary-lighter: #0099ee;
+  --ifm-color-primary-lightest: #00aaff;
+  
+  /* Secondary colors */
+  --ifm-color-secondary: var(--hk-color-secondary);
+  --ifm-color-info: var(--hk-color-primary);
+  --ifm-color-warning: var(--hk-color-accent);
+  
+  /* Typography */
+  --ifm-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  --ifm-font-family-monospace: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+.hoverkraft-theme {
+  font-family: var(--ifm-font-family-base);
+}
+
+.hoverkraft-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.hoverkraft-header {
+  background-color: var(--hk-color-primary);
+  color: white;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hoverkraft-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.hoverkraft-main {
+  flex: 1;
+  padding: 2rem;
+  background-color: var(--hk-color-light);
+}
+
+/* Custom button styles with Hoverkraft branding */
+.button--primary {
+  background-color: var(--hk-color-primary);
+  border-color: var(--hk-color-primary);
+}
+
+.button--primary:hover {
+  background-color: var(--ifm-color-primary-dark);
+  border-color: var(--ifm-color-primary-dark);
+}
+
+/* Logo styles */
+.hoverkraft-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.hoverkraft-logo:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.hoverkraft-logo__image {
+  height: 32px;
+  width: auto;
+}
+
+.hoverkraft-logo--text .hoverkraft-logo__text {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .hoverkraft-header {
+    padding: 0.75rem 1rem;
+  }
+  
+  .hoverkraft-header h1 {
+    font-size: 1.25rem;
+  }
+  
+  .hoverkraft-main {
+    padding: 1rem;
+  }
+  
+  .hoverkraft-footer {
+    padding: 0.75rem 1rem;
+  }
+}
+
+/* Print styles */
+@media print {
+  .hoverkraft-theme {
+    font-size: 12pt;
+  }
+  
+  .hoverkraft-header,
+  .hoverkraft-footer {
+    background-color: transparent !important;
+    color: black !important;
+  }
+}

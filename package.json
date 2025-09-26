@@ -1,0 +1,53 @@
+{
+  "name": "@hoverkraft-tech/docusaurus-theme",
+  "version": "0.1.0",
+  "description": "Hoverkraft theme for Docusaurus",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "prepublishOnly": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "docusaurus",
+    "theme",
+    "hoverkraft",
+    "documentation"
+  ],
+  "author": "Hoverkraft",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hoverkraft-tech/docusaurus-theme.git"
+  },
+  "peerDependencies": {
+    "@docusaurus/core": "^3.0.0",
+    "@docusaurus/theme-common": "^3.0.0",
+    "@docusaurus/types": "^3.0.0",
+    "@docusaurus/utils": "^3.0.0",
+    "@docusaurus/utils-validation": "^3.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@docusaurus/core": "^3.9.1",
+    "@docusaurus/theme-common": "^3.9.1",
+    "@docusaurus/types": "^3.9.1",
+    "@docusaurus/utils": "^3.9.1",
+    "@docusaurus/utils-validation": "^3.9.1",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
