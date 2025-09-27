@@ -45,7 +45,7 @@ const config = {
 const config = {
   // Add Hoverkraft theme
   themes: ['@hoverkraft/docusaurus-theme'],
-  
+
   themeConfig: {
     // Keep existing configuration
     colorMode: {
@@ -64,7 +64,7 @@ const config = {
         // footer links
       ],
     },
-    
+
     // Add Hoverkraft configuration
     hoverkraft: {
       colors: {
@@ -158,10 +158,10 @@ npm install @hoverkraft/docusaurus-theme
 const config = {
   // Remove bootstrap theme reference
   // themes: ['bootstrap'],
-  
+
   // Add Hoverkraft theme
   themes: ['@hoverkraft/docusaurus-theme'],
-  
+
   themeConfig: {
     // Update bootstrap-specific config to standard Docusaurus config
     hoverkraft: {
@@ -243,12 +243,12 @@ import { useThemeConfig } from '@docusaurus/theme-common';
 
 export default function MyComponent() {
   const { hoverkraft } = useThemeConfig();
-  
+
   return (
-    <div 
+    <div
       className="my-component"
-      style={{ 
-        '--primary-color': hoverkraft?.colors?.primary || '#007acc' 
+      style={{
+        '--primary-color': hoverkraft?.colors?.primary || '#007acc',
       }}
     >
       {/* Component content */}
@@ -262,13 +262,14 @@ export default function MyComponent() {
 ### Phase 1: Preparation
 
 1. **Backup your current setup**
+
    ```bash
    git commit -am "Backup before Hoverkraft migration"
    ```
 
 2. **Document current customizations**
    - List all custom CSS files
-   - Note swizzled components  
+   - Note swizzled components
    - Record configuration changes
 
 3. **Test current site thoroughly**
@@ -278,11 +279,13 @@ export default function MyComponent() {
 ### Phase 2: Installation
 
 1. **Install Hoverkraft theme**
+
    ```bash
    npm install @hoverkraft/docusaurus-theme
    ```
 
 2. **Add to configuration**
+
    ```javascript title="docusaurus.config.js"
    const config = {
      themes: [
@@ -300,6 +303,7 @@ export default function MyComponent() {
 ### Phase 3: Configuration Migration
 
 1. **Add Hoverkraft configuration**
+
    ```javascript title="docusaurus.config.js"
    themeConfig: {
      hoverkraft: {
@@ -323,7 +327,7 @@ export default function MyComponent() {
 ### Phase 4: Component Migration
 
 1. **Update component styles** gradually
-2. **Test each change** individually  
+2. **Test each change** individually
 3. **Fix broken functionality** as you find it
 4. **Remove old theme dependencies** when fully migrated
 

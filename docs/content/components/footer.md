@@ -20,17 +20,20 @@ The Hoverkraft Footer component features:
 The footer structure is standardized and cannot be customized:
 
 ### Company Section
+
 - **Hoverkraft branding** and official messaging
 - **Company description** per branding guidelines
 - **Consistent brand positioning**
 
-### Resources Section  
+### Resources Section
+
 - **Documentation links** for site navigation
 - **Community and support** links
 - **Standard resource** categories
 
 ### Company Information
-- **About and contact** information  
+
+- **About and contact** information
 - **Legal and policy** links
 - **Standard company** pages
 
@@ -39,12 +42,14 @@ All content and styling follows the specifications in the [Hoverkraft Branding R
 ## Styling Features
 
 ### Visual Design
+
 - **Gradient background** from dark to black
 - **Primary color accent** border at the top
 - **Grid layout** that adapts to screen size
 - **Hover effects** on all links
 
 ### Typography
+
 - **Consistent font weights** and sizing
 - **Color hierarchy** for better readability
 - **Proper spacing** between sections
@@ -61,7 +66,7 @@ The footer includes these default navigation items:
   <li><a href="/community">Community</a></li>
 </ul>
 
-// Company Section  
+// Company Section
 <ul>
   <li><a href="/about">About</a></li>
   <li><a href="/careers">Careers</a></li>
@@ -118,7 +123,7 @@ export default function HoverkraftFooter(): JSX.Element {
     <footer className="hoverkraft-footer">
       <div className="hoverkraft-footer__content">
         {/* Existing sections */}
-        
+
         {/* Add your custom section */}
         <div className="hoverkraft-footer__section">
           <h4>Custom Section</h4>
@@ -128,7 +133,7 @@ export default function HoverkraftFooter(): JSX.Element {
           </ul>
         </div>
       </div>
-      
+
       {/* Footer bottom remains the same */}
       <div className="hoverkraft-footer__bottom">
         <p>© {new Date().getFullYear()} Hoverkraft. All rights reserved.</p>
@@ -141,29 +146,32 @@ export default function HoverkraftFooter(): JSX.Element {
 ## Responsive Behavior
 
 ### Desktop Layout
+
 - **Three-column grid** with equal spacing
 - **Full-width sections** with proper margins
 - **Hover effects** and animations
 
-### Mobile Layout  
+### Mobile Layout
+
 - **Single-column stack** for better readability
 - **Reduced padding** for mobile spacing
 - **Touch-friendly links** with larger tap targets
 
 ### Tablet Layout
+
 - **Two-column grid** that adapts content
 - **Balanced spacing** between sections
 - **Maintained readability** at medium sizes
 
 ## CSS Classes Reference
 
-| Class | Description |
-|-------|-------------|
-| `.hoverkraft-footer` | Main footer container |
+| Class                         | Description                 |
+| ----------------------------- | --------------------------- |
+| `.hoverkraft-footer`          | Main footer container       |
 | `.hoverkraft-footer__content` | Grid container for sections |
-| `.hoverkraft-footer__section` | Individual footer section |
-| `.hoverkraft-footer__links` | Link list within sections |
-| `.hoverkraft-footer__bottom` | Copyright/bottom section |
+| `.hoverkraft-footer__section` | Individual footer section   |
+| `.hoverkraft-footer__links`   | Link list within sections   |
+| `.hoverkraft-footer__bottom`  | Copyright/bottom section    |
 
 ## Accessibility Features
 

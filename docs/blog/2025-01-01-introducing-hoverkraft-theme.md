@@ -1,7 +1,7 @@
 ---
 slug: introducing-hoverkraft-theme
 title: Introducing the Hoverkraft Docusaurus Theme
-authors: 
+authors:
   - name: Hoverkraft
     title: Hoverkraft Team
 tags: [theme, docusaurus, branding, announcement]
@@ -18,7 +18,7 @@ We're excited to announce the release of the **Hoverkraft Docusaurus Theme** - a
 As Hoverkraft continues to grow and develop new projects, maintaining consistent branding across all our documentation sites became increasingly important. We needed a solution that would:
 
 - **Standardize our visual identity** across all documentation
-- **Provide a professional appearance** that reflects our brand values  
+- **Provide a professional appearance** that reflects our brand values
 - **Offer easy customization** for different project needs
 - **Maintain excellent developer experience** with modern tooling
 
@@ -87,16 +87,19 @@ Start your development server and see the official Hoverkraft branding applied a
 The theme automatically applies the [Official Hoverkraft Branding Guidelines](https://github.com/hoverkraft-tech/branding) with no configuration required:
 
 ### Fixed Color Palette
+
 - Consistent application of official Hoverkraft colors
 - No customization allowed to ensure brand consistency
 - Automatically optimized for accessibility and readability
 
 ### Standardized Typography
+
 - Official font families and sizing from the branding guidelines
 - Professional hierarchy maintained across all documentation
 - Optimized for readability and web performance
 
 ### Professional Layout
+
 - Consistent header with "Hoverkraft" branding
 - Standardized footer with company information
 - Responsive design that works on all devices
@@ -108,7 +111,7 @@ For complete branding specifications, refer to the [Hoverkraft Branding Reposito
 This documentation site is built using the Hoverkraft theme, demonstrating the enforced branding in action. You can see:
 
 - **Responsive design** working across different screen sizes
-- **Consistent branding** throughout all pages  
+- **Consistent branding** throughout all pages
 - **Professional typography** in the documentation content
 - **Official color palette** applied consistently
 
@@ -126,7 +129,7 @@ Migrating from `@docusaurus/theme-classic` is straightforward:
 The theme is built with performance and accessibility in mind, following the [Hoverkraft Branding Guidelines](https://github.com/hoverkraft-tech/branding):
 
 - **Lightweight CSS**: Efficient styles with minimal overhead
-- **Optimized branding assets**: Performance-optimized implementation of brand elements  
+- **Optimized branding assets**: Performance-optimized implementation of brand elements
 - **Semantic HTML**: Proper document structure for screen readers
 - **Keyboard navigation**: Full keyboard accessibility support
 - **WCAG compliance**: Colors and contrast ratios meet accessibility guidelines
@@ -149,7 +152,7 @@ The Hoverkraft theme is open source and welcomes community contributions:
 
 - **GitHub Repository**: [hoverkraft-tech/docusaurus-theme](https://github.com/hoverkraft-tech/docusaurus-theme)
 - **NPM Package**: [@hoverkraft/docusaurus-theme](https://www.npmjs.com/package/@hoverkraft/docusaurus-theme)
-- **Documentation**: [This site](/) serves as comprehensive documentation
+- **Documentation**: [Documentation site](/docs/getting-started) serves as comprehensive documentation
 
 We'd love to hear your feedback and see how you're using the theme in your projects!
 
@@ -165,4 +168,4 @@ Visit our [Getting Started guide](/docs/getting-started) for detailed installati
 
 ---
 
-*The Hoverkraft Docusaurus Theme represents our commitment to providing high-quality, professional tools for the developer community. We're excited to see what you build with it!*
+_The Hoverkraft Docusaurus Theme represents our commitment to providing high-quality, professional tools for the developer community. We're excited to see what you build with it!_

@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true
+  },
+  "include": ["src", "docs/**/*.ts", "docs/**/*.tsx"],
+  "exclude": [
+    "node_modules",
+    "lib",
+    "docs/.docusaurus",
+    "docs/build",
+    "docs/node_modules"
+  ]
+}

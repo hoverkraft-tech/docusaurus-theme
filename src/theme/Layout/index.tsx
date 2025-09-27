@@ -1,4 +1,7 @@
 import React from 'react';
+import { PageMetadata } from '@docusaurus/theme-common';
+import LayoutProvider from '@theme/Layout/Provider';
+
 import HoverkraftFooter from '../Footer';
 import HoverkraftLogo from '../Logo';
 
@@ -12,19 +15,52 @@ interface Props {
   image?: string;
   wrapperClassName?: string;
   pageClassName?: string;
+  noFooter?: boolean;
+  noNavbar?: boolean;
+}
+
+function cx(...classNames: Array<string | undefined>): string {
+  return classNames.filter(Boolean).join(' ');
 }
 
 export default function HoverkraftLayout(props: Props): JSX.Element {
+  const {
+    children,
+    title,
+    description,
+    keywords,
+    image,
+    wrapperClassName,
+    pageClassName,
+    noFooter,
+    noNavbar,
+  } = props;
+
+  const containerClassName = cx('hoverkraft-theme', wrapperClassName);
+  const mainClassName = cx('hoverkraft-main', pageClassName);
+  const heading = title ?? 'Documentation';
+
   return (
-    <div className="hoverkraft-theme">
-      <div className="hoverkraft-layout">
-        <header className="hoverkraft-header">
-          <HoverkraftLogo />
-          <h1>Documentation</h1>
-        </header>
-        <main className="hoverkraft-main">{props.children}</main>
-        <HoverkraftFooter />
+    <LayoutProvider>
+      <PageMetadata
+        title={title}
+        description={description}
+        keywords={keywords}
+        image={image}
+      />
+
+      <div className={containerClassName}>
+        <div className="hoverkraft-layout">
+          {!noNavbar && (
+            <header className={cx('hoverkraft-header', 'navbar')}>
+              <HoverkraftLogo />
+              <h1>{heading}</h1>
+            </header>
+          )}
+          <main className={mainClassName}>{children}</main>
+          {!noFooter && <HoverkraftFooter />}
+        </div>
       </div>
-    </div>
+    </LayoutProvider>
   );
 }

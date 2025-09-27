@@ -74,10 +74,10 @@ You can still use all standard Docusaurus configuration options:
 const config = {
   title: 'My Documentation',
   tagline: 'My project tagline',
-  
+
   // Standard Docusaurus configuration works normally
   themes: ['@hoverkraft/docusaurus-theme'],
-  
+
   themeConfig: {
     navbar: {
       title: 'My Docs',
@@ -117,19 +117,19 @@ The Hoverkraft theme **enhances** the standard Docusaurus configuration with con
 Here's a complete working configuration:
 
 ```javascript title="docusaurus.config.js"
-import {themes as prismThemes} from 'prism-react-renderer';
+import { themes as prismThemes } from 'prism-react-renderer';
 
 const config = {
   title: 'My Documentation',
   tagline: 'Documentation with Hoverkraft branding',
   favicon: 'img/favicon.ico',
-  
+
   url: 'https://my-docs.hoverkraft.tech',
   baseUrl: '/',
-  
+
   // Apply Hoverkraft theme
   themes: ['@hoverkraft/docusaurus-theme'],
-  
+
   presets: [
     [
       'classic',
@@ -154,7 +154,7 @@ const config = {
           position: 'left',
           label: 'Docs',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
+        { to: '/blog', label: 'Blog', position: 'left' },
       ],
     },
     prism: {

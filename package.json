@@ -9,8 +9,9 @@
     "src"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && node scripts/copy-static-assets.js",
     "build:watch": "tsc --watch",
+    "copy:assets": "node scripts/copy-static-assets.js",
     "lint": "eslint src --ext .ts,.tsx",
     "lint:fix": "eslint src --ext .ts,.tsx --fix",
     "format": "prettier --write \"src/**/*.{ts,tsx,css}\"",

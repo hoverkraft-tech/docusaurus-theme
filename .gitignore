@@ -10,6 +10,7 @@ lib/
 dist/
 build/
 docs/build/
+docs/.docusaurus
 
 # IDE
 .vscode/

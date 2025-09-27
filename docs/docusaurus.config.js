@@ -4,7 +4,7 @@
 // There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
-import {themes as prismThemes} from 'prism-react-renderer';
+import { themes as prismThemes } from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -23,7 +23,11 @@ const config = {
   projectName: 'docusaurus-theme', // Usually your repo name.
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -62,7 +66,7 @@ const config = {
 
   // For local development, you can use a relative path:
   // themes: [require.resolve('..')],
-  
+
   // For production, use the published package:
   themes: ['@hoverkraft/docusaurus-theme'],
 
@@ -84,7 +88,7 @@ const config = {
             position: 'left',
             label: 'Documentation',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          { to: '/blog', label: 'Blog', position: 'left' },
           {
             href: 'https://github.com/hoverkraft-tech/docusaurus-theme',
             label: 'GitHub',
@@ -137,7 +141,7 @@ const config = {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
       },
-      
+
       // Hoverkraft theme - no configuration needed
       // The theme automatically applies consistent branding
     }),

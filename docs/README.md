@@ -5,6 +5,7 @@ This directory contains the official documentation for the Hoverkraft Docusaurus
 ## Overview
 
 This documentation site serves dual purposes:
+
 1. **Comprehensive documentation** for the Hoverkraft theme
 2. **Live demonstration** of the theme's features and capabilities
 
@@ -62,7 +63,7 @@ The site uses this configuration to demonstrate the theme:
 hoverkraft: {
   colors: {
     primary: '#007acc',
-    secondary: '#6c757d', 
+    secondary: '#6c757d',
     accent: '#ff6b35',
   },
 }
@@ -72,7 +73,7 @@ hoverkraft: {
 
 To contribute to the documentation:
 
-1. Edit the relevant markdown files in `docs/`
+1. Edit the relevant Markdown files in `docs/`
 2. Update configuration in `docusaurus.config.js` if needed
 3. Test changes locally with `npm start`
 4. Submit a pull request

@@ -63,7 +63,7 @@ This documentation site itself is built using the Hoverkraft theme, demonstratin
 By removing customization options, this theme ensures that:
 
 - All Hoverkraft documentation maintains a **consistent professional appearance**
-- Teams can **focus on content creation** rather than design decisions  
+- Teams can **focus on content creation** rather than design decisions
 - **Brand recognition** is maintained across all Hoverkraft properties
 - **Setup time is minimized** - no complex configuration needed
 

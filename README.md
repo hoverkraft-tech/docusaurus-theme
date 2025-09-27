@@ -40,7 +40,7 @@ This theme provides:
 
 - **Enforced Hoverkraft Branding**: Official color palette, typography, and layout
 - **Responsive Design**: Mobile-first responsive layout
-- **Professional Components**: Standardized header, footer, and page structure  
+- **Professional Components**: Standardized header, footer, and page structure
 - **Accessibility**: Built with accessibility best practices
 - **Print-friendly**: Optimized print styles
 

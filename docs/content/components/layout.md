@@ -11,7 +11,7 @@ The Layout component is the main wrapper for all pages in your Docusaurus site.
 The Hoverkraft Layout component provides:
 
 - **Consistent structure** across all pages
-- **Responsive design** that adapts to different screen sizes  
+- **Responsive design** that adapts to different screen sizes
 - **Branding integration** with Hoverkraft colors and styling
 - **Dynamic theme application** based on configuration
 
@@ -42,12 +42,8 @@ The Layout component wraps your content with:
 ```jsx
 <div className="hoverkraft-theme">
   <div className="hoverkraft-layout">
-    <header className="hoverkraft-header">
-      {/* Logo and navigation */}
-    </header>
-    <main className="hoverkraft-main">
-      {/* Your page content */}
-    </main>
+    <header className="hoverkraft-header">{/* Logo and navigation */}</header>
+    <main className="hoverkraft-main">{/* Your page content */}</main>
     <HoverkraftFooter />
   </div>
 </div>
@@ -57,28 +53,28 @@ The Layout component wraps your content with:
 
 The layout provides several CSS classes you can target for customization:
 
-| Class | Description |
-|-------|-------------|
-| `.hoverkraft-theme` | Root theme wrapper |
+| Class                | Description           |
+| -------------------- | --------------------- |
+| `.hoverkraft-theme`  | Root theme wrapper    |
 | `.hoverkraft-layout` | Main layout container |
-| `.hoverkraft-header` | Header section |
-| `.hoverkraft-main` | Main content area |
+| `.hoverkraft-header` | Header section        |
+| `.hoverkraft-main`   | Main content area     |
 
 ### Custom Properties
 
 The layout sets CSS custom properties that you can use throughout your site:
 
-| Property | Description |
-|----------|-------------|
-| `--hk-color-primary` | Primary theme color |
+| Property               | Description           |
+| ---------------------- | --------------------- |
+| `--hk-color-primary`   | Primary theme color   |
 | `--hk-color-secondary` | Secondary theme color |
-| `--hk-color-accent` | Accent theme color |
+| `--hk-color-accent`    | Accent theme color    |
 
 ## Customization
 
 ### Overriding Styles
 
-You can customize the layout by adding CSS to your custom stylesheet:
+You can customize the layout by adding CSS to your custom style sheet:
 
 ```css title="src/css/custom.css"
 /* Customize header */
@@ -111,7 +107,7 @@ Target mobile devices specifically:
   .hoverkraft-header {
     padding: 0.5rem 1rem;
   }
-  
+
   .hoverkraft-main {
     padding: 1rem 0.5rem;
   }

@@ -12,7 +12,7 @@ The Hoverkraft Logo component:
 
 - **Displays "Hoverkraft" text** with consistent styling
 - **Links to homepage** by default
-- **Maintains brand consistency** across all sites  
+- **Maintains brand consistency** across all sites
 - **Responsive sizing** across different screen sizes
 
 ## Fixed Branding
@@ -55,18 +55,20 @@ The logo component uses these enforced styles:
 The logo styling is **intentionally fixed** to maintain:
 
 - **Consistent appearance** across all Hoverkraft sites
-- **Professional branding** that's immediately recognizable  
+- **Professional branding** that's immediately recognizable
 - **Accessibility standards** with proper contrast and focus states
 - **Responsive behavior** that works on all screen sizes
 
 ## Responsive Behavior
 
 ### Desktop
+
 - **Full logo size** with proper alignment in header
 - **Clear visual hierarchy** with navigation items
 - **Professional appearance** in all contexts
 
 ### Mobile
+
 - **Proportional scaling** at smaller screen sizes
 - **Touch-friendly target** area for navigation
 - **Optimized spacing** for mobile layouts
