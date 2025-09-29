@@ -16,12 +16,13 @@ jobs:
     uses: hoverkraft-tech/ci-github-common/.github/workflows/linter.yml@b4883995e100e291a1fed68678d47a560328ed08 # 0.24.0
     with:
       linter-env: |
-        FILTER_REGEX_EXCLUDE=dist/**/*
+        FILTER_REGEX_EXCLUDE=lib/**/*,docs/build/**/*
         VALIDATE_JSCPD=false
         VALIDATE_TYPESCRIPT_ES=false
         VALIDATE_TYPESCRIPT_PRETTIER=false
         VALIDATE_JAVASCRIPT_ES=false
         VALIDATE_TSX=false
+        VALIDATE_CSS=false
 
   nodejs:
     uses: hoverkraft-tech/ci-github-nodejs/.github/workflows/continuous-integration.yml@1d00c9eb280acbee5df4b4a2087f786e66b13d87 # 0.14.1

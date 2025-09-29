@@ -7,8 +7,6 @@ authors:
 tags: [theme, docusaurus, branding, announcement]
 ---
 
-# Introducing the Hoverkraft Docusaurus Theme
-
 We're excited to announce the release of the **Hoverkraft Docusaurus Theme** - a comprehensive theming solution that brings consistent branding and professional design to all Hoverkraft documentation projects.
 
 <!-- truncate -->
