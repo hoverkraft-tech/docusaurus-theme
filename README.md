@@ -17,7 +17,7 @@ Add the theme to your Docusaurus configuration file (`docusaurus.config.js`):
 ```javascript
 module.exports = {
   // ... other config
-  themes: ['@hoverkraft/docusaurus-theme'],
+  themes: ["@hoverkraft/docusaurus-theme"],
   // No additional configuration required - theme enforces Hoverkraft branding
 };
 ```
@@ -49,20 +49,20 @@ This theme provides:
 To contribute to this theme:
 
 1. Clone the repository
-2. Install dependencies: `npm install`
-3. Build the theme: `npm run build`
-4. Test your changes in a Docusaurus project
+2. Install dependencies: `pnpm install`
+3. Build the theme: `pnpm --filter @hoverkraft/docusaurus-theme run build`
+4. Test your changes locally (optional): `pnpm --filter hoverkraft-theme-docs run start`
 
 ### Building
 
 ```bash
-npm run build
+pnpm run build
 ```
 
 ### Watch mode for development
 
 ```bash
-npm run build:watch
+pnpm --filter @hoverkraft/docusaurus-theme run build:watch
 ```
 
 ## License

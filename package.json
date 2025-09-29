@@ -1,66 +1,68 @@
 {
-  "name": "@hoverkraft/docusaurus-theme",
-  "version": "0.1.0",
-  "description": "Hoverkraft theme for Docusaurus",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "files": [
-    "lib",
-    "src"
-  ],
-  "scripts": {
-    "build": "tsc && node scripts/copy-static-assets.js",
-    "build:watch": "tsc --watch",
-    "copy:assets": "node scripts/copy-static-assets.js",
-    "lint": "eslint src --ext .ts,.tsx",
-    "lint:fix": "eslint src --ext .ts,.tsx --fix",
-    "format": "prettier --write \"src/**/*.{ts,tsx,css}\"",
-    "format:check": "prettier --check \"src/**/*.{ts,tsx,css}\"",
-    "prepublishOnly": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "test:ci": "echo \"No tests specified yet\" && exit 0"
-  },
-  "keywords": [
-    "docusaurus",
-    "theme",
-    "hoverkraft",
-    "documentation"
-  ],
-  "author": "Hoverkraft",
+  "name": "@hoverkraft/docusaurus-theme-workspace",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Workspace for the Hoverkraft Docusaurus theme and documentation site.",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/hoverkraft-tech/docusaurus-theme.git"
   },
-  "peerDependencies": {
-    "@docusaurus/core": "^3.0.0",
-    "@docusaurus/theme-common": "^3.0.0",
-    "@docusaurus/types": "^3.0.0",
-    "@docusaurus/utils": "^3.0.0",
-    "@docusaurus/utils-validation": "^3.0.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
-  },
-  "devDependencies": {
-    "@docusaurus/core": "^3.9.1",
-    "@docusaurus/theme-common": "^3.9.1",
-    "@docusaurus/types": "^3.9.1",
-    "@docusaurus/utils": "^3.9.1",
-    "@docusaurus/utils-validation": "^3.9.1",
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
-    "@typescript-eslint/eslint-plugin": "^6.21.0",
-    "@typescript-eslint/parser": "^6.21.0",
-    "eslint": "^8.0.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-react": "^7.33.0",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "prettier": "^3.0.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "typescript": "^5.0.0"
-  },
   "engines": {
     "node": ">=18.0.0"
+  },
+  "workspaces": [
+    "packages/theme",
+    "packages/docs"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "start": "npm run start --workspace=@hoverkraft/hoverkraft-theme-docs",
+    "lint": "npm run lint --workspaces --if-present",
+    "lint:fix": "npm run lint:fix --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "test:ci": "npm run test:ci --workspaces --if-present",
+    "prepare": "ts-dev-tools install"
+  },
+  "devDependencies": {
+    "@ts-dev-tools/react": "^1.9.6"
+  },
+  "prettier": {
+    "semi": true,
+    "printWidth": 100,
+    "trailingComma": "es5",
+    "plugins": [
+      "@prettier/plugin-oxc"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "eslint --fix"
+    ]
+  },
+  "importSort": {
+    ".js, .jsx, .ts, .tsx": {
+      "style": "module",
+      "parser": "typescript"
+    }
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "jsdom",
+    "testMatch": [
+      "**/__tests__/**/*.[jt]s?(x)",
+      "**/?(*.)+(spec|test)?(.*).+(ts|tsx|js)"
+    ],
+    "collectCoverageFrom": [
+      "**/src/**/*.[jt]s?(x)"
+    ]
+  },
+  "tsDevTools": {
+    "version": "20250623095500-add-prettier-oxc"
   }
 }

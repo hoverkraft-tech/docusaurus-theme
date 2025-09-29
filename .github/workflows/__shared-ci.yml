@@ -16,7 +16,7 @@ jobs:
     uses: hoverkraft-tech/ci-github-common/.github/workflows/linter.yml@b4883995e100e291a1fed68678d47a560328ed08 # 0.24.0
     with:
       linter-env: |
-        FILTER_REGEX_EXCLUDE=lib/**/*,docs/build/**/*
+        FILTER_REGEX_EXCLUDE=packages/theme/lib/**/*,packages/docs/build/**/*
         VALIDATE_JSCPD=false
         VALIDATE_TYPESCRIPT_ES=false
         VALIDATE_TYPESCRIPT_PRETTIER=false
@@ -29,7 +29,7 @@ jobs:
     with:
       build: |
         {
-          "artifact": ["lib", "docs/build"]
+          "artifact": ["packages/theme/lib", "packages/docs/build"]
         }
 
   package-theme:
@@ -46,6 +46,7 @@ jobs:
           path: .
 
       - name: Create package tarball
+        working-directory: packages/theme
         run: |
           npm pack --pack-destination ${{ runner.temp }}/
 

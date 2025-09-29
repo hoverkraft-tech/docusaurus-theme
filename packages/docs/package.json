@@ -1,0 +1,76 @@
+{
+  "name": "@hoverkraft/hoverkraft-theme-docs",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Documentation for the Hoverkraft Docusaurus theme",
+  "scripts": {
+    "docusaurus": "docusaurus",
+    "start": "docusaurus start",
+    "build": "docusaurus build",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
+    "clear": "docusaurus clear",
+    "serve": "docusaurus serve",
+    "write-translations": "docusaurus write-translations",
+    "write-heading-ids": "docusaurus write-heading-ids",
+    "lint": "eslint \"src/**/*.{ts,tsx}\"",
+    "lint:fix": "npm run lint -- --fix",
+    "test": "npm run jest --maxWorkers=50%",
+    "test:ci": "npm run test:cov --runInBand",
+    "format": "prettier --cache --write '**/*.ts'",
+    "jest": "jest --detectOpenHandles --forceExit",
+    "test:watch": "npm run jest --watch --maxWorkers=25%",
+    "test:cov": "npm run test --coverage"
+  },
+  "dependencies": {
+    "@docusaurus/core": "^3.9.1",
+    "@docusaurus/preset-classic": "^3.9.1",
+    "@hoverkraft/docusaurus-theme": "^0.1.0",
+    "@mdx-js/react": "^3.0.0",
+    "clsx": "^2.0.0",
+    "prism-react-renderer": "^2.3.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "engines": {
+    "node": ">=18.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 3 chrome version",
+      "last 3 firefox version",
+      "last 5 safari version"
+    ]
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "jsdom",
+    "extensionsToTreatAsEsm": [
+      ".ts",
+      ".tsx"
+    ],
+    "transform": {
+      "^.+\\.(t|j)sx?$": [
+        "ts-jest",
+        {
+          "useESM": true
+        }
+      ]
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!(prism-react-renderer)/)"
+    ],
+    "testMatch": [
+      "**/__tests__/**/*.[jt]s?(x)",
+      "**/?(*.)+(spec|test)?(.*).+(ts|tsx|js)"
+    ],
+    "collectCoverageFrom": [
+      "**/src/**/*.[jt]s?(x)"
+    ]
+  }
+}
