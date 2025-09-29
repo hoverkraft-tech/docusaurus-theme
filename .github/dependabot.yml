@@ -1,50 +1,46 @@
 version: 2
 
 updates:
-  - package-ecosystem: 'npm'
+  - package-ecosystem: "npm"
     open-pull-requests-limit: 20
-    directory: '/'
+    directory: "/"
     versioning-strategy: increase
     schedule:
-      interval: 'weekly'
+      interval: "weekly"
     groups:
       npm-docusaurus-dependencies:
         patterns:
-          - '@docusaurus/*'
-          - 'react'
-          - 'react-*'
-          - '@mdx-js/react'
-          - 'clsx'
-          - 'prism-react-renderer'
+          - "@docusaurus/*"
+          - "react"
+          - "react-*"
+          - "@mdx-js/react"
+          - "clsx"
+          - "prism-react-renderer"
       npm-development-dependencies:
-        dependency-type: 'development'
+        dependency-type: "development"
 
   - package-ecosystem: github-actions
     open-pull-requests-limit: 20
-    directory: '/'
+    directory: "/"
     schedule:
       interval: weekly
     groups:
       github-actions-dependencies:
         patterns:
-          - '*'
+          - "*"
 
-  - package-ecosystem: 'devcontainers'
+  - package-ecosystem: "devcontainers"
     open-pull-requests-limit: 20
-    directory: '/'
+    directory: "/"
     schedule:
       interval: weekly
-    groups:
-      devcontainers-dependencies:
-        patterns:
-          - '*'
 
-  - package-ecosystem: 'docker'
+  - package-ecosystem: "docker"
     open-pull-requests-limit: 20
-    directory: '/'
+    directory: "/"
     schedule:
-      interval: 'weekly'
+      interval: "weekly"
     groups:
       docker-dependencies:
         patterns:
-          - '*'
+          - "*"

@@ -10,22 +10,20 @@ include .env
 
 prepare: ## Prepare stack to run
 	npm install
-	cd docs && npm install
 
 start: ## Start application in dev mode
-	cd docs && npm run start
+	npm run docs:start
 
 lint: ## Run linters
 	npm run lint -- $(filter-out $@,$(MAKECMDGOALS))
 	$(call run_linter,)
 
 lint-fix: ## Run linters
-	npm run lint:fix
+	npm run lint:fix -- $(filter-out $@,$(MAKECMDGOALS))
 	$(MAKE) linter-fix
 
 build: ## Build libs and applications
 	npm run build
-	cd docs && npm run build
 
 ci: ## Run tests in CI mode
 	$(MAKE) prepare
@@ -37,6 +35,7 @@ linter-fix: ## Execute linting and fix
 		-e FIX_CSS_PRETTIER=true \
 		-e FIX_JSON_PRETTIER=true \
 		-e FIX_JAVASCRIPT_PRETTIER=true \
+		-e FIX_TYPESCRIPT_PRETTIER=true \
 		-e FIX_YAML_PRETTIER=true \
 		-e FIX_MARKDOWN=true \
 		-e FIX_MARKDOWN_PRETTIER=true \
@@ -51,7 +50,6 @@ define run_linter
 		-e DEFAULT_WORKSPACE="$$DEFAULT_WORKSPACE" \
 		-e FILTER_REGEX_INCLUDE="$(filter-out $@,$(MAKECMDGOALS))" \
 		-e IGNORE_GITIGNORED_FILES=true \
-		-e VALIDATE_TYPESCRIPT_PRETTIER=false \
 		-e VALIDATE_TYPESCRIPT_ES=false \
         -e VALIDATE_TSX=false \
         -e VALIDATE_CSS=false \

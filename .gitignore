@@ -1,16 +1,14 @@
 # Dependencies
 node_modules/
-docs/node_modules/
+packages/*/node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
 # Build output
-lib/
-dist/
-build/
-docs/build/
-docs/.docusaurus
+packages/theme/lib/
+packages/docs/build/
+packages/docs/.docusaurus
 
 # IDE
 .vscode/
