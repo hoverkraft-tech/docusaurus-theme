@@ -10,22 +10,20 @@ include .env
 
 prepare: ## Prepare stack to run
 	npm install
-	cd docs && npm install
 
 start: ## Start application in dev mode
-	cd docs && npm run start
+	npm run docs:start
 
 lint: ## Run linters
 	npm run lint -- $(filter-out $@,$(MAKECMDGOALS))
 	$(call run_linter,)
 
 lint-fix: ## Run linters
-	npm run lint:fix
+	npm run lint:fix -- $(filter-out $@,$(MAKECMDGOALS))
 	$(MAKE) linter-fix
 
 build: ## Build libs and applications
 	npm run build
-	cd docs && npm run build
 
 ci: ## Run tests in CI mode
 	$(MAKE) prepare
