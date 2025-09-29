@@ -3,7 +3,7 @@ name: Internal - Main - Continuous Integration
 on:
   push:
     branches: [main]
-    tags: ['*']
+    tags: ["*"]
 
 permissions:
   actions: read
@@ -46,9 +46,10 @@ jobs:
         with:
           name: package-tarball
           path: .
+
       - name: Publish CLI to npm
         run: |
-          npm publish hoverkraft-docusaurus-theme-*.tgz --provenance --access public --dry-run
+          npm publish hoverkraft-docusaurus-theme-*.tgz --provenance --access public --dry-run --latest
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -67,5 +68,5 @@ jobs:
       - id: deployment
         uses: hoverkraft-tech/ci-github-publish/actions/deploy/github-pages@42d50a3461a177557ca3f83b1d927d7c0783c894 # 0.11.2
         with:
-          build-path: docs/build
+          build-path: packages/docs/build
           build-artifact-name: build
