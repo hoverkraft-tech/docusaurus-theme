@@ -25,10 +25,14 @@ lint-fix: ## Run linters
 build: ## Build libs and applications
 	npm run build
 
+test: ## Run tests
+	npm run test:ci
+
 ci: ## Run tests in CI mode
 	$(MAKE) prepare
 	$(MAKE) lint-fix
 	$(MAKE) build
+	$(MAKE) test
 
 linter-fix: ## Execute linting and fix
 	$(call run_linter, \
