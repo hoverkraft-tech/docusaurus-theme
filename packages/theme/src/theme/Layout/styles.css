@@ -1,6 +1,11 @@
 /* Hoverkraft Theme Branding Styles */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto+Mono:wght@400;500;600;700&display=swap");
 
+/* Global smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   /* Hoverkraft Modern Color Palette */
   --hk-color-primary: #1998ff;
@@ -157,6 +162,11 @@
 .hoverkraft-logo__image {
   height: 32px;
   width: auto;
+  transition: transform 0.3s ease;
+}
+
+.hoverkraft-logo:hover .hoverkraft-logo__image {
+  transform: rotate(-5deg) scale(1.1);
 }
 
 .hoverkraft-logo--text .hoverkraft-logo__text {
@@ -166,6 +176,17 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 /* Enhanced link colors and focus states for accessibility */
