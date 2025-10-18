@@ -1,33 +1,79 @@
 /* Hoverkraft Theme Branding Styles */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto+Mono:wght@400;500;600;700&display=swap");
 
 :root {
-  /* Hoverkraft Color Palette */
-  --hk-color-primary: #007acc;
-  --hk-color-secondary: #6c757d;
-  --hk-color-accent: #ff6b35;
-  --hk-color-dark: #1a1a1a;
+  /* Hoverkraft Modern Color Palette */
+  --hk-color-primary: #1998ff;
+  --hk-color-secondary: #ff5a02;
+  --hk-color-accent: #ff5a02;
+  --hk-color-dark: #1d2026;
   --hk-color-light: #f8f9fa;
+  --hk-color-info: #00b3ff;
+  --hk-color-success: #00d663;
+  --hk-color-warning: #ffe671;
+  --hk-color-danger: #ff696d;
+  --hk-color-gray: #506690;
 
   /* Override Docusaurus default colors with Hoverkraft branding */
-  --ifm-color-primary: var(--hk-color-primary);
-  --ifm-color-primary-dark: #006bb3;
-  --ifm-color-primary-darker: #0066aa;
-  --ifm-color-primary-darkest: #005588;
-  --ifm-color-primary-light: #0088d4;
-  --ifm-color-primary-lighter: #0099ee;
-  --ifm-color-primary-lightest: #00aaff;
+  --ifm-color-primary: #1998ff;
+  --ifm-color-primary-dark: #0585e6;
+  --ifm-color-primary-darker: #0580db;
+  --ifm-color-primary-darkest: #046ab5;
+  --ifm-color-primary-light: #33abff;
+  --ifm-color-primary-lighter: #40b0ff;
+  --ifm-color-primary-lightest: #66c2ff;
 
   /* Secondary colors */
-  --ifm-color-secondary: var(--hk-color-secondary);
-  --ifm-color-info: var(--hk-color-primary);
-  --ifm-color-warning: var(--hk-color-accent);
+  --ifm-color-secondary: #ff5a02;
+  --ifm-color-info: #00b3ff;
+  --ifm-color-success: #00d663;
+  --ifm-color-warning: #ffe671;
+  --ifm-color-danger: #ff696d;
 
   /* Typography */
   --ifm-font-family-base:
-    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
-    "Cantarell", sans-serif;
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
   --ifm-font-family-monospace:
-    "JetBrains Mono", "Fira Code", "Consolas", "Monaco", "Courier New", monospace;
+    "Roboto Mono", "Monaco", "Consolas", "Courier New", monospace;
+  --ifm-code-font-size: 95%;
+
+  /* Background and surface colors */
+  --ifm-background-color: #ffffff;
+  --ifm-navbar-background-color: #ffffff;
+  --ifm-footer-background-color: #1d2026;
+  --ifm-footer-color: #ffffff;
+
+  /* Enhanced UI elements */
+  --ifm-navbar-shadow: 0 1px 3px rgba(29, 32, 38, 0.1);
+  --ifm-button-border-radius: 8px;
+  --docusaurus-highlighted-code-line-bg: rgba(25, 152, 255, 0.1);
+}
+
+/* Dark mode colors */
+[data-theme="dark"] {
+  --ifm-color-primary: #1998ff;
+  --ifm-color-primary-dark: #0585e6;
+  --ifm-color-primary-darker: #0580db;
+  --ifm-color-primary-darkest: #046ab5;
+  --ifm-color-primary-light: #33abff;
+  --ifm-color-primary-lighter: #40b0ff;
+  --ifm-color-primary-lightest: #66c2ff;
+
+  /* Dark theme background */
+  --ifm-background-color: #1d2026;
+  --ifm-background-surface-color: #252832;
+
+  /* Dark theme text */
+  --ifm-font-color-base: #ffffff;
+  --ifm-font-color-secondary: #506690;
+
+  /* Dark theme navbar */
+  --ifm-navbar-background-color: #252832;
+  --ifm-navbar-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+
+  /* Code highlighting for dark mode */
+  --docusaurus-highlighted-code-line-bg: rgba(25, 152, 255, 0.2);
 }
 
 .hoverkraft-theme {
@@ -41,36 +87,56 @@
 }
 
 .hoverkraft-header {
-  background-color: var(--hk-color-primary);
-  color: white;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  color: var(--hk-color-dark);
   padding: 1rem 2rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--ifm-navbar-shadow);
   display: flex;
   align-items: center;
   gap: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .hoverkraft-header {
+  background: rgba(37, 40, 50, 0.95);
+  color: white;
 }
 
 .hoverkraft-header h1 {
   margin: 0;
   font-size: 1.5rem;
   font-weight: 600;
+  background: linear-gradient(45deg, var(--hk-color-primary), var(--hk-color-secondary));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hoverkraft-main {
   flex: 1;
   padding: 2rem;
-  background-color: var(--hk-color-light);
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+}
+
+[data-theme="dark"] .hoverkraft-main {
+  background: linear-gradient(180deg, #1d2026 0%, #252832 100%);
 }
 
 /* Custom button styles with Hoverkraft branding */
 .button--primary {
-  background-color: var(--hk-color-primary);
-  border-color: var(--hk-color-primary);
+  background: linear-gradient(45deg, var(--hk-color-primary), var(--hk-color-secondary));
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(25, 152, 255, 0.3);
 }
 
 .button--primary:hover {
-  background-color: var(--ifm-color-primary-dark);
-  border-color: var(--ifm-color-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 25px rgba(25, 152, 255, 0.4);
 }
 
 /* Logo styles */
@@ -79,11 +145,13 @@
   align-items: center;
   text-decoration: none;
   color: inherit;
+  transition: all 0.3s ease;
 }
 
 .hoverkraft-logo:hover {
   text-decoration: none;
   color: inherit;
+  transform: scale(1.05);
 }
 
 .hoverkraft-logo__image {
@@ -94,7 +162,45 @@
 .hoverkraft-logo--text .hoverkraft-logo__text {
   font-size: 1.25rem;
   font-weight: 700;
+  background: linear-gradient(45deg, var(--hk-color-primary), var(--hk-color-secondary));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Enhanced link colors and focus states for accessibility */
+a {
+  color: var(--hk-color-primary);
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--hk-color-secondary);
+  text-decoration: none;
+}
+
+/* Accessibility: Enhanced focus states */
+button:focus,
+.button:focus,
+a:focus {
+  outline: 2px solid var(--hk-color-primary);
+  outline-offset: 2px;
+}
+
+/* Skip to content link for accessibility */
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--hk-color-primary);
   color: white;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  z-index: 100;
+}
+
+.skip-to-content:focus {
+  top: 0;
 }
 
 /* Responsive design */

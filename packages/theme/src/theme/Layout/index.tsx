@@ -50,14 +50,21 @@ export default function HoverkraftLayout(props: Props): JSX.Element {
       />
 
       <div className={containerClassName}>
+        {/* Skip to content link for accessibility */}
+        <a href="#main-content" className="skip-to-content">
+          Skip to main content
+        </a>
+
         <div className="hoverkraft-layout">
           {!noNavbar && (
-            <header className={cx("hoverkraft-header", "navbar")}>
+            <header className={cx("hoverkraft-header", "navbar")} role="banner">
               <HoverkraftLogo />
               <h1>{heading}</h1>
             </header>
           )}
-          <main className={mainClassName}>{children}</main>
+          <main id="main-content" className={mainClassName} role="main">
+            {children}
+          </main>
           {!noFooter && <HoverkraftFooter />}
         </div>
       </div>
