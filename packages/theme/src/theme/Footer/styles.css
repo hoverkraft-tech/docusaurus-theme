@@ -29,6 +29,26 @@
   z-index: 1;
 }
 
+.hoverkraft-footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hoverkraft-footer__logo {
+  height: 50px;
+  width: auto;
+  max-width: 200px;
+  transition: transform 0.3s ease;
+}
+
+/* Respect user motion preferences for logo animation */
+@media (prefers-reduced-motion: no-preference) {
+  .hoverkraft-footer__logo:hover {
+    transform: scale(1.05);
+  }
+}
+
 .hoverkraft-footer__section h4 {
   color: var(--hk-color-primary);
   margin-bottom: 1rem;
