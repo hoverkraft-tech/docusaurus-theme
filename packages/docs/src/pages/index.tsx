@@ -65,19 +65,19 @@ const colorSwatches = [
   {
     name: "Primary",
     token: "var(--ifm-color-primary)",
-    fallback: "#007acc",
+    fallback: "#1998ff",
     description: "Call-to-action buttons and highlights",
   },
   {
     name: "Secondary",
-    token: "var(--hk-color-secondary, #6c757d)",
-    fallback: "#6c757d",
+    token: "var(--hk-color-secondary, #ff5a02)",
+    fallback: "#ff5a02",
     description: "Navigation and supportive accents",
   },
   {
     name: "Accent",
-    token: "var(--hk-color-accent, #ff6b35)",
-    fallback: "#ff6b35",
+    token: "var(--hk-color-accent, #ff5a02)",
+    fallback: "#ff5a02",
     description: "Interactive elements and emphasis",
   },
 ];

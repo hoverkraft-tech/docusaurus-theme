@@ -1,8 +1,21 @@
 .hoverkraft-footer {
-  background: linear-gradient(135deg, var(--hk-color-dark) 0%, #000 100%);
+  background: linear-gradient(135deg, #1d2026 0%, #252832 100%);
   color: var(--hk-color-light);
-  padding: 2rem 0;
+  padding: 3rem 0 1.5rem;
   border-top: 3px solid var(--hk-color-primary);
+  position: relative;
+}
+
+.hoverkraft-footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="0.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  opacity: 0.3;
+  pointer-events: none;
 }
 
 .hoverkraft-footer__content {
@@ -12,6 +25,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
+  position: relative;
+  z-index: 1;
 }
 
 .hoverkraft-footer__section h4 {
@@ -24,7 +39,7 @@
 .hoverkraft-footer__section p {
   margin-bottom: 0.5rem;
   color: rgba(248, 249, 250, 0.8);
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .hoverkraft-footer__links {
@@ -40,18 +55,27 @@
 .hoverkraft-footer__links a {
   color: rgba(248, 249, 250, 0.8);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: all 0.3s ease;
+  display: inline-block;
 }
 
 .hoverkraft-footer__links a:hover {
   color: var(--hk-color-primary);
+  transform: translateX(4px);
+}
+
+.hoverkraft-footer__links a:focus {
+  outline: 2px solid var(--hk-color-primary);
+  outline-offset: 2px;
 }
 
 .hoverkraft-footer__bottom {
   border-top: 1px solid rgba(248, 249, 250, 0.1);
   margin-top: 2rem;
-  padding-top: 1rem;
+  padding-top: 1.5rem;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 .hoverkraft-footer__bottom p {
@@ -62,7 +86,7 @@
 
 @media (max-width: 768px) {
   .hoverkraft-footer {
-    padding: 1.5rem 0;
+    padding: 2rem 0 1rem;
   }
 
   .hoverkraft-footer__content {
