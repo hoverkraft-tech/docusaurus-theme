@@ -17,9 +17,8 @@ const FeatureList: FeatureItem[] = [
     emoji: "🎨",
     description: (
       <>
-        Fully own the visual identity of your documentation with curated color
-        palettes, typography scales, and polished spacing tokens that make every
-        page look editorial-ready.
+        Fully own the visual identity of your documentation with curated color palettes, typography
+        scales, and polished spacing tokens that make every page look editorial-ready.
       </>
     ),
   },
@@ -28,9 +27,8 @@ const FeatureList: FeatureItem[] = [
     emoji: "🧱",
     description: (
       <>
-        Ship faster with Layout, Logo, and Footer components that balance
-        personality and usability. Every piece is theme-able, accessible, and
-        ready to extend.
+        Ship faster with Layout, Logo, and Footer components that balance personality and usability.
+        Every piece is theme-able, accessible, and ready to extend.
       </>
     ),
   },
@@ -39,9 +37,8 @@ const FeatureList: FeatureItem[] = [
     emoji: "⚡️",
     description: (
       <>
-        Built on the latest Docusaurus 3 stack with TypeScript definitions,
-        automated validation, and thoughtful defaults so you can iterate with
-        confidence.
+        Built on the latest Docusaurus 3 stack with TypeScript definitions, automated validation,
+        and thoughtful defaults so you can iterate with confidence.
       </>
     ),
   },
@@ -116,26 +113,17 @@ export default function Home(): JSX.Element {
       <main>
         <section className={clsx(styles.section, styles.heroBanner)}>
           <div className={styles.heroContent}>
-            <h1 className={styles.heroTitle}>
-              Hoverkraft Theme for Docusaurus
-            </h1>
+            <h1 className={styles.heroTitle}>Hoverkraft Theme for Docusaurus</h1>
             <p className={styles.heroSubtitle}>
-              Craft documentation that feels premium out-of-the-box. The
-              Hoverkraft theme blends an opinionated visual system with
-              pragmatic components that stay out of your way and let your
-              content shine.
+              Craft documentation that feels premium out-of-the-box. The Hoverkraft theme blends an
+              opinionated visual system with pragmatic components that stay out of your way and let
+              your content shine.
             </p>
             <div className={styles.heroButtons}>
-              <Link
-                className="button button--primary button--lg"
-                to="/docs/getting-started"
-              >
+              <Link className="button button--primary button--lg" to="/docs/getting-started">
                 Start building
               </Link>
-              <Link
-                className="button button--secondary button--lg"
-                to="/docs/components/layout"
-              >
+              <Link className="button button--secondary button--lg" to="/docs/components/layout">
                 Explore components
               </Link>
               <Link className="button button--outline button--lg" to="/blog">
@@ -147,13 +135,10 @@ export default function Home(): JSX.Element {
 
         <section className={styles.section}>
           <div className="container">
-            <h2 className={styles.sectionTitle}>
-              Everything your docs need to stand out
-            </h2>
+            <h2 className={styles.sectionTitle}>Everything your docs need to stand out</h2>
             <p className={styles.sectionSubtitle}>
-              We distilled years of product storytelling into a reusable design
-              system that works for launches, integrations, and long-form
-              documentation.
+              We distilled years of product storytelling into a reusable design system that works
+              for launches, integrations, and long-form documentation.
             </p>
             <div className={styles.features}>
               {FeatureList.map((props) => (
@@ -167,9 +152,8 @@ export default function Home(): JSX.Element {
           <div className="container">
             <h2 className={styles.sectionTitle}>Color system ready to remix</h2>
             <p className={styles.sectionSubtitle}>
-              Update three CSS variables and the entire site adapts—from hero
-              gradients to code blocks and footers—while respecting
-              accessibility contrast ratios.
+              Update three CSS variables and the entire site adapts—from hero gradients to code
+              blocks and footers—while respecting accessibility contrast ratios.
             </p>
             <div className={styles.palette}>
               {colorSwatches.map((swatch) => (
@@ -191,46 +175,32 @@ export default function Home(): JSX.Element {
           <div className="container">
             <h2 className={styles.sectionTitle}>Built for modern teams</h2>
             <p className={styles.sectionSubtitle}>
-              Every detail—from TypeScript support to content structure—was
-              designed to keep teams shipping purposeful, consistent
-              documentation.
+              Every detail—from TypeScript support to content structure—was designed to keep teams
+              shipping purposeful, consistent documentation.
             </p>
             <div className={styles.integrationList}>
               {integrationHighlights.map(({ title, copy }) => (
                 <div key={title} className={styles.integrationCard}>
-                  <h3 style={{ marginBottom: "0.5rem", fontSize: "1.1rem" }}>
-                    {title}
-                  </h3>
+                  <h3 style={{ marginBottom: "0.5rem", fontSize: "1.1rem" }}>{title}</h3>
                   <p style={{ margin: 0 }}>{copy}</p>
                 </div>
               ))}
             </div>
             <div className={styles.callout}>
-              <h3 className={styles.calloutTitle}>
-                Ready to bring Hoverkraft to your docs?
-              </h3>
+              <h3 className={styles.calloutTitle}>Ready to bring Hoverkraft to your docs?</h3>
               <p>
-                Follow the installation guide, wire up the theme config, and
-                customize the layout in minutes. We included live examples,
-                copy-ready snippets, and a migration path for existing sites.
+                Follow the installation guide, wire up the theme config, and customize the layout in
+                minutes. We included live examples, copy-ready snippets, and a migration path for
+                existing sites.
               </p>
               <div className={styles.calloutButtons}>
-                <Link
-                  className="button button--primary button--lg"
-                  to="/docs/installation"
-                >
+                <Link className="button button--primary button--lg" to="/docs/installation">
                   Install the theme
                 </Link>
-                <Link
-                  className="button button--secondary button--lg"
-                  to="/docs/configuration"
-                >
+                <Link className="button button--secondary button--lg" to="/docs/configuration">
                   Configure Hoverkraft
                 </Link>
-                <Link
-                  className="button button--outline button--lg"
-                  to="/docs/migration"
-                >
+                <Link className="button button--outline button--lg" to="/docs/migration">
                   Migrate an existing site
                 </Link>
               </div>
