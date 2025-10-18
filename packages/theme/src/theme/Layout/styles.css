@@ -1,9 +1,11 @@
 /* Hoverkraft Theme Branding Styles */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Roboto+Mono:wght@400;500;600;700&display=swap");
 
-/* Global smooth scrolling */
-html {
-  scroll-behavior: smooth;
+/* Global smooth scrolling - respecting user preferences */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 :root {
@@ -177,7 +179,13 @@ html {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 200% 200%;
-  animation: gradient-shift 3s ease infinite;
+}
+
+/* Respect user motion preferences for animations */
+@media (prefers-reduced-motion: no-preference) {
+  .hoverkraft-logo--text .hoverkraft-logo__text {
+    animation: gradient-shift 3s ease infinite;
+  }
 }
 
 @keyframes gradient-shift {

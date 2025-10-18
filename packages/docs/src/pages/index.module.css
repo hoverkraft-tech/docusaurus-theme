@@ -53,14 +53,23 @@
   font-size: clamp(2.75rem, 5vw, 4rem);
   margin-bottom: 1.5rem;
   letter-spacing: -0.04em;
-  animation: fadeInUp 0.6s ease-out backwards;
 }
 
 .heroSubtitle {
   font-size: clamp(1.2rem, 2.5vw, 1.6rem);
   margin-bottom: 2rem;
   color: rgba(255, 255, 255, 0.92);
-  animation: fadeInUp 0.7s ease-out 0.1s backwards;
+}
+
+/* Respect user motion preferences for animations */
+@media (prefers-reduced-motion: no-preference) {
+  .heroTitle {
+    animation: fadeInUp 0.6s ease-out backwards;
+  }
+
+  .heroSubtitle {
+    animation: fadeInUp 0.7s ease-out 0.1s backwards;
+  }
 }
 
 .heroButtons {
@@ -68,7 +77,6 @@
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
-  animation: fadeInUp 0.8s ease-out 0.3s backwards;
 }
 
 .heroButtons a {
@@ -78,6 +86,13 @@
 
 .heroButtons a:hover {
   transform: translateY(-2px);
+}
+
+/* Respect user motion preferences for animations */
+@media (prefers-reduced-motion: no-preference) {
+  .heroButtons {
+    animation: fadeInUp 0.8s ease-out 0.3s backwards;
+  }
 }
 
 .section {
@@ -112,7 +127,6 @@
     box-shadow 0.3s ease,
     border-color 0.3s ease;
   background: var(--ifm-color-content-secondary, #ffffff);
-  animation: fadeInUp 0.6s ease-out backwards;
 }
 
 [data-theme="dark"] .featureCard {
@@ -126,16 +140,23 @@
   border-color: #1998ff;
 }
 
-.featureCard:nth-child(1) {
-  animation-delay: 0.1s;
-}
+/* Respect user motion preferences for animations */
+@media (prefers-reduced-motion: no-preference) {
+  .featureCard {
+    animation: fadeInUp 0.6s ease-out backwards;
+  }
 
-.featureCard:nth-child(2) {
-  animation-delay: 0.2s;
-}
+  .featureCard:nth-child(1) {
+    animation-delay: 0.1s;
+  }
 
-.featureCard:nth-child(3) {
-  animation-delay: 0.3s;
+  .featureCard:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .featureCard:nth-child(3) {
+    animation-delay: 0.3s;
+  }
 }
 
 @keyframes fadeInUp {
@@ -175,24 +196,31 @@
   overflow: hidden;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
   transition: all 0.3s ease;
-  animation: fadeInUp 0.6s ease-out backwards;
-}
-
-.swatch:nth-child(1) {
-  animation-delay: 0.1s;
-}
-
-.swatch:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.swatch:nth-child(3) {
-  animation-delay: 0.3s;
+  will-change: transform;
 }
 
 .swatch:hover {
   transform: translateY(-4px) scale(1.02);
   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Respect user motion preferences for animations */
+@media (prefers-reduced-motion: no-preference) {
+  .swatch {
+    animation: fadeInUp 0.6s ease-out backwards;
+  }
+
+  .swatch:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+
+  .swatch:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .swatch:nth-child(3) {
+    animation-delay: 0.3s;
+  }
 }
 
 .swatch span {
