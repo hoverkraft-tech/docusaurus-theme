@@ -42,12 +42,7 @@ export default function HoverkraftLayout(props: Props): JSX.Element {
 
   return (
     <LayoutProvider>
-      <PageMetadata
-        title={title}
-        description={description}
-        keywords={keywords}
-        image={image}
-      />
+      <PageMetadata title={title} description={description} keywords={keywords} image={image} />
 
       <div className={containerClassName}>
         {/* Skip to content link for accessibility */}

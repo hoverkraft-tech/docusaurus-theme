@@ -38,10 +38,9 @@
 
   /* Typography */
   --ifm-font-family-base:
-    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
-  --ifm-font-family-monospace:
-    "Roboto Mono", "Monaco", "Consolas", "Courier New", monospace;
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  --ifm-font-family-monospace: "Roboto Mono", "Monaco", "Consolas", "Courier New", monospace;
   --ifm-code-font-size: 95%;
 
   /* Background and text colors */
