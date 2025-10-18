@@ -1,10 +1,5 @@
 :root {
-  --homepage-hero-gradient: linear-gradient(
-    135deg,
-    #1d2026 0%,
-    #506690 50%,
-    #1998ff 100%
-  );
+  --homepage-hero-gradient: linear-gradient(135deg, #1d2026 0%, #506690 50%, #1998ff 100%);
 }
 
 .heroBanner {
