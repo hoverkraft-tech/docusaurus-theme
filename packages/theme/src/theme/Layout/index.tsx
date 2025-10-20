@@ -44,7 +44,7 @@ export default function HoverkraftLayout(props: Props): JSX.Element {
     <LayoutProvider>
       <PageMetadata title={title} description={description} keywords={keywords} image={image} />
 
-      <div className={containerClassName}>
+      <div className={containerClassName} lang="en">
         {/* Skip to content link for accessibility */}
         <a href="#main-content" className="skip-to-content">
           Skip to main content
@@ -54,10 +54,10 @@ export default function HoverkraftLayout(props: Props): JSX.Element {
           {!noNavbar && (
             <header className={cx("hoverkraft-header", "navbar")} role="banner">
               <HoverkraftLogo />
-              <h1>{heading}</h1>
+              <h1 id="page-title">{heading}</h1>
             </header>
           )}
-          <main id="main-content" className={mainClassName} role="main">
+          <main id="main-content" className={mainClassName} role="main" aria-labelledby="page-title">
             {children}
           </main>
           {!noFooter && <HoverkraftFooter />}
