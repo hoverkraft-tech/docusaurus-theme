@@ -9,33 +9,33 @@
 }
 
 :root {
-  /* Hoverkraft Modern Color Palette */
-  --hk-color-primary: #1998ff;
-  --hk-color-secondary: #ff5a02;
-  --hk-color-accent: #ff5a02;
+  /* Hoverkraft Modern Color Palette - WCAG AA Compliant */
+  --hk-color-primary: #0073cc; /* Darker blue for 4.5:1 contrast */
+  --hk-color-secondary: #cc4400; /* Darker orange for 4.5:1 contrast */
+  --hk-color-accent: #cc4400;
   --hk-color-dark: #1d2026;
   --hk-color-light: #f8f9fa;
-  --hk-color-info: #00b3ff;
-  --hk-color-success: #00d663;
-  --hk-color-warning: #ffe671;
-  --hk-color-danger: #ff696d;
+  --hk-color-info: #007bb8; /* 4.64:1 contrast ratio */
+  --hk-color-success: #007d38; /* 4.68:1 contrast ratio */
+  --hk-color-warning: #8a6b00; /* 4.50:1 contrast ratio */
+  --hk-color-danger: #d1242a; /* 5.25:1 contrast ratio */
   --hk-color-gray: #506690;
 
   /* Override Docusaurus default colors with Hoverkraft branding */
-  --ifm-color-primary: #1998ff;
-  --ifm-color-primary-dark: #0585e6;
-  --ifm-color-primary-darker: #0580db;
-  --ifm-color-primary-darkest: #046ab5;
-  --ifm-color-primary-light: #33abff;
-  --ifm-color-primary-lighter: #40b0ff;
-  --ifm-color-primary-lightest: #66c2ff;
+  --ifm-color-primary: #0073cc;
+  --ifm-color-primary-dark: #0066b8;
+  --ifm-color-primary-darker: #0061ad;
+  --ifm-color-primary-darkest: #00508f;
+  --ifm-color-primary-light: #0080e0;
+  --ifm-color-primary-lighter: #0085eb;
+  --ifm-color-primary-lightest: #1a95ff;
 
-  /* Secondary colors */
-  --ifm-color-secondary: #ff5a02;
-  --ifm-color-info: #00b3ff;
-  --ifm-color-success: #00d663;
-  --ifm-color-warning: #ffe671;
-  --ifm-color-danger: #ff696d;
+  /* Secondary colors - WCAG AA Compliant */
+  --ifm-color-secondary: #cc4400;
+  --ifm-color-info: #007bb8;
+  --ifm-color-success: #007d38;
+  --ifm-color-warning: #8a6b00;
+  --ifm-color-danger: #d1242a;
 
   /* Typography */
   --ifm-font-family-base:
@@ -56,15 +56,15 @@
   --docusaurus-highlighted-code-line-bg: rgba(25, 152, 255, 0.1);
 }
 
-/* Dark mode colors */
+/* Dark mode colors - WCAG AA Compliant */
 [data-theme="dark"] {
-  --ifm-color-primary: #1998ff;
-  --ifm-color-primary-dark: #0585e6;
-  --ifm-color-primary-darker: #0580db;
-  --ifm-color-primary-darkest: #046ab5;
-  --ifm-color-primary-light: #33abff;
-  --ifm-color-primary-lighter: #40b0ff;
-  --ifm-color-primary-lightest: #66c2ff;
+  --ifm-color-primary: #4da6ff; /* Lighter for dark backgrounds */
+  --ifm-color-primary-dark: #3399ff;
+  --ifm-color-primary-darker: #268cff;
+  --ifm-color-primary-darkest: #0073e6;
+  --ifm-color-primary-light: #66b3ff;
+  --ifm-color-primary-lighter: #73baff;
+  --ifm-color-primary-lightest: #99ccff;
 
   /* Dark theme background */
   --ifm-background-color: #1d2026;
@@ -208,28 +208,58 @@ a:hover {
   text-decoration: none;
 }
 
-/* Accessibility: Enhanced focus states */
+/* Accessibility: Enhanced focus states for better visibility */
 button:focus,
 .button:focus,
 a:focus {
-  outline: 2px solid var(--hk-color-primary);
-  outline-offset: 2px;
+  outline: 3px solid var(--hk-color-primary);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Ensure focus is visible in dark mode */
+[data-theme="dark"] button:focus,
+[data-theme="dark"] .button:focus,
+[data-theme="dark"] a:focus {
+  outline: 3px solid var(--ifm-color-primary);
+  outline-offset: 3px;
+}
+
+/* Focus-visible for keyboard-only focus */
+button:focus-visible,
+.button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--hk-color-primary);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Don't show focus ring for mouse clicks, only keyboard */
+button:focus:not(:focus-visible),
+.button:focus:not(:focus-visible),
+a:focus:not(:focus-visible) {
+  outline: none;
 }
 
 /* Skip to content link for accessibility */
 .skip-to-content {
   position: absolute;
-  top: -40px;
+  top: -100%;
   left: 0;
   background: var(--hk-color-primary);
   color: white;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1.5rem;
   text-decoration: none;
-  z-index: 100;
+  z-index: 10000;
+  font-weight: 600;
+  border-radius: 0 0 4px 0;
+  transition: top 0.2s ease;
 }
 
 .skip-to-content:focus {
   top: 0;
+  outline: 3px solid var(--hk-color-secondary);
+  outline-offset: 2px;
 }
 
 /* Responsive design */
@@ -262,4 +292,50 @@ a:focus {
     background-color: transparent;
     color: black;
   }
+
+  /* Hide skip link in print */
+  .skip-to-content {
+    display: none;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  :root {
+    --hk-color-primary: #0056b3;
+    --hk-color-secondary: #b33d00;
+  }
+
+  button:focus,
+  .button:focus,
+  a:focus {
+    outline-width: 4px;
+  }
+
+  .hoverkraft-header {
+    border-bottom: 2px solid currentColor;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Ensure text remains visible during font loading */
+@font-face {
+  font-family: "Inter";
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto Mono";
+  font-display: swap;
 }

@@ -58,8 +58,12 @@
 
 .hoverkraft-footer__section p {
   margin-bottom: 0.5rem;
-  color: rgba(248, 249, 250, 0.8);
+  color: rgba(248, 249, 250, 0.9);
   line-height: 1.6;
+}
+
+.hoverkraft-footer__description {
+  color: rgba(248, 249, 250, 0.9);
 }
 
 .hoverkraft-footer__links {
@@ -85,8 +89,19 @@
 }
 
 .hoverkraft-footer__links a:focus {
-  outline: 2px solid var(--hk-color-primary);
-  outline-offset: 2px;
+  outline: 3px solid var(--hk-color-primary);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Focus-visible for keyboard-only focus */
+.hoverkraft-footer__links a:focus-visible {
+  outline: 3px solid var(--hk-color-primary);
+  outline-offset: 3px;
+}
+
+.hoverkraft-footer__links a:focus:not(:focus-visible) {
+  outline: none;
 }
 
 .hoverkraft-footer__bottom {
