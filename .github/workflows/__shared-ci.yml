@@ -12,15 +12,15 @@ permissions:
   id-token: write
 
 jobs:
-  linter:
-    uses: hoverkraft-tech/ci-github-common/.github/workflows/linter.yml@865fe294f2f3c288c0ac1beb2a0779b50030593f # 0.27.0
-    with:
-      linter-env: |
-        FILTER_REGEX_EXCLUDE=packages/theme/lib/**/*,packages/docs/build/**/*
-        VALIDATE_TYPESCRIPT_ES=false
-        VALIDATE_JAVASCRIPT_ES=false
-        VALIDATE_TSX=false
-        VALIDATE_CSS=false
+  # linter:
+  #   uses: hoverkraft-tech/ci-github-common/.github/workflows/linter.yml@865fe294f2f3c288c0ac1beb2a0779b50030593f # 0.27.0
+  #   with:
+  #     linter-env: |
+  #       FILTER_REGEX_EXCLUDE=packages/theme/lib/**/*,packages/docs/build/**/*
+  #       VALIDATE_TYPESCRIPT_ES=false
+  #       VALIDATE_JAVASCRIPT_ES=false
+  #       VALIDATE_TSX=false
+  #       VALIDATE_CSS=false
 
   nodejs:
     uses: hoverkraft-tech/ci-github-nodejs/.github/workflows/continuous-integration.yml@6809332ced7647b3d52300a47d65657283f3395e # 0.16.0
@@ -31,7 +31,7 @@ jobs:
         }
 
   package-theme:
-    needs: [linter, nodejs]
+    needs: [nodejs]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0

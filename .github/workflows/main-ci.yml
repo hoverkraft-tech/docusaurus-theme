@@ -64,9 +64,18 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.url }}
+    outputs:
+      page-url: ${{ steps.deployment.outputs.url }}
     steps:
       - id: deployment
         uses: hoverkraft-tech/ci-github-publish/actions/deploy/github-pages@42d50a3461a177557ca3f83b1d927d7c0783c894 # 0.11.2
         with:
           build-path: packages/docs/build
           build-artifact-name: build
+
+  deploy-checks:
+    name: Deploy Checks
+    needs: deploy
+    uses: hoverkraft-tech/ci-github-publish/.github/workflows/deploy-checks.yml@feat/add-deploy-checks-workflow
+    with:
+      url: ${{ needs.deploy.outputs.page-url }}
