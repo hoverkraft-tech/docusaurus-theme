@@ -76,6 +76,6 @@ jobs:
   deploy-checks:
     name: Deploy Checks
     needs: deploy
-    uses: hoverkraft-tech/ci-github-publish/.github/workflows/deploy-checks.yml@feat/add-deploy-checks-workflow
+    uses: hoverkraft-tech/ci-github-publish/.github/workflows/deploy-checks.yml@444e9ffa1cb512752953c411181e68880dee2d70 # 0.12.0
     with:
       url: ${{ needs.deploy.outputs.page-url }}
