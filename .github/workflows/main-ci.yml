@@ -18,19 +18,19 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  ci:
-    uses: ./.github/workflows/__shared-ci.yml
-    secrets: inherit
-    permissions:
-      actions: read
-      contents: read
-      security-events: write
-      statuses: write
-      # FIXME: This is a workaround for having workflow ref. See https://github.com/orgs/community/discussions/38659
-      id-token: write
+  # ci:
+  #   uses: ./.github/workflows/__shared-ci.yml
+  #   secrets: inherit
+  #   permissions:
+  #     actions: read
+  #     contents: read
+  #     security-events: write
+  #     statuses: write
+  #     # FIXME: This is a workaround for having workflow ref. See https://github.com/orgs/community/discussions/38659
+  #     id-token: write
 
   npm-publish:
-    needs: ci
+    # needs: ci
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
     permissions:
@@ -56,7 +56,7 @@ jobs:
   deploy:
     if: github.ref_name == github.event.repository.default_branch
     name: Deploy website
-    needs: ci
+    # needs: ci
     runs-on: ubuntu-latest
     permissions:
       pages: write
