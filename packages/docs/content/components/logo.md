@@ -19,19 +19,6 @@ The Hoverkraft Logo component:
 
 The logo is **not configurable** and always renders the official Hoverkraft SVG to ensure consistent brand identity across all Hoverkraft documentation projects.
 
-## Implementation
-
-The logo component automatically renders the SVG provided by your bundler. When the loader returns a React component (the default for Docusaurus/Webpack), the SVG is inlined; otherwise the theme falls back to an `<img>` tag:
-
-```jsx
-<a href="/" className="hoverkraft-logo hoverkraft-logo--image" aria-label="Hoverkraft Home">
-  {/* Inline SVG component */}
-  <svg className="hoverkraft-logo__image" focusable="false" aria-hidden="true" />
-  {/* Fallback when a URL string is emitted */}
-  <img className="hoverkraft-logo__image" src="/path/to/logo.svg" alt="" />
-</a>
-```
-
 ## Styling
 
 ### Brand Consistency

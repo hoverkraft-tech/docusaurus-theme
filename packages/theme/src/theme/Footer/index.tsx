@@ -1,4 +1,7 @@
 import "./styles.css";
+
+import Link from "@docusaurus/Link";
+
 import HoverkraftLogo from "../Logo";
 
 type FooterLink = {
@@ -33,7 +36,6 @@ export default function HoverkraftFooter(): JSX.Element {
         <div className="hoverkraft-footer__section hoverkraft-footer__brand">
           <div className="hoverkraft-footer__brand-mark">
             <HoverkraftLogo />
-            <span className="hoverkraft-footer__brand-name">Hoverkraft</span>
           </div>
           <p className="hoverkraft-footer__description">Building the future of technology.</p>
         </div>
@@ -48,7 +50,7 @@ export default function HoverkraftFooter(): JSX.Element {
             <ul className="hoverkraft-footer__links">
               {section.links.map((link) => (
                 <li key={link.href} aria-label={link.label}>
-                  <a href={link.href}>{link.label}</a>
+                  <Link href={link.href}>{link.label}</Link>
                 </li>
               ))}
             </ul>
