@@ -4,132 +4,43 @@ sidebar_position: 1
 
 # Layout Component
 
-The Layout component is the main wrapper for all pages in your Docusaurus site.
+The Hoverkraft theme inherits the implementation of layout behavior from `@docusaurus/theme-classic`. Hoverkraft provides CSS overrides and a packaged `Layout` component in the theme; however, the theme is intentionally CSS-first and prefers styling via variables and class names.
 
-## Overview
+## Key points
 
-The Hoverkraft Layout component provides:
+- The Layout markup shipped with the theme provides the standard header, main content area, and footer.
+- Visual styling is applied via CSS custom properties and theme style sheet overrides. The recommended way to customize visual appearance is via `src/css/custom.css` in your site.
 
-- **Consistent structure** across all pages
-- **Responsive design** that adapts to different screen sizes
-- **Branding integration** with Hoverkraft colors and styling
-- **Dynamic theme application** based on configuration
+## What is configurable
 
-## Features
+- Color and spacing tweaks: use CSS variables such as `--ifm-color-primary` or the Hoverkraft-specific `--hk-color-primary`.
+- Dark mode: the theme supports dark mode by delegating to `@docusaurus/theme-classic`'s color mode handling.
 
-### Responsive Design
+## How to customize structure or behavior
 
-The layout automatically adapts to different screen sizes with:
+1. Small visual changes: add CSS rules to your site `src/css/custom.css`.
 
-- **Mobile-first approach** for optimal mobile experience
-- **Flexible header** that adjusts to content
-- **Responsive spacing** and typography
-- **Touch-friendly navigation** on mobile devices
+2. Structural or behavioral changes: swizzle the `Layout` component.
 
-### Theme Integration
+   ```bash
+   npx docusaurus swizzle @hoverkraft/docusaurus-theme Layout --typescript
+   ```
 
-The layout component:
+   Keep in mind that swizzling creates a copy of the component in your project and you will need to maintain compatibility with theme updates.
 
-- **Applies custom colors** from theme configuration
-- **Sets CSS custom properties** for consistent theming
-- **Integrates with other components** like Footer and Logo
-- **Supports dark mode** (when available)
+## CSS classes and variables you can target
 
-## Implementation Details
+Useful classes:
 
-The Layout component wraps your content with:
+- `.navbar`, `.navbar__brand`, `.navbar__logo`
+- `.main-wrapper`, `.main-wrapper main`
+- `.footer`, `.footer__inner`, `.footer__title`
 
-```jsx
-<div className="hoverkraft-theme">
-  <div className="hoverkraft-layout">
-    <header className="hoverkraft-header">{/* Logo and navigation */}</header>
-    <main className="hoverkraft-main">{/* Your page content */}</main>
-    <HoverkraftFooter />
-  </div>
-</div>
-```
+Useful variables:
 
-### CSS Classes
+- `--ifm-color-primary`, `--ifm-color-secondary` (Infima / Docusaurus variables)
+- `--hk-color-primary`, `--hk-color-secondary` (Hoverkraft branding variables)
 
-The layout provides several CSS classes you can target for customization:
+## Accessibility
 
-| Class                | Description           |
-| -------------------- | --------------------- |
-| `.hoverkraft-theme`  | Root theme wrapper    |
-| `.hoverkraft-layout` | Main layout container |
-| `.hoverkraft-header` | Header section        |
-| `.hoverkraft-main`   | Main content area     |
-
-### Custom Properties
-
-The layout sets CSS custom properties that you can use throughout your site:
-
-| Property               | Description           |
-| ---------------------- | --------------------- |
-| `--hk-color-primary`   | Primary theme color   |
-| `--hk-color-secondary` | Secondary theme color |
-| `--hk-color-accent`    | Accent theme color    |
-
-## Customization
-
-### Overriding Styles
-
-You can customize the layout by adding CSS to your custom style sheet:
-
-```css title="src/css/custom.css"
-/* Customize header */
-.hoverkraft-header {
-  background: linear-gradient(45deg, #007acc, #0088d4);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-/* Customize main content area */
-.hoverkraft-main {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-}
-
-/* Add custom spacing */
-.hoverkraft-layout {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-```
-
-### Mobile Customization
-
-Target mobile devices specifically:
-
-```css title="src/css/custom.css"
-@media (max-width: 768px) {
-  .hoverkraft-header {
-    padding: 0.5rem 1rem;
-  }
-
-  .hoverkraft-main {
-    padding: 1rem 0.5rem;
-  }
-}
-```
-
-## Advanced Usage
-
-### Extending the Layout
-
-For advanced customization, you can swizzle the Layout component:
-
-```bash
-npx docusaurus swizzle @hoverkraft/docusaurus-theme Layout --typescript
-```
-
-This creates a copy of the Layout component in your project that you can modify directly.
-
-:::warning
-Swizzling components means you'll need to maintain compatibility with theme updates manually.
-:::
-
-### Integration with Other Themes
-
-The Hoverkraft theme is designed to work alongside other Docusaurus themes and plugins. It applies its styling through CSS custom properties and specific class names to avoid conflicts.
+The theme follows Docusaurus accessibility patterns. When you make changes, preserve focus outlines and semantic structure.

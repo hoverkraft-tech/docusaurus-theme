@@ -4,95 +4,31 @@ sidebar_position: 2
 
 # Footer Component
 
-The Footer component provides a professional, multi-section footer with enforced Hoverkraft branding.
+The Hoverkraft theme provides a footer component with fixed structure and branding. The theme focuses on CSS-driven styling and ships the footer markup with the packaged theme.
 
-## Overview
+## Key points
 
-The Hoverkraft Footer component features:
+- The footer is part of the packaged theme and is not exposed as a configurable component via theme options.
+- You can change visual appearance by overriding CSS in your site `src/css/custom.css`, or by swizzling the `Footer` component for deeper structural changes.
 
-- **Fixed branding elements** from the [Hoverkraft Branding Guidelines](https://github.com/hoverkraft-tech/branding)
-- **Responsive design** that stacks appropriately on mobile devices
-- **Professional styling** with consistent colors and typography
-- **Standard sections** for company information and resources
+## Static assets
 
-## Fixed Structure
+The theme includes footer assets (icons and SVGs) in its static folder; these are copied to the published `lib/` output during the theme build and served at `/docusaurus-theme/img/`.
 
-The footer structure is standardized and cannot be customized:
+## Customization
 
-### Company Section
+1. CSS overrides
 
-- **Hoverkraft branding** and official messaging
-- **Company description** per branding guidelines
-- **Consistent brand positioning**
+   Add rules to your site `src/css/custom.css` to tweak colors, spacing, or typography. Target CSS classes such as `.footer`, `.footer__inner`, `.footer__title`, and `.footer__link-item`.
 
-### Resources Section
+2. Swizzle Footer for structural changes
 
-- **Documentation links** for site navigation
-- **Community and support** links
-- **Standard resource** categories
+   ```bash
+   npx docusaurus swizzle @hoverkraft/docusaurus-theme Footer --typescript
+   ```
 
-### Company Information
+   After swizzling you are responsible for keeping the component compatible with future theme updates.
 
-- **About and contact** information
-- **Legal and policy** links
-- **Standard company** pages
+## Accessibility
 
-All content and styling follows the specifications in the [Hoverkraft Branding Repository](https://github.com/hoverkraft-tech/branding).
-
-## Styling Features
-
-### Visual Design
-
-- **Gradient background** from dark to black
-- **Primary color accent** border at the top
-- **Grid layout** that adapts to screen size
-- **Hover effects** on all links
-
-### Typography
-
-- **Consistent font weights** and sizing
-- **Color hierarchy** for better readability
-- **Proper spacing** between sections
-
-## Responsive Behavior
-
-### Desktop Layout
-
-- **Three-column grid** with equal spacing
-- **Full-width sections** with proper margins
-- **Hover effects** and animations
-
-### Mobile Layout
-
-- **Single-column stack** for better readability
-- **Reduced padding** for mobile spacing
-- **Touch-friendly links** with larger tap targets
-
-### Tablet Layout
-
-- **Two-column grid** that adapts content
-- **Balanced spacing** between sections
-- **Maintained readability** at medium sizes
-
-## CSS Classes Reference
-
-| Class                         | Description                 |
-| ----------------------------- | --------------------------- |
-| `.hoverkraft-footer`          | Main footer container       |
-| `.hoverkraft-footer__content` | Grid container for sections |
-| `.hoverkraft-footer__section` | Individual footer section   |
-| `.hoverkraft-footer__links`   | Link list within sections   |
-| `.hoverkraft-footer__bottom`  | Copyright/bottom section    |
-
-## Accessibility Features
-
-The footer includes several accessibility enhancements:
-
-- **Semantic HTML structure** with proper footer element
-- **Keyboard navigation** support for all links
-- **High contrast colors** for readability
-- **Descriptive link text** for screen readers
-
-## Integration Notes
-
-The footer component is automatically included in the Layout component and doesn't require separate configuration. It inherits theme colors and responds to configuration changes automatically.
+The footer follows semantic HTML (`<footer>`) and includes keyboard-focusable links. When customizing, ensure you keep link text descriptive and maintain focus visibility for keyboard users.

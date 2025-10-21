@@ -1,6 +1,6 @@
 {
   "name": "@hoverkraft/docusaurus-theme",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Hoverkraft theme for Docusaurus",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

@@ -1,25 +1,29 @@
 import path from "node:path";
-import type { Plugin } from "@docusaurus/types";
+import type { LoadContext, Plugin } from "@docusaurus/types";
+import themeClassic from "@docusaurus/theme-classic";
 
-export default function themeHoverkraft(): Plugin<undefined> {
+export default function themeHoverkraft(context: LoadContext): Plugin<undefined> {
+  const hoverkraftStylesheet = path.resolve(__dirname, "./styles/hoverkraft.css");
+  const classicTheme = themeClassic(context, { customCss: [hoverkraftStylesheet] });
+  const classicGetClientModules = classicTheme.getClientModules?.bind(classicTheme);
+
   return {
+    ...classicTheme,
     name: "@hoverkraft/docusaurus-theme",
+    getClientModules() {
+      const modules = classicGetClientModules?.() ?? [];
 
-    getThemePath() {
-      return path.resolve(__dirname, "./theme");
-    },
+      return modules.map((modulePath) => {
+        if (modulePath === "./prism-include-languages") {
+          return require.resolve("@docusaurus/theme-classic/lib/prism-include-languages");
+        }
 
-    getTypeScriptThemePath() {
-      return path.resolve(__dirname, "..", "src", "theme");
-    },
+        if (modulePath === "./nprogress") {
+          return require.resolve("@docusaurus/theme-classic/lib/nprogress");
+        }
 
-    getDefaultCodeTranslationMessages() {
-      return {
-        "theme.NotFound.title": "Page Not Found",
-        "theme.NotFound.p1": "We could not find what you were looking for.",
-        "theme.NotFound.p2":
-          "Please contact the owner of the site that linked you to the original URL and let them know their link is broken.",
-      };
+        return modulePath;
+      });
     },
   };
 }

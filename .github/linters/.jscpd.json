@@ -1,4 +1,9 @@
 {
   "threshold": 5,
-  "ignore": [".astro/**"]
+  "ignore": [
+    "**/coverage/**",
+    "**/node_modules/**",
+    "**/packages/docs/.docusaurus/**",
+    "**/packages/theme/lib/**"
+  ]
 }

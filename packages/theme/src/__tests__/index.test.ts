@@ -1,45 +1,92 @@
 import path from "node:path";
+import themeClassic from "@docusaurus/theme-classic";
+import type { LoadContext } from "@docusaurus/types";
 import themeHoverkraft from "../index";
 
+function createLoadContext(): LoadContext {
+  return {
+    siteDir: __dirname,
+    generatedFilesDir: path.join(__dirname, ".docusaurus"),
+    siteConfig: {
+      baseUrl: "/",
+      favicon: "favicon.ico",
+      i18n: {
+        defaultLocale: "en",
+        locales: ["en"],
+      },
+      plugins: [],
+      presets: [],
+      themes: [],
+      title: "Test Site",
+      url: "https://example.com",
+      themeConfig: {
+        announcementBar: undefined,
+        colorMode: {
+          defaultMode: "light",
+          disableSwitch: false,
+          respectPrefersColorScheme: true,
+          switchConfig: {},
+        },
+        prism: {
+          additionalLanguages: [],
+        },
+      },
+    } as never,
+    siteMetadata: {
+      docsVersion: undefined,
+    },
+    localizationDir: "i18n",
+    env: {
+      currentLocale: "en",
+    },
+    markdownProcessor: undefined as never,
+    plugins: [],
+    siteStorage: new Map(),
+    i18n: {
+      currentLocale: "en",
+      localeConfigs: {
+        en: {
+          direction: "ltr",
+          label: "English",
+          calendar: "gregory",
+        },
+      },
+    },
+  } as unknown as LoadContext;
+}
+
 describe("themeHoverkraft plugin", () => {
-  it("exposes the base theme metadata", () => {
-    const plugin = themeHoverkraft({} as never, {} as never);
+  const context = createLoadContext();
+
+  it("extends the classic theme", () => {
+    const plugin = themeHoverkraft(context);
+    const classic = themeClassic(context, { customCss: [] });
 
     expect(plugin.name).toBe("@hoverkraft/docusaurus-theme");
-    expect(plugin.getThemePath).toBeDefined();
-    const themePath = plugin.getThemePath?.();
-    expect(themePath).toBeTruthy();
-
-    if (!themePath) {
-      throw new Error("themePath is undefined");
-    }
-
-    expect(path.isAbsolute(themePath)).toBe(true);
-    expect(themePath.endsWith("theme")).toBe(true);
-
-    expect(plugin.getTypeScriptThemePath).toBeDefined();
-
-    const tsThemePath = plugin.getTypeScriptThemePath?.();
-    expect(tsThemePath).toBeTruthy();
-
-    if (!tsThemePath) {
-      throw new Error("tsThemePath is undefined");
-    }
-    expect(path.isAbsolute(tsThemePath)).toBe(true);
-    expect(tsThemePath.split(path.sep).slice(-2).join(path.sep)).toBe(path.join("src", "theme"));
+    expect(plugin.getThemePath?.()).toEqual(classic.getThemePath?.());
+    expect(plugin.getTypeScriptThemePath?.()).toEqual(classic.getTypeScriptThemePath?.());
   });
 
-  it("returns the built-in translation strings", () => {
-    const plugin = themeHoverkraft({} as never, {} as never);
+  it("registers the Hoverkraft stylesheet", () => {
+    const plugin = themeHoverkraft(context);
+    const clientModules = plugin.getClientModules?.() ?? [];
 
-    expect(plugin.getDefaultCodeTranslationMessages).toBeDefined();
-    const messages = plugin.getDefaultCodeTranslationMessages?.();
-    expect(messages).toMatchInlineSnapshot(`
-      {
-        "theme.NotFound.p1": "We could not find what you were looking for.",
-        "theme.NotFound.p2": "Please contact the owner of the site that linked you to the original URL and let them know their link is broken.",
-        "theme.NotFound.title": "Page Not Found",
-      }
-    `);
+    expect(clientModules.some((modulePath) => modulePath.endsWith("styles/hoverkraft.css"))).toBe(
+      true
+    );
+    expect(clientModules).toContain(
+      require.resolve("@docusaurus/theme-classic/lib/prism-include-languages")
+    );
+    expect(clientModules).toContain(require.resolve("@docusaurus/theme-classic/lib/nprogress"));
+  });
+
+  it("exposes default translation messages from the base theme", async () => {
+    const plugin = themeHoverkraft(context);
+    const classic = themeClassic(context, { customCss: [] });
+
+    const pluginMessages = await plugin.getDefaultCodeTranslationMessages?.();
+    const classicMessages = await classic.getDefaultCodeTranslationMessages?.();
+
+    expect(pluginMessages).toEqual(classicMessages);
   });
 });

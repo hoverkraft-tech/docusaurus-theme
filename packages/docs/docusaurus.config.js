@@ -105,8 +105,16 @@ const config = {
                 to: "/docs/getting-started",
               },
               {
+                label: "Installation",
+                to: "/docs/installation",
+              },
+              {
                 label: "Configuration",
                 to: "/docs/configuration",
+              },
+              {
+                label: "Migration",
+                to: "/docs/migration",
               },
             ],
           },

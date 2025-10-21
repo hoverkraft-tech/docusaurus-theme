@@ -4,100 +4,46 @@ sidebar_position: 3
 
 # Logo Component
 
-The Logo component enforces consistent Hoverkraft branding with the official SVG logomark.
+The Hoverkraft theme now inherits from `@docusaurus/theme-classic` and provides a fixed Logo component that renders the official Hoverkraft SVG. The theme intentionally treats the logo as an asset (static file) and not a configurable option.
 
-## Overview
+## Key points
 
-The Hoverkraft Logo component:
+- The theme ships a built-in Logo component that imports and renders the official SVG located in the theme package static assets.
+- The logo is not exposed as a theme configuration option. If you need a different logo, you must either override the `navbar.logo` site config (point it to a different `src` path) or swizzle the Logo component.
 
-- **Displays the official SVG logomark** with consistent styling
-- **Links to the homepage** by default
-- **Maintains brand consistency** across all sites
-- **Responsive sizing** across different screen sizes
+## Where the SVG lives
 
-## Fixed Branding
+When the theme is installed or built, the logo is served from the theme package static folder and is available at:
 
-The logo is **not configurable** and always renders the official Hoverkraft SVG to ensure consistent brand identity across all Hoverkraft documentation projects.
+- /docusaurus-theme/img/logo.svg
 
-## Styling
+This path is handled automatically when using the packaged theme. If you run the site locally using the theme from a local workspace, the build process copies `packages/theme/src/theme/static/img/logo.svg` into the published `lib/` folder so the asset is served correctly.
 
-### Brand Consistency
+## Customization options
 
-The logo styling is **intentionally fixed** to maintain:
+1. Small tweaks via CSS
 
-- **Consistent appearance** across all Hoverkraft sites
-- **Professional branding** that's immediately recognizable
-- **Accessibility standards** with proper contrast and focus states
-- **Responsive behavior** that works on all screen sizes
+   The theme is CSS-first — most visual adjustments should be done by overriding or adding CSS in your site `src/css/custom.css`. Target the logo with selectors such as `.navbar__logo` or `.navbar__brand`.
 
-## Responsive Behavior
+2. Swizzle the Logo component (full control)
 
-### Desktop
+   To replace or fully customize the component, swizzle it into your project:
 
-- **Full logo size** with proper alignment in header
-- **Clear visual hierarchy** with navigation items
-- **Professional appearance** in all contexts
+   ```bash
+   npx docusaurus swizzle @hoverkraft/docusaurus-theme Logo --typescript
+   ```
 
-### Mobile
-
-- **Proportional scaling** at smaller screen sizes
-- **Touch-friendly target** area for navigation
-- **Optimized spacing** for mobile layouts
+   After swizzling you can replace the SVG, change markup, add alt text, or wire the logo to a CDN URL.
 
 ## Accessibility
 
-### Built-in Accessibility
+The built-in Logo component provides semantic markup and keyboard focusability. When you swizzle or replace the logo, ensure the anchor has an appropriate `aria-label` and that the image has `alt` text (or `aria-hidden` if decorative).
 
-The logo component includes:
+## Troubleshooting
 
-- **Semantic markup** with proper link structure
-- **Keyboard navigation** support (tab/enter)
-- **Focus indicators** for accessibility compliance
-- **Screen reader friendly** with clear navigation purpose
+- If the logo 404s (for example `/docusaurus-theme/img/logo.svg` returns 404), make sure you:
+  - Ran `npm run build` in the theme package so static assets are copied to `lib/`.
+  - Rebuilt the site (`make build`) so Docusaurus picks up the packaged theme files.
+  - If using a published package, confirm the release contains the `lib/assets/logo.svg` file.
 
-### WCAG Compliance
-
-The fixed styling ensures:
-
-- **High contrast ratios** for text visibility
-- **Sufficient color contrast** in all themes
-- **Proper focus management** for keyboard users
-- **Screen reader compatibility** with semantic HTML
-
-## Why No Customization?
-
-### Brand Protection
-
-The fixed logo ensures that:
-
-- **All Hoverkraft documentation** shares consistent branding
-- **Brand recognition** is maintained across projects
-- **Professional standards** are enforced automatically
-- **Visual identity** remains cohesive
-
-### Simplified Maintenance
-
-With no customization options:
-
-- **No configuration** decisions needed
-- **Faster setup** for new projects
-- **Consistent behavior** across all implementations
-- **Reduced support** complexity
-
-### Quality Assurance
-
-The fixed implementation guarantees:
-
-- **Tested accessibility** across all use cases
-- **Proper responsive behavior** on all devices
-- **Consistent performance** without configuration issues
-- **Professional appearance** in all contexts
-
-## Integration Notes
-
-- **Automatic inclusion** in Layout component header
-- **No configuration required** - works out of the box
-- **Theme integration** with consistent styling
-- **Hot reloading support** during development
-
-The logo component is designed to provide consistent, professional Hoverkraft branding without any setup or configuration requirements.
+This ensures the asset is available at the theme static path and the Navbar component can load it automatically.

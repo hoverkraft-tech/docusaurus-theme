@@ -4,382 +4,89 @@ sidebar_position: 7
 
 # Migration Guide
 
-Learn how to migrate from other themes to the Hoverkraft Docusaurus theme.
+This document explains how to migrate existing Docusaurus sites (classic, bootstrap, or custom themes) to the current Hoverkraft theme implementation.
 
-## From @docusaurus/theme-classic
+Summary of current theme behavior
 
-### Overview
+- The Hoverkraft theme now extends `@docusaurus/theme-classic`. It delegates runtime behavior (color mode, Prism, etc.) to the classic theme and layers Hoverkraft-specific CSS and static assets on top.
+- There are no special `hoverkraft` runtime configuration options in the theme; branding is primarily applied via the packaged style sheet and static assets.
 
-The Hoverkraft theme extends the classic theme, so migration is generally straightforward. Most existing configurations will continue to work.
+When migrating, prefer CSS overrides or swizzling rather than relying on theme-specific configuration values.
 
-### Configuration Changes
+## From `@docusaurus/theme-classic`
 
-#### Before (Classic Theme)
+### Compatibility
 
-```javascript title="docusaurus.config.js"
-const config = {
-  themeConfig: {
-    colorMode: {
-      defaultMode: "light",
-    },
-    navbar: {
-      title: "My Site",
-      logo: {
-        alt: "Logo",
-        src: "img/logo.svg",
-      },
-    },
-    footer: {
-      style: "dark",
-      links: [
-        // footer links
-      ],
-    },
-  },
-};
-```
+Because Hoverkraft extends the classic theme, most `themeConfig` entries (navbar, footer, prism, colorMode) will continue to work. You generally do not need to refactor existing configuration.
 
-#### After (Hoverkraft Theme)
+### What to check
 
-```javascript title="docusaurus.config.js"
-const config = {
-  // Add Hoverkraft theme
-  themes: ["@hoverkraft/docusaurus-theme"],
+- Navbar logo path: the packaged theme serves its logo from the theme static assets at `/docusaurus-theme/img/logo.svg`. If your site relied on a custom `img/logo.svg`, either keep that file in your site `static/img/` or update `navbar.logo.src` to the desired path.
+- Custom CSS: move visual overrides into `src/css/custom.css` and target Hoverkraft classes/variables (for example `.navbar__brand`, `.footer`, `--hk-color-primary`).
+- Swizzled components: if you previously swizzled components from classic, verify they still work and update imports if necessary.
 
-  themeConfig: {
-    // Keep existing configuration
-    colorMode: {
-      defaultMode: "light",
-    },
-    navbar: {
-      title: "My Site",
-      logo: {
-        alt: "Logo",
-        src: "img/logo.svg",
-      },
-    },
-    footer: {
-      style: "dark",
-      links: [
-        // footer links
-      ],
-    },
+## From other themes (bootstrap, custom)
 
-    // Add Hoverkraft configuration
-    hoverkraft: {
-      colors: {
-        primary: "#007acc",
-        secondary: "#6c757d",
-        accent: "#ff6b35",
-      },
-    },
-  },
-};
-```
+Migration from non-classic themes may require more changes:
 
-### Custom CSS Updates
-
-Update your custom CSS to work with Hoverkraft styling:
-
-#### Before
-
-```css title="src/css/custom.css"
-/* Classic theme customization */
-:root {
-  --ifm-color-primary: #25c2a0;
-}
-
-.navbar {
-  background-color: #25c2a0;
-}
-```
-
-#### After
-
-```css title="src/css/custom.css"
-/* Hoverkraft theme customization */
-:root {
-  /* Use Hoverkraft variables */
-  --hk-color-primary: #25c2a0;
-  --ifm-color-primary: var(--hk-color-primary);
-}
-
-/* Target Hoverkraft components */
-.hoverkraft-header {
-  background-color: var(--hk-color-primary);
-}
-
-/* Keep existing customizations */
-.navbar {
-  background-color: var(--hk-color-primary);
-}
-```
-
-### Component Swizzling
-
-If you've swizzled components from the classic theme:
-
-#### Update Imports
-
-```jsx title="src/theme/Layout/index.js"
-// Before
-import Layout from "@theme-original/Layout";
-
-// After - may need to update for Hoverkraft components
-import Layout from "@theme-original/Layout";
-import { useThemeConfig } from "@docusaurus/theme-common";
-```
-
-#### Check Compatibility
-
-Review swizzled components to ensure they work with Hoverkraft theme styling and structure.
-
-## From Other Themes
-
-### From @docusaurus/theme-bootstrap
-
-Bootstrap theme users will need more significant changes:
-
-#### Remove Bootstrap Theme
+1. Remove the old theme package (if installed) and add Hoverkraft:
 
 ```bash
 npm uninstall @docusaurus/theme-bootstrap
-```
-
-#### Install Hoverkraft Theme
-
-```bash
 npm install @hoverkraft/docusaurus-theme
 ```
 
-#### Update Configuration
+2. Add the Hoverkraft theme in `docusaurus.config.js`:
 
-```javascript title="docusaurus.config.js"
-const config = {
-  // Remove bootstrap theme reference
-  // themes: ['bootstrap'],
-
-  // Add Hoverkraft theme
+```js
+export default {
   themes: ["@hoverkraft/docusaurus-theme"],
-
-  themeConfig: {
-    // Update bootstrap-specific config to standard Docusaurus config
-    hoverkraft: {
-      colors: {
-        primary: "#007acc",
-        secondary: "#6c757d",
-        accent: "#ff6b35",
-      },
-    },
-  },
 };
 ```
 
-### From Custom Themes
+3. Migrate visual styles into `src/css/custom.css` and swizzle components when you need structural changes.
 
-If migrating from a completely custom theme:
+## Common migration tasks and fixes
 
-#### Assess Current Functionality
+### Logo 404s
 
-1. **List all custom components** you've built
-2. **Identify styling patterns** you want to preserve
-3. **Review configuration options** you currently use
-4. **Check third-party integrations** for compatibility
+- Symptom: `/docusaurus-theme/img/logo.svg` 404s after switching to the packaged theme.
+- Cause: theme static assets haven't been published or copied into the package `lib/` output. Locally, ensure you ran `npm run build` in the theme package so assets are copied to `lib/`.
+- Fix:
 
-#### Migration Strategy
+  ```bash
+  # From the repo root in this workspace
+  cd packages/theme && npm run build
+  cd ../docs && npm run build # or run `make build` at the repo root
+  ```
 
-1. **Install Hoverkraft theme** alongside your current theme temporarily
-2. **Gradually replace components** one by one
-3. **Test each migration step** thoroughly
-4. **Remove old theme** once migration is complete
+  When publishing the package, verify `lib/assets/logo.svg` (or `lib/assets/*`) are included in the published package.
 
-## Common Migration Issues
+### CSS conflicts
 
-### CSS Conflicts
+- Symptom: your custom styles are overridden by theme styles.
+- Fix: use higher specificity, custom properties, or move overrides into `src/css/custom.css`.
 
-**Problem**: Existing CSS conflicts with Hoverkraft styles
+### Component incompatibility
 
-**Solution**: Use CSS specificity or rename classes
+- Symptom: swizzled components break or behave differently.
+- Fix: update imports to `@theme-original/...` components and adapt CSS class names or markup.
 
-```css title="src/css/custom.css"
-/* Increase specificity for your styles */
-.my-component.my-component {
-  background-color: #custom-color;
-}
+## Recommended migration process
 
-/* Or use CSS custom properties */
-.my-component {
-  background-color: var(--my-custom-color);
-}
-```
+1. Backup and document current site: commit all changes and list customizations.
+2. Install Hoverkraft theme and run the development server.
+3. Move visual overrides to `src/css/custom.css`.
+4. Swizzle components that need structural changes and update them.
+5. Run the full site build to verify production assets and static files are served.
 
-### Layout Differences
+## Checklist (short)
 
-**Problem**: Layout structure changes break existing styling
-
-**Solution**: Update selectors to target new Hoverkraft classes
-
-```css title="src/css/custom.css"
-/* Before */
-.main-wrapper {
-  padding: 2rem;
-}
-
-/* After */
-.hoverkraft-main {
-  padding: 2rem;
-}
-```
-
-### Component Incompatibility
-
-**Problem**: Custom components don't work with new theme
-
-**Solution**: Update component imports and styling
-
-```jsx title="src/components/MyComponent.js"
-// Update imports if needed
-import { useThemeConfig } from "@docusaurus/theme-common";
-
-export default function MyComponent() {
-  const { hoverkraft } = useThemeConfig();
-
-  return (
-    <div
-      className="my-component"
-      style={{
-        "--primary-color": hoverkraft?.colors?.primary || "#007acc",
-      }}
-    >
-      {/* Component content */}
-    </div>
-  );
-}
-```
-
-## Step-by-Step Migration Process
-
-### Phase 1: Preparation
-
-1. **Backup your current setup**
-
-   ```bash
-   git commit -am "Backup before Hoverkraft migration"
-   ```
-
-2. **Document current customizations**
-   - List all custom CSS files
-   - Note swizzled components
-   - Record configuration changes
-
-3. **Test current site thoroughly**
-   - Document all functionality
-   - Take screenshots for comparison
-
-### Phase 2: Installation
-
-1. **Install Hoverkraft theme**
-
-   ```bash
-   npm install @hoverkraft/docusaurus-theme
-   ```
-
-2. **Add to configuration**
-
-   ```javascript title="docusaurus.config.js"
-   const config = {
-     themes: [
-       "@hoverkraft/docusaurus-theme",
-       // Keep existing themes temporarily
-     ],
-   };
-   ```
-
-3. **Start development server**
-   ```bash
-   npm start
-   ```
-
-### Phase 3: Configuration Migration
-
-1. **Add Hoverkraft configuration**
-
-   ```javascript title="docusaurus.config.js"
-   themeConfig: {
-     hoverkraft: {
-       colors: {
-         primary: '#your-primary-color',
-         secondary: '#your-secondary-color',
-         accent: '#your-accent-color',
-       },
-     },
-   }
-   ```
-
-2. **Update CSS variables**
-   ```css title="src/css/custom.css"
-   :root {
-     --hk-color-primary: #your-primary-color;
-     --ifm-color-primary: var(--hk-color-primary);
-   }
-   ```
-
-### Phase 4: Component Migration
-
-1. **Update component styles** gradually
-2. **Test each change** individually
-3. **Fix broken functionality** as you find it
-4. **Remove old theme dependencies** when fully migrated
-
-### Phase 5: Testing & Cleanup
-
-1. **Comprehensive testing** across all pages
-2. **Cross-browser testing** for compatibility
-3. **Mobile responsiveness** verification
-4. **Remove unused code** and dependencies
-
-## Migration Checklist
-
-### Pre-Migration
-
-- [ ] Document current theme and customizations
-- [ ] Backup current codebase
-- [ ] Test all current functionality
-- [ ] Review Hoverkraft theme documentation
-
-### During Migration
-
+- [ ] Backup current repository
 - [ ] Install Hoverkraft theme
-- [ ] Add basic configuration
-- [ ] Update CSS variables and custom styles
-- [ ] Test core functionality (navigation, search, etc.)
-- [ ] Migrate custom components
-- [ ] Update swizzled components if needed
+- [ ] Move CSS overrides to `src/css/custom.css`
+- [ ] Swizzle components that need structural changes
+- [ ] Build theme package locally if using the workspace
+- [ ] Build and test the site
 
-### Post-Migration
-
-- [ ] Comprehensive testing across all pages
-- [ ] Cross-browser compatibility testing
-- [ ] Mobile responsiveness verification
-- [ ] Performance testing
-- [ ] Clean up unused code and dependencies
-- [ ] Update documentation
-
-## Getting Help
-
-If you encounter issues during migration:
-
-1. **Check the documentation** for configuration options
-2. **Review component documentation** for styling guidance
-3. **Look at the example project** for implementation patterns
-4. **Open an issue** in the GitHub repository for bugs
-5. **Join the community** discussions for support
-
-## Performance Considerations
-
-After migration, monitor:
-
-- **Page load times** - ensure no regressions
-- **Bundle sizes** - check for unused dependencies
-- **Runtime performance** - test interactive features
-- **Accessibility** - verify all features remain accessible
+If you want, I can produce a small migration checklist tailored to your current `docusaurus.config.js` (you can paste it here) and highlight exact lines to change.

@@ -4,176 +4,67 @@ sidebar_position: 3
 
 # Configuration
 
-The Hoverkraft Docusaurus theme is designed to enforce strict branding guidelines with **no customization options**.
+The Hoverkraft theme now inherits from `@docusaurus/theme-classic` and focuses on providing consistent brand styling through CSS and static assets. There are no special `hoverkraft` theme options — the theme is intentionally opinionated about branding.
 
-## Opinionated Design Philosophy
+## How the theme is applied
 
-This theme follows an **opinionated approach** to ensure consistent branding across all Hoverkraft documentation projects:
+- Install the theme package and reference it from `docusaurus.config.js`:
 
-- ✅ **Consistent Brand Identity**: All sites look and feel like official Hoverkraft properties
-- ✅ **Reduced Maintenance**: No configuration options means fewer things to break
-- ✅ **Faster Setup**: Just install and use - no complex configuration needed
-- ✅ **Professional Standards**: Enforces design best practices and accessibility
-
-## Basic Usage
-
-Simply add the theme to your Docusaurus configuration:
-
-```javascript title="docusaurus.config.js"
-const config = {
+```js title="docusaurus.config.js"
+export default {
   themes: ["@hoverkraft/docusaurus-theme"],
-  // No additional configuration required
 };
-
-export default config;
 ```
 
-## What's Enforced
+- The theme delegates runtime behavior (color mode, Prism, etc.) to `@docusaurus/theme-classic` and adds Hoverkraft-specific CSS overrides and static assets.
 
-The theme automatically applies the [Official Hoverkraft Branding Guidelines](https://github.com/hoverkraft-tech/branding):
+## What you can and can't change
 
-### Official Hoverkraft Color Palette
+- You can use standard Docusaurus configuration (`navbar`, `footer`, `presets`, etc.).
+- Visual changes are expected to be done via CSS overrides in your site `src/css/custom.css`.
+- Structural or functional changes require swizzling the relevant component (for example `Logo`, `Layout`, or `Footer`).
 
-<div className="color-demo">
-  <div className="color-swatch color-swatch--primary">Primary<br/>Hoverkraft Blue</div>
-  <div className="color-swatch color-swatch--secondary">Secondary<br/>Professional Gray</div>
-  <div className="color-swatch color-swatch--accent">Accent<br/>Hoverkraft Orange</div>
-</div>
+## Applying custom CSS
 
-These colors are **fixed** and cannot be overridden. For complete color specifications and usage guidelines, see the [Hoverkraft Branding Repository](https://github.com/hoverkraft-tech/branding).
+Add your visual overrides to `src/css/custom.css` in your site. Example:
 
-### Standard Typography
-
-- **Font Family**: As specified in the [Hoverkraft Branding Guidelines](https://github.com/hoverkraft-tech/branding)
-- **Font Sizes**: Consistent modular scale from the branding specifications
-- **Font Weights**: Standardized hierarchy
-- **Line Heights**: Optimized for readability
-
-### Fixed Layout Components
-
-- **Header**: Standard Hoverkraft branding with "Hoverkraft" text logo
-- **Footer**: Professional multi-section footer with company information
-- **Navigation**: Consistent navigation patterns
-- **Content Layout**: Optimized spacing and structure
-
-## Why No Customization?
-
-**Brand Consistency**: Every Hoverkraft documentation site should look professionally consistent and immediately recognizable as part of the Hoverkraft ecosystem.
-
-**Reduced Complexity**: Without customization options, there are fewer ways for implementations to break or diverge from standards.
-
-**Faster Deployment**: Teams can focus on content rather than spending time on design decisions and configuration.
-
-**Quality Assurance**: The theme is thoroughly tested in one configuration, ensuring reliability.
-
-## Standard Docusaurus Configuration
-
-You can still use all standard Docusaurus configuration options:
-
-```javascript title="docusaurus.config.js"
-const config = {
-  title: "My Documentation",
-  tagline: "My project tagline",
-
-  // Standard Docusaurus configuration works normally
-  themes: ["@hoverkraft/docusaurus-theme"],
-
-  themeConfig: {
-    navbar: {
-      title: "My Docs",
-      items: [
-        {
-          type: "docSidebar",
-          sidebarId: "tutorialSidebar",
-          position: "left",
-          label: "Tutorial",
-        },
-      ],
-    },
-    footer: {
-      // Standard Docusaurus footer configuration
-      links: [
-        {
-          title: "Docs",
-          items: [
-            {
-              label: "Tutorial",
-              to: "/docs/intro",
-            },
-          ],
-        },
-      ],
-    },
-  },
-};
-
-export default config;
+```css
+/* src/css/custom.css */
+.navbar__brand img {
+  max-height: 36px;
+}
+.footer {
+  padding-top: 2rem;
+}
 ```
 
-The Hoverkraft theme **enhances** the standard Docusaurus configuration with consistent branding while preserving all core Docusaurus functionality.
+## Swizzling
 
-## Complete Configuration Example
+To modify theme components directly, swizzle them into your site:
 
-Here's a complete working configuration:
-
-```javascript title="docusaurus.config.js"
-import { themes as prismThemes } from "prism-react-renderer";
-
-const config = {
-  title: "My Documentation",
-  tagline: "Documentation with Hoverkraft branding",
-  favicon: "img/favicon.ico",
-
-  url: "https://my-docs.hoverkraft.tech",
-  baseUrl: "/",
-
-  // Apply Hoverkraft theme
-  themes: ["@hoverkraft/docusaurus-theme"],
-
-  presets: [
-    [
-      "classic",
-      {
-        docs: {
-          sidebarPath: "./sidebars.js",
-        },
-        theme: {
-          customCss: "./src/css/custom.css",
-        },
-      },
-    ],
-  ],
-
-  themeConfig: {
-    navbar: {
-      title: "My Project",
-      items: [
-        {
-          type: "docSidebar",
-          sidebarId: "tutorialSidebar",
-          position: "left",
-          label: "Docs",
-        },
-        { to: "/blog", label: "Blog", position: "left" },
-      ],
-    },
-    prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
-    },
-  },
-};
-
-export default config;
+```bash
+npx docusaurus swizzle @hoverkraft/docusaurus-theme <ComponentName> --typescript
 ```
 
-## Migration from Customizable Versions
+After swizzling, you'll have a local copy of the component inside your site (`src/theme/`), and you must maintain compatibility with future theme updates.
 
-If you were using a previous version that allowed customization:
+## Migration notes
 
-1. **Remove all `hoverkraft` configuration** from your `themeConfig`
-2. **Remove custom color overrides** - the theme now uses fixed colors
-3. **Update your build** with `npm run build`
-4. **Enjoy the simplified configuration!**
+If you are upgrading from a previous version that exposed more customization, follow these steps:
 
-The theme will automatically apply consistent Hoverkraft branding to your site.
+1. Remove legacy `hoverkraft` entries from `themeConfig`.
+2. Move any visual overrides into `src/css/custom.css`.
+3. If you relied on custom components, swizzle them into your project and adjust as needed.
+
+## Troubleshooting
+
+- If a theme asset (logo, footer icons) 404s, ensure you built the theme package so static assets are copied into `lib/` before building the site.
+- Building sequence used locally in this repository:
+
+```bash
+# From repo root
+cd packages/theme && npm run build
+cd ../docs && npm run build # or `make build` at repo root
+```
+
+This ensures the theme's static assets are present in the packaged `lib/` output and available to the site.
