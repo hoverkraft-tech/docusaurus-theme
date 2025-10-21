@@ -6,7 +6,7 @@ const path = require("node:path");
 const PROJECT_ROOT = path.join(__dirname, "..");
 const SOURCE_DIR = path.join(PROJECT_ROOT, "src");
 const OUTPUT_DIR = path.join(PROJECT_ROOT, "lib");
-const ASSET_EXTENSIONS = new Set([".css"]);
+const ASSET_EXTENSIONS = new Set([".css", ".svg"]);
 
 async function ensureDirectoryExists(directoryPath) {
   await fs.mkdir(directoryPath, { recursive: true });
