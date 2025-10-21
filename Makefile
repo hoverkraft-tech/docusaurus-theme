@@ -12,7 +12,7 @@ prepare: ## Prepare stack to run
 	npm install
 
 start: ## Start application in dev mode
-	npm run docs:start
+	npm run start
 
 lint: ## Run linters
 	npm run lint -- $(filter-out $@,$(MAKECMDGOALS))
