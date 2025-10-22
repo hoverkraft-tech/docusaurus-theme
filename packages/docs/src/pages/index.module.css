@@ -1,98 +1,3 @@
-:root {
-  --homepage-hero-gradient: linear-gradient(135deg, #1d2026 0%, #506690 50%, #1998ff 100%);
-}
-
-.heroBanner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6rem 1.5rem;
-  text-align: center;
-  background: var(--homepage-hero-gradient);
-  color: var(--ifm-color-white, #fff);
-  border-radius: calc(var(--ifm-global-radius) * 2);
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12);
-  position: relative;
-  overflow: hidden;
-}
-
-.heroBanner::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="0.5" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-  opacity: 0.2;
-  pointer-events: none;
-}
-
-.heroBanner::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at top left, rgba(255, 255, 255, 0.18), transparent 50%),
-    radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.12), transparent 55%);
-  pointer-events: none;
-}
-
-.heroContent {
-  position: relative;
-  max-width: 60rem;
-  z-index: 1;
-}
-
-.heroTitle {
-  font-size: clamp(2.75rem, 5vw, 4rem);
-  margin-bottom: 1.5rem;
-  letter-spacing: -0.04em;
-}
-
-.heroSubtitle {
-  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-  margin-bottom: 2rem;
-  color: rgba(255, 255, 255, 0.92);
-}
-
-/* Respect user motion preferences for animations */
-@media (prefers-reduced-motion: no-preference) {
-  .heroTitle {
-    animation: fadeInUp 0.6s ease-out backwards;
-  }
-
-  .heroSubtitle {
-    animation: fadeInUp 0.7s ease-out 0.1s backwards;
-  }
-}
-
-.heroButtons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-}
-
-.heroButtons a {
-  min-width: 190px;
-  transition: all 0.3s ease;
-}
-
-/* Respect user motion preferences for hover effects */
-@media (prefers-reduced-motion: no-preference) {
-  .heroButtons a:hover {
-    transform: translateY(-2px);
-  }
-}
-
-/* Respect user motion preferences for animations */
-@media (prefers-reduced-motion: no-preference) {
-  .heroButtons {
-    animation: fadeInUp 0.8s ease-out 0.3s backwards;
-  }
-}
-
 .section {
   padding: 4rem 0;
 }
@@ -107,77 +12,6 @@
   margin: 0 auto 3rem auto;
   max-width: 46rem;
   color: var(--ifm-color-emphasis-600);
-}
-
-.features {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-}
-
-.featureCard {
-  height: 100%;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: calc(var(--ifm-global-radius) * 1.5);
-  padding: 1.75rem;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    border-color 0.3s ease;
-  background: var(--ifm-color-content-secondary, #ffffff);
-}
-
-[data-theme="dark"] .featureCard {
-  background: var(--ifm-background-surface-color);
-  border-color: var(--ifm-color-emphasis-300);
-}
-
-.featureCard:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 30px rgba(25, 152, 255, 0.2);
-  border-color: #1998ff;
-}
-
-/* Respect user motion preferences for animations */
-@media (prefers-reduced-motion: no-preference) {
-  .featureCard {
-    animation: fadeInUp 0.6s ease-out backwards;
-  }
-
-  .featureCard:nth-child(1) {
-    animation-delay: 0.1s;
-  }
-
-  .featureCard:nth-child(2) {
-    animation-delay: 0.2s;
-  }
-
-  .featureCard:nth-child(3) {
-    animation-delay: 0.3s;
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.featureTitle {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-size: 1.25rem;
-  margin-bottom: 0.75rem;
-}
-
-.featureEmoji {
-  font-size: 1.6rem;
 }
 
 .palette {
@@ -196,31 +30,6 @@
   transition: all 0.3s ease;
 }
 
-/* Respect user motion preferences for animations and hover effects */
-@media (prefers-reduced-motion: no-preference) {
-  .swatch {
-    animation: fadeInUp 0.6s ease-out backwards;
-    will-change: transform;
-  }
-
-  .swatch:nth-child(1) {
-    animation-delay: 0.1s;
-  }
-
-  .swatch:nth-child(2) {
-    animation-delay: 0.2s;
-  }
-
-  .swatch:nth-child(3) {
-    animation-delay: 0.3s;
-  }
-
-  .swatch:hover {
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
-  }
-}
-
 .swatch span {
   display: block;
   font-weight: 600;
@@ -232,25 +41,6 @@
   font-size: 0.85rem;
 }
 
-.integrationList {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  margin-top: 2rem;
-}
-
-.integrationCard {
-  padding: 1.25rem 1.5rem;
-  border-radius: calc(var(--ifm-global-radius) * 1.25);
-  border: 1px solid var(--ifm-color-emphasis-200);
-  background: var(--ifm-color-content-secondary, #ffffff);
-}
-
-[data-theme="dark"] .integrationCard {
-  background: var(--ifm-background-surface-color);
-  border-color: var(--ifm-color-emphasis-300);
-}
-
 .callout {
   margin-top: 4rem;
   padding: 2rem;
@@ -258,16 +48,6 @@
   background: linear-gradient(135deg, rgba(25, 152, 255, 0.1), rgba(255, 90, 2, 0.05));
   border: 1px solid rgba(25, 152, 255, 0.3);
   text-align: center;
-}
-
-[data-theme="dark"] .callout {
-  background: linear-gradient(135deg, rgba(25, 152, 255, 0.15), rgba(255, 90, 2, 0.1));
-  border-color: rgba(25, 152, 255, 0.4);
-}
-
-.calloutTitle {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
 }
 
 .calloutButtons {
@@ -279,10 +59,6 @@
 }
 
 @media (max-width: 768px) {
-  .heroBanner {
-    padding: 4.5rem 1.25rem;
-  }
-
   .section {
     padding: 3rem 0;
   }

@@ -10,8 +10,6 @@ import { themes as prismThemes } from "prism-react-renderer";
 const config = {
   title: "Hoverkraft Theme",
   tagline: "Official Docusaurus theme for Hoverkraft projects",
-  favicon: "img/favicon.ico",
-
   // Set the production url of your site here
   url: "https://hoverkraft-tech.github.io",
   // Set the /<baseUrl>/ pathname under which your site is served
@@ -55,9 +53,6 @@ const config = {
           },
           editUrl: "https://github.com/hoverkraft-tech/docusaurus-theme/tree/main/packages/docs/",
         },
-        theme: {
-          customCss: "./src/css/custom.css",
-        },
       }),
     ],
   ],
@@ -75,10 +70,6 @@ const config = {
       image: "img/docusaurus-social-card.jpg",
       navbar: {
         title: "Hoverkraft Theme",
-        logo: {
-          alt: "Hoverkraft Logo",
-          src: "img/logo.svg",
-        },
         items: [
           {
             type: "docSidebar",
@@ -147,9 +138,6 @@ const config = {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
       },
-
-      // Hoverkraft theme - no configuration needed
-      // The theme automatically applies consistent branding
     }),
 };
 

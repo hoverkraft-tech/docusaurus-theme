@@ -3,14 +3,28 @@
   "version": "1.0.0",
   "description": "Hoverkraft theme for Docusaurus",
   "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js",
+      "require": "./lib/index.js",
+      "default": "./lib/index.js"
+    },
+    "./components": {
+      "types": "./lib/components.d.ts",
+      "import": "./lib/components.js",
+      "require": "./lib/components.js",
+      "default": "./lib/components.js"
+    }
+  },
   "types": "lib/index.d.ts",
   "files": [
-    "lib",
-    "src"
+    "lib"
   ],
   "scripts": {
+    "prebuild": "rimraf lib",
     "build": "tsc && node scripts/copy-static-assets.js",
-    "build:watch": "tsc --watch",
+    "start": "tsc --watch",
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "lint:fix": "npm run lint -- --fix",
     "test": "npm run jest --maxWorkers=50%",
@@ -51,6 +65,8 @@
     "@types/react-dom": "^19.2.2",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "identity-obj-proxy": "^3.0.0",
+    "rimraf": "^6.0.1",
     "typescript": "^5.9.3"
   },
   "engines": {
@@ -59,6 +75,10 @@
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "jsdom",
+    "moduleNameMapper": {
+      "\\.(css|less|scss|sass)$": "identity-obj-proxy",
+      "^@docusaurus/Link$": "<rootDir>/src/test-utils/docusaurusLinkMock.tsx"
+    },
     "testMatch": [
       "**/__tests__/**/*.[jt]s?(x)",
       "**/?(*.)+(spec|test)?(.*).+(ts|tsx|js)"

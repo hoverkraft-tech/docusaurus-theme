@@ -1,0 +1,99 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  color: var(--ifm-color-white, #ffffff);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.button:focus-visible {
+  outline: 3px solid rgba(25, 152, 255, 0.4);
+  outline-offset: 2px;
+}
+
+.sizeMd {
+  padding: 0.625rem 1.75rem;
+}
+
+.sizeLg {
+  padding: 0.875rem 2.25rem;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.primary {
+  background: linear-gradient(135deg, #1998ff 0%, #ff5a02 100%);
+  box-shadow: 0 8px 24px rgba(25, 152, 255, 0.35);
+}
+
+.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(25, 152, 255, 0.45);
+  filter: brightness(1.03);
+  color: #ffffff;
+  text-shadow: 0 3px 12px rgba(8, 43, 80, 0.35);
+}
+
+.primary:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 18px rgba(25, 152, 255, 0.35);
+}
+
+.secondary {
+  background: rgba(25, 152, 255, 0.08);
+  border: 2px solid rgba(25, 152, 255, 0.35);
+  color: var(--hk-color-dark, #1d2026);
+}
+
+.secondary:hover {
+  transform: translateY(-2px);
+  background: rgba(25, 152, 255, 0.12);
+  border-color: rgba(25, 152, 255, 0.5);
+  text-shadow: 0 3px 12px rgba(8, 43, 80, 0.35);
+}
+
+.outline {
+  background: transparent;
+  border: 2px solid rgba(25, 152, 255, 0.35);
+  color: var(--hk-color-dark, #1d2026);
+}
+
+.outline:hover {
+  transform: translateY(-2px);
+  background: rgba(25, 152, 255, 0.08);
+  border-color: rgba(25, 152, 255, 0.5);
+  text-shadow: 0 3px 12px rgba(8, 43, 80, 0.35);
+}
+
+[data-theme="dark"] .secondary,
+[data-theme="dark"] .outline {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+[data-theme="dark"] .secondary:hover,
+[data-theme="dark"] .outline:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.6);
+}

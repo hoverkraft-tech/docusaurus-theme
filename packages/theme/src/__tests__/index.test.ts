@@ -3,17 +3,19 @@ import themeClassic from "@docusaurus/theme-classic";
 import type { LoadContext } from "@docusaurus/types";
 import themeHoverkraft from "../index";
 
-function createLoadContext(): LoadContext {
+function createLoadContext(
+  siteConfigOverrides: Partial<LoadContext["siteConfig"]> = {}
+): LoadContext {
   return {
     siteDir: __dirname,
     generatedFilesDir: path.join(__dirname, ".docusaurus"),
     siteConfig: {
       baseUrl: "/",
-      favicon: "favicon.ico",
       i18n: {
         defaultLocale: "en",
         locales: ["en"],
       },
+      staticDirectories: ["static"],
       plugins: [],
       presets: [],
       themes: [],
@@ -31,6 +33,7 @@ function createLoadContext(): LoadContext {
           additionalLanguages: [],
         },
       },
+      ...siteConfigOverrides,
     } as never,
     siteMetadata: {
       docsVersion: undefined,
@@ -56,9 +59,8 @@ function createLoadContext(): LoadContext {
 }
 
 describe("themeHoverkraft plugin", () => {
-  const context = createLoadContext();
-
   it("extends the classic theme", () => {
+    const context = createLoadContext();
     const plugin = themeHoverkraft(context);
     const classic = themeClassic(context, { customCss: [] });
 
@@ -68,6 +70,7 @@ describe("themeHoverkraft plugin", () => {
   });
 
   it("registers the Hoverkraft stylesheet", () => {
+    const context = createLoadContext();
     const plugin = themeHoverkraft(context);
     const clientModules = plugin.getClientModules?.() ?? [];
 
@@ -81,6 +84,7 @@ describe("themeHoverkraft plugin", () => {
   });
 
   it("exposes default translation messages from the base theme", async () => {
+    const context = createLoadContext();
     const plugin = themeHoverkraft(context);
     const classic = themeClassic(context, { customCss: [] });
 
@@ -88,5 +92,41 @@ describe("themeHoverkraft plugin", () => {
     const classicMessages = await classic.getDefaultCodeTranslationMessages?.();
 
     expect(pluginMessages).toEqual(classicMessages);
+  });
+
+  it("adds the theme assets directory to staticDirectories", () => {
+    const context = createLoadContext();
+    const initialStaticDirectories = [...context.siteConfig.staticDirectories];
+    themeHoverkraft(context);
+
+    expect(context.siteConfig.staticDirectories).toEqual([
+      ...initialStaticDirectories,
+      path.resolve(__dirname, "../assets"),
+    ]);
+
+    // Ensure repeated instantiation does not duplicate entries
+    themeHoverkraft(context);
+    expect(context.siteConfig.staticDirectories).toEqual([
+      ...initialStaticDirectories,
+      path.resolve(__dirname, "../assets"),
+    ]);
+  });
+
+  it("sets the default favicon when none is provided", () => {
+    const context = createLoadContext();
+
+    expect(context.siteConfig.favicon).toBeUndefined();
+
+    themeHoverkraft(context);
+
+    expect(context.siteConfig.favicon).toBe("img/favicon.ico");
+  });
+
+  it("does not override an existing favicon", () => {
+    const context = createLoadContext({ favicon: "img/custom.ico" });
+
+    themeHoverkraft(context);
+
+    expect(context.siteConfig.favicon).toBe("img/custom.ico");
   });
 });

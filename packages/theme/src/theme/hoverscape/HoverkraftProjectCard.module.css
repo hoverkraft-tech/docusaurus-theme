@@ -1,0 +1,125 @@
+.projectCard {
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  transition: all 0.3s ease;
+}
+
+.projectCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  border-color: #1998ff;
+}
+
+.primary {
+  box-shadow: 0 4px 12px rgba(25, 152, 255, 0.08);
+}
+
+.neutral {
+  background: var(--ifm-color-content-secondary, #ffffff);
+  border-color: var(--ifm-color-emphasis-200);
+}
+
+[data-theme="dark"] .projectCard {
+  background: var(--ifm-background-surface-color);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.projectHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.projectIcon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.projectTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+  color: #1a202c;
+}
+
+[data-theme="dark"] .projectTitle {
+  color: var(--ifm-color-white, #ffffff);
+}
+
+.projectTitle a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.projectTitle a:hover {
+  text-decoration: underline;
+}
+
+.titleLinkContent {
+  display: inline-flex;
+  align-items: center;
+}
+
+.projectMeta {
+  font-size: 0.9rem;
+  color: #1998ff;
+  margin: 0;
+  font-weight: 500;
+}
+
+[data-theme="dark"] .projectMeta {
+  color: var(--ifm-color-primary-lightest, #66c2ff);
+}
+
+.projectDescription {
+  margin: 0;
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+[data-theme="dark"] .projectDescription {
+  color: var(--ifm-color-emphasis-400);
+}
+
+.projectTagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.projectTag {
+  font-size: 0.85rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(25, 152, 255, 0.12);
+  color: #1998ff;
+}
+
+[data-theme="dark"] .projectTag {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+.projectActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.projectButton {
+  font-size: 0.9rem;
+}
+
+@media (max-width: 720px) {
+  .projectCard {
+    padding: 1.5rem;
+  }
+}
