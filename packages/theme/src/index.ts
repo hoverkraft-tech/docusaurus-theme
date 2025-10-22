@@ -4,7 +4,24 @@ import themeClassic from "@docusaurus/theme-classic";
 
 export default function themeHoverkraft(context: LoadContext): Plugin<undefined> {
   const hoverkraftStylesheet = path.resolve(__dirname, "./styles/hoverkraft.css");
-  const classicTheme = themeClassic(context, { customCss: [hoverkraftStylesheet] });
+  const hoverkraftAssetsDir = path.resolve(__dirname, "./assets");
+  const defaultFavicon = "img/favicon.ico";
+  const existingStaticDirectories = context.siteConfig.staticDirectories ?? ["static"];
+  const normalizedStaticDirectories = new Set(
+    existingStaticDirectories.map((directoryPath) => path.resolve(context.siteDir, directoryPath))
+  );
+
+  if (!normalizedStaticDirectories.has(hoverkraftAssetsDir)) {
+    context.siteConfig.staticDirectories = [...existingStaticDirectories, hoverkraftAssetsDir];
+  }
+
+  if (!context.siteConfig.favicon) {
+    context.siteConfig.favicon = defaultFavicon;
+  }
+
+  const classicTheme = themeClassic(context, {
+    customCss: [hoverkraftStylesheet],
+  });
   const classicGetClientModules = classicTheme.getClientModules?.bind(classicTheme);
 
   return {
@@ -29,3 +46,16 @@ export default function themeHoverkraft(context: LoadContext): Plugin<undefined>
 }
 
 export { validateThemeConfig } from "./validateThemeConfig";
+export type {
+  HoverkraftAction,
+  HoverkraftActionVariant,
+  HoverkraftActionSize,
+  HoverkraftFeatureItem,
+  HoverkraftFeatureListProps,
+  HoverkraftProjectCardProps,
+} from "./theme/components.types";
+export type {
+  HoverkraftHeroProps,
+  HoverkraftBrandHighlightProps,
+} from "./theme/hoverscape/HoverkraftHero";
+export type { HoverkraftButtonProps } from "./theme/hoverscape/HoverkraftButton";

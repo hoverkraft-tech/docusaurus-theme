@@ -1,96 +1,76 @@
 import Head from "@docusaurus/Head";
-import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
-import clsx from "clsx";
+import {
+  HoverkraftHero,
+  HoverkraftBrandHighlight,
+  HoverkraftFeatureList,
+  HoverkraftButton,
+  type HoverkraftFeatureItem,
+  type HoverkraftAction,
+} from "@hoverkraft/docusaurus-theme/components";
 import styles from "./index.module.css";
 
-type FeatureItem = {
-  title: string;
-  emoji: string;
-  description: JSX.Element;
-};
-
-const FeatureList: FeatureItem[] = [
+const heroActions: HoverkraftAction[] = [
   {
-    title: "Design your brand story",
-    emoji: "🎨",
-    description: (
-      <>
-        Fully own the visual identity of your documentation with curated color palettes, typography
-        scales, and polished spacing tokens that make every page look editorial-ready.
-      </>
-    ),
+    label: "Start building",
+    to: "/docs/getting-started",
+    variant: "primary",
   },
   {
-    title: "Production-ready components",
-    emoji: "🧱",
-    description: (
-      <>
-        Ship faster with Layout, Logo, and Footer components that balance personality and usability.
-        Every piece is theme-able, accessible, and ready to extend.
-      </>
-    ),
+    label: "Explore components",
+    to: "/docs/components/layout",
+    variant: "secondary",
   },
   {
-    title: "DX you can trust",
-    emoji: "⚡️",
-    description: (
-      <>
-        Built on the latest Docusaurus 3 stack with TypeScript definitions, automated validation,
-        and thoughtful defaults so you can iterate with confidence.
-      </>
-    ),
+    label: "View the blog demo",
+    to: "/blog",
+    variant: "outline",
   },
 ];
 
-function Feature({ title, emoji, description }: FeatureItem) {
-  return (
-    <div className={styles.featureCard}>
-      <div className={styles.featureTitle}>
-        <span className={styles.featureEmoji} aria-hidden="true">
-          {emoji}
-        </span>
-        <h3>{title}</h3>
-      </div>
-      <p>{description}</p>
-    </div>
-  );
-}
+const featureList: HoverkraftFeatureItem[] = [
+  {
+    id: "feature-design",
+    icon: "🎨",
+    title: "Design your brand story",
+    description:
+      "Curated color palettes, typography scales, and polished spacing tokens that make every page look editorial-ready.",
+  },
+  {
+    id: "feature-components",
+    icon: "🧱",
+    title: "Production-ready components",
+    description:
+      "Layout, Logo, and Footer building blocks ship theme-able, accessible, and ready to extend for your use-case.",
+  },
+  {
+    id: "feature-dx",
+    icon: "⚡",
+    title: "DX you can trust",
+    description:
+      "Built on Docusaurus 3 with TypeScript definitions, validation utilities, and thoughtful defaults for frictionless iteration.",
+  },
+];
 
 const colorSwatches = [
   {
     name: "Primary",
     token: "var(--ifm-color-primary)",
     fallback: "#1998ff",
-    description: "Call-to-action buttons and highlights",
+    description: "Call-to-action buttons and interface highlights",
   },
   {
     name: "Secondary",
     token: "var(--hk-color-secondary, #ff5a02)",
     fallback: "#ff5a02",
-    description: "Navigation and supportive accents",
+    description: "Navigation links and supportive accents",
   },
   {
     name: "Accent",
     token: "var(--hk-color-accent, #ff5a02)",
     fallback: "#ff5a02",
-    description: "Interactive elements and emphasis",
-  },
-];
-
-const integrationHighlights = [
-  {
-    title: "Zero-config adoption",
-    copy: "Drop the theme into a Docusaurus v3 project and go live instantly.",
-  },
-  {
-    title: "TypeScript-first",
-    copy: "Ship with rich typings, config validation, and editor autocompletion.",
-  },
-  {
-    title: "Extend with confidence",
-    copy: "Override any piece via Swizzle or compose your own components.",
+    description: "Interactive emphasis states and badges",
   },
 ];
 
@@ -111,26 +91,19 @@ export default function Home(): JSX.Element {
         <meta name="twitter:description" content={pageDescription} />
       </Head>
       <main>
-        <section className={clsx(styles.section, styles.heroBanner)}>
-          <div className={styles.heroContent}>
-            <h1 className={styles.heroTitle}>Hoverkraft Theme for Docusaurus</h1>
-            <p className={styles.heroSubtitle}>
-              Craft documentation that feels premium out-of-the-box. The Hoverkraft theme blends an
-              opinionated visual system with pragmatic components that stay out of your way and let
-              your content shine.
-            </p>
-            <div className={styles.heroButtons}>
-              <Link className="button button--primary button--lg" to="/docs/getting-started">
-                Start building
-              </Link>
-              <Link className="button button--secondary button--lg" to="/docs/components/layout">
-                Explore components
-              </Link>
-              <Link className="button button--outline button--lg" to="/blog">
-                View the blog demo
-              </Link>
-            </div>
-          </div>
+        <section className={styles.section}>
+          <HoverkraftHero
+            title={
+              <>
+                <HoverkraftBrandHighlight>Hoverkraft</HoverkraftBrandHighlight> Theme for{" "}
+                Docusaurus
+              </>
+            }
+            description="Craft documentation that feels premium out-of-the-box. Opinionated visual language meets pragmatic components that let your content shine."
+            actions={heroActions}
+            tone="midnight"
+            align="center"
+          />
         </section>
 
         <section className={styles.section}>
@@ -140,11 +113,7 @@ export default function Home(): JSX.Element {
               We distilled years of product storytelling into a reusable design system that works
               for launches, integrations, and long-form documentation.
             </p>
-            <div className={styles.features}>
-              {FeatureList.map((props) => (
-                <Feature key={props.title} {...props} />
-              ))}
-            </div>
+            <HoverkraftFeatureList features={featureList} align="center" />
           </div>
         </section>
 
@@ -178,14 +147,6 @@ export default function Home(): JSX.Element {
               Every detail—from TypeScript support to content structure—was designed to keep teams
               shipping purposeful, consistent documentation.
             </p>
-            <div className={styles.integrationList}>
-              {integrationHighlights.map(({ title, copy }) => (
-                <div key={title} className={styles.integrationCard}>
-                  <h3 style={{ marginBottom: "0.5rem", fontSize: "1.1rem" }}>{title}</h3>
-                  <p style={{ margin: 0 }}>{copy}</p>
-                </div>
-              ))}
-            </div>
             <div className={styles.callout}>
               <h3 className={styles.calloutTitle}>Ready to bring Hoverkraft to your docs?</h3>
               <p>
@@ -194,15 +155,17 @@ export default function Home(): JSX.Element {
                 existing sites.
               </p>
               <div className={styles.calloutButtons}>
-                <Link className="button button--primary button--lg" to="/docs/installation">
-                  Install the theme
-                </Link>
-                <Link className="button button--secondary button--lg" to="/docs/configuration">
-                  Configure Hoverkraft
-                </Link>
-                <Link className="button button--outline button--lg" to="/docs/migration">
-                  Migrate an existing site
-                </Link>
+                <HoverkraftButton to="/docs/installation" label="Install the theme" />
+                <HoverkraftButton
+                  to="/docs/configuration"
+                  label="Configure Hoverkraft"
+                  variant="secondary"
+                />
+                <HoverkraftButton
+                  to="/docs/migration"
+                  label="Migrate an existing site"
+                  variant="outline"
+                />
               </div>
             </div>
           </div>

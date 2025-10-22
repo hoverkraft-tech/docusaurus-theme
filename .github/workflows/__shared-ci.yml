@@ -41,7 +41,7 @@ jobs:
         uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
         with:
           name: build
-          path: .
+          path: /
 
       - name: Create package tarball
         working-directory: packages/theme
@@ -54,10 +54,12 @@ jobs:
 
           npm pack --pack-destination ${{ runner.temp }}/
 
-      - name: Install package globally
+      - name: Install package in the docs package to verify
+        working-directory: packages/docs
         run: |
-          cd ${{ runner.temp }}
-          npm install -g ./hoverkraft-docusaurus-theme-*.tgz
+          npm uninstall @hoverkraft/docusaurus-theme || true
+          npm install ${{ runner.temp }}/hoverkraft-docusaurus-theme-*.tgz
+          npm run build
 
       - name: Upload package tarball
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
