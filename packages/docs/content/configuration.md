@@ -6,6 +6,35 @@ sidebar_position: 3
 
 The Hoverkraft theme now inherits from `@docusaurus/theme-classic` and focuses on providing consistent brand styling through CSS and static assets. There are no special `hoverkraft` theme options — the theme is intentionally opinionated about branding.
 
+## Version Compatibility
+
+| Theme Version | Docusaurus Version | React Version | Node Version | Status |
+|---------------|-------------------|---------------|--------------|--------|
+| 1.0.0 | 3.x | 19.x | ≥18.0 | ✅ Stable |
+| 0.1.1 | 3.x | 19.x | ≥18.0 | ✅ Stable |
+| 0.1.0 | 3.x | 19.x | ≥18.0 | ⚠️ Package issue - use 0.1.1+ |
+
+### Upgrading
+
+When upgrading the theme:
+
+```bash
+# Check current version
+npm list @hoverkraft/docusaurus-theme
+
+# Update to latest
+npm update @hoverkraft/docusaurus-theme
+
+# Or install specific version
+npm install @hoverkraft/docusaurus-theme@1.0.0
+```
+
+**Breaking Changes:**
+- None in current versions
+
+**Deprecations:**
+- `HoverkraftHero.brandedText` prop - use `HoverkraftBrandHighlight` component instead
+
 ## How the theme is applied
 
 - Install the theme package and reference it from `docusaurus.config.js`:

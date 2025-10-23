@@ -12,6 +12,14 @@ The Hoverkraft theme ships a `HoverkraftHero` component that encapsulates the br
 - Section headers that require strong Hoverkraft branding
 - Situations where you want theme-consistent CTAs without hand-rolling markup
 
+## Import
+
+```tsx
+import { HoverkraftHero, HoverkraftBrandHighlight } from '@theme/hoverscape/HoverkraftHero';
+```
+
+**Note:** Use the `@theme/` alias for importing components. Do NOT use `@hoverkraft/docusaurus-theme/theme/hoverscape/...` as this will cause module resolution errors.
+
 ## Basic usage
 
 ```tsx title="src/pages/index.tsx"
@@ -19,10 +27,10 @@ import {
   HoverkraftHero,
   HoverkraftBrandHighlight,
   type HoverkraftAction,
-} from "@hoverkraft/docusaurus-theme/components";
+} from "@theme/hoverscape/HoverkraftHero";
 
 const actions: HoverkraftAction[] = [
-  { label: "Start building", to: "/docs/getting-started" },
+  { label: "Start building", to: "/docs/getting-started", variant: "primary" },
   { label: "View components", to: "/docs/components", variant: "secondary" },
   { label: "GitHub", href: "https://github.com/hoverkraft-tech", variant: "outline" },
 ];
@@ -41,20 +49,54 @@ const actions: HoverkraftAction[] = [
 />;
 ```
 
+## Advanced Usage with Branded Text and Supporting Visual
+
+```tsx
+<HoverkraftHero
+  title={
+    <>
+      Welcome to <HoverkraftBrandHighlight>Your Project</HoverkraftBrandHighlight>
+    </>
+  }
+  description="Your project description here."
+  supportingVisual={
+    <img src="/img/hero.png" alt="Hero" style={{ maxWidth: '100%' }} />
+  }
+  actions={[
+    { label: 'Get Started', to: '/docs/intro', variant: 'primary' },
+    { label: 'View on GitHub', href: 'https://github.com/your-org/your-repo', variant: 'secondary', target: '_blank' },
+  ]}
+  align="left"  // 'left' | 'center'
+  tone="midnight"  // 'midnight' | 'daylight'
+/>
+```
+
 ## Props
 
-| Prop               | Type                       | Description                                                                       |
-| ------------------ | -------------------------- | --------------------------------------------------------------------------------- |
-| `eyebrow`          | `string`                   | Optional headline kicker rendered above the title.                                |
-| `title`            | `ReactNode`                | Main heading for the hero.                                                        |
-| `description`      | `ReactNode`                | Supporting copy below the title.                                                  |
-| `brandedText`      | `ReactNode`                | Highlighted text appended to the title. Legacy prop for quick adoption.           |
-| `supportingVisual` | `ReactNode`                | Optional element rendered alongside the hero content (images, code blocks, etc.). |
-| `actions`          | `HoverkraftAction[]`       | CTA buttons rendered with Hoverkraft button styling.                              |
-| `align`            | `'left' \| 'center'`       | Controls text alignment and grid alignment. Default `left`.                       |
-| `tone`             | `'midnight' \| 'daylight'` | Chooses dark or light background treatments. Default `midnight`.                  |
-| `id`               | `string`                   | Optional DOM ID for deep-linking.                                                 |
-| `className`        | `string`                   | Extend styling with additional classes.                                           |
+| Prop | Type | Required | Default | Description |
+|------|------|----------|---------|-------------|
+| `title` | `ReactNode` | ✅ | - | Main heading text |
+| `description` | `ReactNode` | ❌ | - | Subheading text |
+| `eyebrow` | `string` | ❌ | - | Small text above title |
+| `brandedText` | `ReactNode` | ❌ | - | Deprecated: use `HoverkraftBrandHighlight` in title |
+| `supportingVisual` | `ReactNode` | ❌ | - | Image or graphic to display |
+| `actions` | `HoverkraftAction[]` | ❌ | - | Call-to-action buttons |
+| `align` | `'left' \| 'center'` | ❌ | `'left'` | Text alignment and grid alignment |
+| `tone` | `'midnight' \| 'daylight'` | ❌ | `'midnight'` | Color scheme (dark or light background) |
+| `id` | `string` | ❌ | - | Optional DOM ID for deep-linking |
+| `className` | `string` | ❌ | - | Extend styling with additional classes |
+
+### Action Object Structure
+
+Each action in the `actions` array has the following structure:
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `label` | `string` | ✅ | Button text |
+| `to` | `string` | ❌ | Internal route (use for site navigation) |
+| `href` | `string` | ❌ | External URL (use for external links) |
+| `variant` | `'primary' \| 'secondary' \| 'outline'` | ❌ | Button style variant |
+| `target` | `string` | ❌ | Link target (e.g., `'_blank'` for new tab) |
 
 ### Highlight only specific words
 
