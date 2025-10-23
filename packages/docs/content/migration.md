@@ -25,6 +25,91 @@ Because Hoverkraft extends the classic theme, most `themeConfig` entries (navbar
 - Custom CSS: move visual overrides into `src/css/custom.css` and target Hoverkraft classes/variables (for example `.navbar__brand`, `.footer`, `--hk-color-primary`).
 - Swizzled components: if you previously swizzled components from classic, verify they still work and update imports if necessary.
 
+## Migrating from Custom CSS
+
+If you have custom CSS that duplicates theme functionality:
+
+### Step 1: Identify Redundant Styles
+
+The theme provides:
+
+- Color variables and palettes
+- Typography (Inter, Roboto Mono)
+- Button styles
+- Navbar and footer styling
+- Dark mode support
+- Code block styling
+
+### Step 2: Remove Redundant Custom CSS
+
+**Before:**
+
+```css
+:root {
+  --ifm-color-primary: #1998ff;
+  --ifm-font-family-base: "Inter", sans-serif;
+  /* ... dozens of color and typography variables ... */
+}
+
+.button--primary {
+  background: linear-gradient(45deg, #1998ff, #ff5a02);
+}
+```
+
+**After:**
+
+```css
+/* Only keep truly custom styles not provided by theme */
+/* Most sites can completely remove custom.css */
+```
+
+### Step 3: Update Configuration
+
+Remove `customCss` from your preset config if you removed all custom CSS:
+
+```typescript
+presets: [
+  [
+    'classic',
+    {
+      docs: {
+        sidebarPath: './sidebars.ts',
+      },
+      // Remove this if you deleted custom.css:
+      // theme: {
+      //   customCss: './src/css/custom.css',
+      // },
+    },
+  ],
+],
+```
+
+### Step 4: Refactor Custom Components
+
+Replace custom component implementations with theme components:
+
+**Before:**
+
+```tsx
+<section className={styles.hero}>
+  <h1>{title}</h1>
+  <p>{description}</p>
+  <Link to="/docs">Get Started</Link>
+</section>
+```
+
+**After:**
+
+```tsx
+import { HoverkraftHero } from "@theme/hoverscape/HoverkraftHero";
+
+<HoverkraftHero
+  title={title}
+  description={description}
+  actions={[{ label: "Get Started", to: "/docs", variant: "primary" }]}
+/>;
+```
+
 ## From other themes (bootstrap, custom)
 
 Migration from non-classic themes may require more changes:

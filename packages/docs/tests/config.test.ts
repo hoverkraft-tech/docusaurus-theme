@@ -29,6 +29,8 @@ describe("sidebars.js", () => {
     expect(sidebars.tutorialSidebar).toContain("installation");
     expect(sidebars.tutorialSidebar).toContain("configuration");
     expect(sidebars.tutorialSidebar).toContain("migration");
+    expect(sidebars.tutorialSidebar).toContain("examples");
+    expect(sidebars.tutorialSidebar).toContain("quick-reference");
   });
 
   it("lists component documentation inside a category", async () => {
@@ -45,6 +47,10 @@ describe("sidebars.js", () => {
     expect(componentsCategory?.label).toBe("Components");
     expect(componentsCategory?.items).toEqual([
       "components/layout",
+      "components/hero",
+      "components/feature-grid",
+      "components/project-card",
+      "components/buttons",
       "components/footer",
       "components/logo",
     ]);

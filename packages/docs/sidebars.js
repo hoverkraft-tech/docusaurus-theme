@@ -21,9 +21,19 @@ const sidebars = {
     {
       type: "category",
       label: "Components",
-      items: ["components/layout", "components/footer", "components/logo"],
+      items: [
+        "components/layout",
+        "components/hero",
+        "components/feature-grid",
+        "components/project-card",
+        "components/buttons",
+        "components/footer",
+        "components/logo",
+      ],
     },
     "migration",
+    "examples",
+    "quick-reference",
   ],
 };
 

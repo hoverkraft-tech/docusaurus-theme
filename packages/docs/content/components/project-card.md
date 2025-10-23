@@ -6,10 +6,18 @@ sidebar_position: 7
 
 `HoverkraftProjectCard` reproduces the rich cards used across the Hoverkraft projects directory. It bundles iconography, metadata, tags, and CTA buttons with consistent spacing and hover interactions.
 
+## Import
+
+```tsx
+import { HoverkraftProjectCard } from "@theme/hoverscape/HoverkraftProjectCard";
+```
+
+**Note:** Use the `@theme/` alias for importing components. Do NOT use `@hoverkraft/docusaurus-theme/theme/hoverscape/...` as this will cause module resolution errors.
+
 ## Usage
 
 ```tsx title="src/components/FeaturedProjects.tsx"
-import { HoverkraftProjectCard } from "@hoverkraft/docusaurus-theme/components";
+import { HoverkraftProjectCard } from "@theme/hoverscape/HoverkraftProjectCard";
 
 const card = {
   icon: "⚡",
@@ -31,20 +39,45 @@ const card = {
 <HoverkraftProjectCard {...card} />;
 ```
 
+## Complete Example
+
+```tsx
+<HoverkraftProjectCard
+  icon="⚡"
+  title="My Awesome Project"
+  titleHref="https://github.com/user/project"
+  titleTarget="_blank"
+  meta="⭐ 1.2k • TypeScript"
+  description="A modern framework for building scalable applications with great DX."
+  tags={["typescript", "framework", "developer-tools"]}
+  accent="primary" // 'primary' | 'neutral'
+  actions={[
+    {
+      label: "Documentation",
+      to: "/docs",
+      variant: "outline",
+    },
+  ]}
+/>
+```
+
 ## Props
 
-| Prop                       | Type                     | Description                                        |
-| -------------------------- | ------------------------ | -------------------------------------------------- |
-| `icon`                     | `ReactNode`              | Emoji or JSX rendered inside the icon container.   |
-| `title`                    | `ReactNode`              | Project name.                                      |
-| `titleHref` / `titleTo`    | `string`                 | External (`href`) or internal (`to`) destination.  |
-| `titleTarget` / `titleRel` | `string`                 | Passed to the title link when using external URLs. |
-| `meta`                     | `ReactNode`              | Supplementary text (stars, language, etc.).        |
-| `description`              | `ReactNode`              | Main body copy.                                    |
-| `tags`                     | `ReactNode[]`            | Rendered as capsules below the description.        |
-| `actions`                  | `HoverkraftAction[]`     | CTA buttons rendered at the bottom.                |
-| `accent`                   | `'primary' \| 'neutral'` | Highlight treatment. Defaults to `primary`.        |
-| `className` / `id`         | `string`                 | Extend styling or deep-link to the card.           |
+| Prop          | Type                     | Required | Default     | Description                                    |
+| ------------- | ------------------------ | -------- | ----------- | ---------------------------------------------- |
+| `title`       | `ReactNode`              | ✅       | -           | Project name                                   |
+| `description` | `ReactNode`              | ✅       | -           | Project description                            |
+| `icon`        | `ReactNode`              | ❌       | -           | Icon or emoji displayed in the card header     |
+| `titleHref`   | `string`                 | ❌       | -           | External link for title (use with `href` URLs) |
+| `titleTo`     | `string`                 | ❌       | -           | Internal route for title (use with site paths) |
+| `titleTarget` | `string`                 | ❌       | -           | Link target (e.g., `'_blank'` for new tab)     |
+| `titleRel`    | `string`                 | ❌       | -           | Link rel attribute passed to external URLs     |
+| `meta`        | `ReactNode`              | ❌       | -           | Metadata (stars, language, version, etc.)      |
+| `tags`        | `ReactNode[]`            | ❌       | -           | Tags/labels rendered as capsules               |
+| `actions`     | `HoverkraftAction[]`     | ❌       | -           | Call-to-action buttons                         |
+| `accent`      | `'primary' \| 'neutral'` | ❌       | `'primary'` | Color accent/highlight treatment               |
+| `className`   | `string`                 | ❌       | -           | Extend styling with additional classes         |
+| `id`          | `string`                 | ❌       | -           | DOM ID for deep-linking to the card            |
 
 ## Layout suggestions
 
