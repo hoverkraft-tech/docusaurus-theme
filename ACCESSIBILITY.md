@@ -8,12 +8,32 @@ All colors used in the theme meet WCAG AA standards for contrast ratios:
 
 ### Light Mode Color Palette
 
+All colors tested on white background (#ffffff):
+
 - **Primary** (#0073cc): 4.86:1 contrast ratio ✓
+- **Primary Dark** (#0066b8): 5.85:1 contrast ratio ✓
+- **Primary Darker** (#0061ad): 6.34:1 contrast ratio ✓
+- **Primary Darkest** (#00508f): 8.25:1 contrast ratio ✓
+- **Primary Light** (#0076d6): 4.60:1 contrast ratio ✓
+- **Primary Lighter** (#0076dc): 4.54:1 contrast ratio ✓
+- **Primary Lightest** (#0072dc): 4.73:1 contrast ratio ✓
 - **Secondary** (#cc4400): 4.78:1 contrast ratio ✓
 - **Info** (#007bb8): 4.64:1 contrast ratio ✓
 - **Success** (#007d38): 5.26:1 contrast ratio ✓
 - **Warning** (#8a6b00): 5.02:1 contrast ratio ✓
 - **Danger** (#d1242a): 5.25:1 contrast ratio ✓
+
+### Dark Mode Color Palette
+
+All colors tested on dark background (#1d2026):
+
+- **Primary** (#4da6ff): 6.38:1 contrast ratio ✓
+- **Primary Dark** (#3399ff): 5.55:1 contrast ratio ✓
+- **Primary Darker** (#268cff): 4.88:1 contrast ratio ✓
+- **Primary Darkest** (#1487fa): 4.57:1 contrast ratio ✓
+- **Primary Light** (#66b3ff): 7.35:1 contrast ratio ✓
+- **Primary Lighter** (#73baff): 7.92:1 contrast ratio ✓
+- **Primary Lightest** (#99ccff): 9.66:1 contrast ratio ✓
 
 ### Requirements
 
