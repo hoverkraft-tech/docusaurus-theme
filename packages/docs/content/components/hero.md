@@ -15,10 +15,8 @@ The Hoverkraft theme ships a `HoverkraftHero` component that encapsulates the br
 ## Import
 
 ```tsx
-import { HoverkraftHero, HoverkraftBrandHighlight } from "@theme/hoverscape/HoverkraftHero";
+import { HoverkraftHero, HoverkraftBrandHighlight } from "@hoverkraft/docusaurus-theme/components";
 ```
-
-**Note:** Use the `@theme/` alias for importing components. Do NOT use `@hoverkraft/docusaurus-theme/theme/hoverscape/...` as this will cause module resolution errors.
 
 ## Basic usage
 
@@ -27,7 +25,7 @@ import {
   HoverkraftHero,
   HoverkraftBrandHighlight,
   type HoverkraftAction,
-} from "@theme/hoverscape/HoverkraftHero";
+} from "@hoverkraft/docusaurus-theme/components";
 
 const actions: HoverkraftAction[] = [
   { label: "Start building", to: "/docs/getting-started", variant: "primary" },

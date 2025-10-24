@@ -39,15 +39,9 @@ npm install @hoverkraft/docusaurus-theme@1.0.0
 
 ## How the theme is applied
 
-- Install the theme package and reference it from `docusaurus.config.js`:
+The theme is activated by listing `@hoverkraft/docusaurus-theme` in the `themes` array of your site configuration. See the [installation guide](./installation#add-theme-to-configuration) for the step-by-step snippet.
 
-```js title="docusaurus.config.js"
-export default {
-  themes: ["@hoverkraft/docusaurus-theme"],
-};
-```
-
-- The theme delegates runtime behavior (color mode, Prism, etc.) to `@docusaurus/theme-classic` and adds Hoverkraft-specific CSS overrides and static assets.
+Once enabled, the package delegates runtime behavior (color mode, Prism, etc.) to `@docusaurus/theme-classic` and layers Hoverkraft-specific CSS overrides and static assets on top.
 
 ## What you can and can't change
 
@@ -89,13 +83,4 @@ If you are upgrading from a previous version that exposed more customization, fo
 
 ## Troubleshooting
 
-- If a theme asset (logo, footer icons) 404s, ensure you built the theme package so static assets are copied into `lib/` before building the site.
-- Building sequence used locally in this repository:
-
-```bash
-# From repo root
-cd packages/theme && npm run build
-cd ../docs && npm run build # or `make build` at repo root
-```
-
-This ensures the theme's static assets are present in the packaged `lib/` output and available to the site.
+For publishing or workspace build issues—such as missing assets after installation—follow the [migration guide troubleshooting steps](./migration#logo-404s) so there is a single source of truth for those commands.

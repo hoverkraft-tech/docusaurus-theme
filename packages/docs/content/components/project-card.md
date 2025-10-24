@@ -9,15 +9,13 @@ sidebar_position: 7
 ## Import
 
 ```tsx
-import { HoverkraftProjectCard } from "@theme/hoverscape/HoverkraftProjectCard";
+import { HoverkraftProjectCard } from "@hoverkraft/docusaurus-theme/components";
 ```
-
-**Note:** Use the `@theme/` alias for importing components. Do NOT use `@hoverkraft/docusaurus-theme/theme/hoverscape/...` as this will cause module resolution errors.
 
 ## Usage
 
 ```tsx title="src/components/FeaturedProjects.tsx"
-import { HoverkraftProjectCard } from "@theme/hoverscape/HoverkraftProjectCard";
+import { HoverkraftProjectCard } from "@hoverkraft/docusaurus-theme/components";
 
 const card = {
   icon: "⚡",
