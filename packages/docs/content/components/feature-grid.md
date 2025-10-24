@@ -6,76 +6,11 @@ sidebar_position: 6
 
 `HoverkraftFeatureList` renders responsive cards with Hoverkraft typography, spacing, and hover states. Use it to highlight value propositions, roadmap items, or feature summaries.
 
-## Import
+## Tips
 
-```tsx
-import {
-  HoverkraftFeatureList,
-  type HoverkraftFeatureItem,
-} from "@theme/hoverscape/HoverkraftFeatureList";
-```
-
-**Note:** Use the `@theme/` alias for importing components. Do NOT use `@hoverkraft/docusaurus-theme/theme/hoverscape/...` as this will cause module resolution errors.
-
-## Usage
-
-```tsx title="src/components/FeatureHighlights.tsx"
-import {
-  HoverkraftFeatureList,
-  type HoverkraftFeatureItem,
-} from "@theme/hoverscape/HoverkraftFeatureList";
-
-const features: HoverkraftFeatureItem[] = [
-  {
-    id: "ops",
-    icon: "⚙️",
-    eyebrow: "Operations",
-    title: "Deploy with confidence",
-    description:
-      "CI/CD blueprints, IaC modules, and observability defaults aligned with Hoverkraft best-practices.",
-  },
-  {
-    id: "design",
-    icon: "🎨",
-    title: "Design system",
-    description:
-      "Polished typography, spacing tokens, and accessible color palettes ready to remix.",
-  },
-  {
-    id: "community",
-    icon: "🤝",
-    title: "Community first",
-    description: "Join maintainers and contributors building the Hoverkraft ecosystem together.",
-  },
-];
-
-<HoverkraftFeatureList features={features} align="center" minColumnWidth={280} />;
-```
-
-## Simple Example
-
-```tsx
-<HoverkraftFeatureList
-  features={[
-    {
-      icon: "🔓",
-      title: "Open Source",
-      description: "Community-driven development with full transparency.",
-    },
-    {
-      icon: "⚡",
-      title: "Fast",
-      description: "Optimized for performance and developer experience.",
-    },
-    {
-      icon: "🤝",
-      title: "Community",
-      description: "Join thousands of developers building the future.",
-    },
-  ]}
-  align="center" // 'start' | 'center'
-/>
-```
+- Use concise titles and keep descriptions under ~120 characters for best line wrapping.
+- Combine with `HoverkraftHero` to continue the value proposition narrative directly below the fold.
+- Adjust `minColumnWidth` when you need more columns on wide screens.
 
 ### Props
 
@@ -99,8 +34,97 @@ Each `HoverkraftFeatureItem` accepts the following fields:
 | `title`       | `ReactNode` | ✅       | Required heading content                              |
 | `description` | `ReactNode` | ❌       | Supporting paragraph                                  |
 
-## Tips
+## Import
 
-- Use concise titles and keep descriptions under ~120 characters for best line wrapping.
-- Combine with `HoverkraftHero` to continue the value proposition narrative directly below the fold.
-- Adjust `minColumnWidth` when you need more columns on wide screens.
+```tsx
+import {
+  HoverkraftFeatureList,
+  type HoverkraftFeatureItem,
+} from "@hoverkraft/docusaurus-theme/components";
+```
+
+## Usage
+
+## Simple Example
+
+```tsx live
+<HoverkraftFeatureList
+  features={[
+    {
+      icon: "🔓",
+      title: "Open Source",
+      description: "Community-driven development with full transparency.",
+    },
+    {
+      icon: "⚡",
+      title: "Fast",
+      description: "Optimized for performance and developer experience.",
+    },
+    {
+      icon: "🤝",
+      title: "Community",
+      description: "Join thousands of developers building the future.",
+    },
+  ]}
+  align="center" // 'start' | 'center'
+/>
+```
+
+### Center alignment (default spacing)
+
+```tsx live
+<HoverkraftFeatureList
+  features={[
+    {
+      icon: "🔧",
+      title: "Configurable",
+      description: "Tune layout and spacing tokens without dropping into raw CSS.",
+    },
+    {
+      icon: "🧱",
+      eyebrow: "Composable",
+      title: "Slot in your content",
+      description: "Drop in markdown or React components and keep consistent rhythm.",
+    },
+    {
+      icon: "🌓",
+      title: "Dark-mode ready",
+      description: "Automatic color tokens keep contrast compliant in both themes.",
+    },
+  ]}
+  align="center"
+  minColumnWidth={260}
+/>
+```
+
+### Start alignment with narrower columns
+
+```tsx live noInline
+<HoverkraftFeatureList
+  features={[
+    {
+      icon: "🧭",
+      eyebrow: "Docs",
+      title: "Guided journeys",
+      description: "Compose narrative flows with staggered highlight cards.",
+    },
+    {
+      icon: "♻️",
+      title: "Reusable",
+      description: "Share data across pages and keep your highlights in sync.",
+    },
+    {
+      icon: "🧪",
+      title: "Tested",
+      description: "Snapshots ensure card spacing and responsive breakpoints stay intact.",
+    },
+    {
+      icon: "🚀",
+      title: "Production ready",
+      description: "Shipped with sensible defaults, ready to deploy out of the box.",
+    },
+  ]}
+  align="start"
+  minColumnWidth={220}
+/>
+```
