@@ -12,10 +12,8 @@ sidebar_position: 6
 import {
   HoverkraftFeatureList,
   type HoverkraftFeatureItem,
-} from "@theme/hoverscape/HoverkraftFeatureList";
+} from "@hoverkraft/docusaurus-theme/components";
 ```
-
-**Note:** Use the `@theme/` alias for importing components. Do NOT use `@hoverkraft/docusaurus-theme/theme/hoverscape/...` as this will cause module resolution errors.
 
 ## Usage
 
@@ -23,7 +21,7 @@ import {
 import {
   HoverkraftFeatureList,
   type HoverkraftFeatureItem,
-} from "@theme/hoverscape/HoverkraftFeatureList";
+} from "@hoverkraft/docusaurus-theme/components";
 
 const features: HoverkraftFeatureItem[] = [
   {
