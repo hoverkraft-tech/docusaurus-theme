@@ -101,7 +101,7 @@ Replace custom component implementations with theme components:
 **After:**
 
 ```tsx
-import { HoverkraftHero } from "@theme/hoverscape/HoverkraftHero";
+import { HoverkraftHero } from "@hoverkraft/docusaurus-theme/components";
 
 <HoverkraftHero
   title={title}

@@ -16,7 +16,7 @@ Before installing the theme, make sure you have:
 
 ## Installing the Theme
 
-### 1. Install the Package
+### Install the Package
 
 Install the theme from npm:
 
@@ -30,7 +30,7 @@ Or with Yarn:
 yarn add @hoverkraft/docusaurus-theme
 ```
 
-### 2. Add Theme to Configuration
+### Add Theme to Configuration
 
 Add the theme to your `docusaurus.config.js` - **no additional configuration needed**:
 
@@ -95,29 +95,11 @@ Before migrating to the Hoverkraft theme:
 - [ ] Review your custom CSS files to identify what can be removed
 - [ ] Test in a separate branch first
 
-## What the Theme Provides
-
-The Hoverkraft theme includes opinionated defaults for:
-
-✅ **Favicon** - Hoverkraft branded favicon (you can remove `config.favicon`)  
-✅ **Logo** - Hoverkraft logo in navbar (you can remove `themeConfig.navbar.logo`)  
-✅ **Colors** - Complete color palette (light and dark modes)  
-✅ **Typography** - Inter font family and Roboto Mono for code  
-✅ **Components** - Ready-to-use components for common patterns  
-✅ **Styling** - No custom CSS needed for basic sites
-
-**You can safely remove:**
-
-- `favicon` from your config
-- `navbar.logo` configuration
-- Custom CSS files that duplicate theme styling
-- `customCss` config if you don't need custom styles
-
 ## Next Steps
 
-- Read about the [**opinionated design philosophy**](./configuration) behind the theme
-- Explore the [**component documentation**](./components/layout) to understand the theme structure
-- Check the [**migration guide**](./migration) if upgrading from a customizable version
+- Review the [Getting Started overview](./getting-started#whats-included) for the opinionated defaults bundled with the theme
+- Use the [configuration guide](./configuration) when you need to customize styling or swizzle components
+- Check the [migration guide](./migration) if upgrading from a previous theme implementation
 
 ## Troubleshooting
 
@@ -140,22 +122,6 @@ The Hoverkraft theme includes opinionated defaults for:
 - The Hoverkraft theme enforces strict branding and ignores customization options
 - Remove any `hoverkraft` configuration from your `themeConfig`
 - See the [migration guide](./migration) for details
-
-### Module Not Found Errors
-
-**Error:** `Module not found: Error: Package path ./theme/hoverscape/...`
-
-**Cause:** Components are not being imported correctly.
-
-**Solution:** Import using `@theme/` alias instead of the package path:
-
-```tsx
-// ❌ Wrong
-import { HoverkraftHero } from "@hoverkraft/docusaurus-theme/theme/hoverscape/HoverkraftHero";
-
-// ✅ Correct
-import { HoverkraftHero } from "@theme/hoverscape/HoverkraftHero";
-```
 
 ### Build Fails After Installing Theme
 

@@ -61,13 +61,16 @@ const config = {
   // themes: [require.resolve('../theme')],
 
   // For production, use the published package:
-  themes: ["@hoverkraft/docusaurus-theme"],
+  themes: ["@hoverkraft/docusaurus-theme", "@docusaurus/theme-live-codeblock"],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
       image: "img/docusaurus-social-card.jpg",
+      liveCodeBlock: {
+        playgroundPosition: "top",
+      },
       navbar: {
         title: "Hoverkraft Theme",
         items: [

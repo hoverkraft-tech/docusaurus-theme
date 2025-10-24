@@ -1,65 +1,22 @@
 ---
-sidebar_position: 7
+sidebar_position: 6
 ---
 
 # Project Card Component
 
 `HoverkraftProjectCard` reproduces the rich cards used across the Hoverkraft projects directory. It bundles iconography, metadata, tags, and CTA buttons with consistent spacing and hover interactions.
 
-## Import
+## Layout suggestions
 
-```tsx
-import { HoverkraftProjectCard } from "@theme/hoverscape/HoverkraftProjectCard";
-```
+- Wrap multiple cards in a CSS grid (`display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));`).
+- Pair with `HoverkraftFeatureList` for a narrative flow: feature explanation → highlighted projects.
+- Mix `accent="neutral"` cards with `primary` ones to create visual hierarchy.
 
-**Note:** Use the `@theme/` alias for importing components. Do NOT use `@hoverkraft/docusaurus-theme/theme/hoverscape/...` as this will cause module resolution errors.
+## Accessibility
 
-## Usage
-
-```tsx title="src/components/FeaturedProjects.tsx"
-import { HoverkraftProjectCard } from "@theme/hoverscape/HoverkraftProjectCard";
-
-const card = {
-  icon: "⚡",
-  title: "compose-action",
-  titleHref: "https://github.com/hoverkraft-tech/compose-action",
-  meta: "⭐ 190 • TypeScript",
-  description: "GitHub Action that runs docker-compose and cleans up gracefully.",
-  tags: ["github-actions", "docker", "ci"],
-  actions: [
-    { label: "View on GitHub", href: "https://github.com/hoverkraft-tech/compose-action" },
-    {
-      label: "Marketplace",
-      href: "https://github.com/marketplace/actions/docker-compose-action",
-      variant: "outline",
-    },
-  ],
-};
-
-<HoverkraftProjectCard {...card} />;
-```
-
-## Complete Example
-
-```tsx
-<HoverkraftProjectCard
-  icon="⚡"
-  title="My Awesome Project"
-  titleHref="https://github.com/user/project"
-  titleTarget="_blank"
-  meta="⭐ 1.2k • TypeScript"
-  description="A modern framework for building scalable applications with great DX."
-  tags={["typescript", "framework", "developer-tools"]}
-  accent="primary" // 'primary' | 'neutral'
-  actions={[
-    {
-      label: "Documentation",
-      to: "/docs",
-      variant: "outline",
-    },
-  ]}
-/>
-```
+- The component renders semantic markup (`<article>`, `<header>`, `<ul>` for tags).
+- Buttons default to `variant="outline"` when no variant is provided—override to emphasize certain actions.
+- When using icons without visible text, provide `aria-label` or include hidden text for screen readers.
 
 ## Props
 
@@ -79,14 +36,79 @@ const card = {
 | `className`   | `string`                 | ❌       | -           | Extend styling with additional classes         |
 | `id`          | `string`                 | ❌       | -           | DOM ID for deep-linking to the card            |
 
-## Layout suggestions
+## Import
 
-- Wrap multiple cards in a CSS grid (`display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));`).
-- Pair with `HoverkraftFeatureList` for a narrative flow: feature explanation → highlighted projects.
-- Mix `accent="neutral"` cards with `primary` ones to create visual hierarchy.
+```tsx
+import { HoverkraftProjectCard } from "@hoverkraft/docusaurus-theme/components";
+```
 
-## Accessibility
+## Usage
 
-- The component renders semantic markup (`<article>`, `<header>`, `<ul>` for tags).
-- Buttons default to `variant="outline"` when no variant is provided—override to emphasize certain actions.
-- When using icons without visible text, provide `aria-label` or include hidden text for screen readers.
+### Simple Example
+
+```tsx live
+<HoverkraftProjectCard
+  icon="⚡"
+  title="compose-action"
+  titleHref="https://github.com/hoverkraft-tech/compose-action"
+  meta="⭐ 190 • TypeScript"
+  description="GitHub Action that runs docker-compose and cleans up gracefully."
+  tags={["github-actions", "docker", "ci"]}
+  actions={[
+    { label: "View on GitHub", href: "https://github.com/hoverkraft-tech/compose-action" },
+    {
+      label: "Marketplace",
+      href: "https://github.com/marketplace/actions/docker-compose-action",
+      variant: "outline",
+    },
+  ]}
+/>
+```
+
+```tsx live noInline
+const primaryCard = {
+  icon: "⚡",
+  title: "compose-action",
+  titleHref: "https://github.com/hoverkraft-tech/compose-action",
+  meta: "Starred 190 | TypeScript",
+  description: "GitHub Action that runs docker-compose workflows with graceful clean-up and logs.",
+  tags: ["github-actions", "docker", "ci"],
+  actions: [
+    { label: "View on GitHub", href: "https://github.com/hoverkraft-tech/compose-action" },
+    {
+      label: "Marketplace",
+      href: "https://github.com/marketplace/actions/docker-compose-action",
+      variant: "outline",
+      target: "_blank",
+      rel: "noreferrer",
+    },
+  ],
+};
+
+const neutralCard = {
+  icon: "🛰️",
+  title: "hoverkraft.dev",
+  titleTo: "/",
+  meta: "Docs portal",
+  description: "Docusaurus theme powering the Hoverkraft developer experience.",
+  tags: ["design-system", "docusaurus"],
+  accent: "neutral",
+  actions: [
+    { label: "Docs", to: "/docs/getting-started" },
+    { label: "Components", to: "/docs/components" },
+  ],
+};
+
+render(
+  <div
+    style={{
+      display: "grid",
+      gap: "1.5rem",
+      gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+    }}
+  >
+    <HoverkraftProjectCard {...primaryCard} />
+    <HoverkraftProjectCard {...neutralCard} />
+  </div>
+);
+```

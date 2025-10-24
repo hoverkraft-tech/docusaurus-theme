@@ -4,362 +4,54 @@ sidebar_position: 9
 
 # Quick Reference
 
-A cheat sheet for common tasks and patterns when using the Hoverkraft Docusaurus theme.
-
-## Installation
-
-```bash
-# Install the theme
-npm install @hoverkraft/docusaurus-theme@latest
-
-# Or with specific version
-npm install @hoverkraft/docusaurus-theme@1.0.0
-```
-
-## Configuration
-
-### Minimal Configuration
-
-```typescript title="docusaurus.config.ts"
-export default {
-  // Add the theme
-  themes: ["@hoverkraft/docusaurus-theme"],
-
-  // You can safely remove:
-  // - favicon (theme provides Hoverkraft favicon)
-  // - themeConfig.navbar.logo (theme provides Hoverkraft logo)
-  // - customCss (if you don't need custom styles)
-};
-```
-
-### With Preset
-
-```typescript title="docusaurus.config.ts"
-export default {
-  themes: ["@hoverkraft/docusaurus-theme"],
-
-  presets: [
-    [
-      "classic",
-      {
-        docs: {
-          sidebarPath: "./sidebars.ts",
-        },
-        blog: {
-          showReadingTime: true,
-        },
-        // Remove customCss if you don't need it
-        // theme: {
-        //   customCss: './src/css/custom.css',
-        // },
-      },
-    ],
-  ],
-};
-```
-
-## Import Patterns
-
-### Components
-
-```tsx
-// Hero component
-import { HoverkraftHero, HoverkraftBrandHighlight } from "@theme/hoverscape/HoverkraftHero";
-
-// Feature list
-import { HoverkraftFeatureList } from "@theme/hoverscape/HoverkraftFeatureList";
-
-// Project card
-import { HoverkraftProjectCard } from "@theme/hoverscape/HoverkraftProjectCard";
-```
-
-### Types (if needed)
-
-```tsx
-import type { HoverkraftHeroProps } from "@hoverkraft/docusaurus-theme";
-import type { HoverkraftAction } from "@hoverkraft/docusaurus-theme";
-import type { HoverkraftFeatureItem } from "@hoverkraft/docusaurus-theme";
-```
-
-### ⚠️ Important: Use `@theme/` Alias
-
-```tsx
-// ✅ CORRECT
-import { HoverkraftHero } from "@theme/hoverscape/HoverkraftHero";
-
-// ❌ WRONG - Will cause module resolution errors
-import { HoverkraftHero } from "@hoverkraft/docusaurus-theme/theme/hoverscape/HoverkraftHero";
-```
-
-## Common Props
-
-### Actions (used in Hero and Cards)
-
-```tsx
-// Internal link
-{ label: 'Get Started', to: '/docs/intro', variant: 'primary' }
-
-// External link
-{ label: 'GitHub', href: 'https://github.com/...', variant: 'secondary', target: '_blank' }
-
-// Outline button
-{ label: 'Learn More', to: '/about', variant: 'outline' }
-```
-
-**Variants:** `'primary'` | `'secondary'` | `'outline'`
-
-### Alignment
-
-```tsx
-// Hero and Feature List
-align = "center"; // or 'left', 'start'
-
-// Feature List specific
-align = "start"; // or 'center'
-```
-
-### Accent Colors
-
-```tsx
-// Project Card
-accent = "primary"; // or 'neutral'
-```
-
-### Tone (Hero only)
-
-```tsx
-tone = "midnight"; // dark background (default)
-tone = "daylight"; // light background
-```
-
-## Component Quick Start
-
-### Hero
-
-```tsx
-<HoverkraftHero
-  title="Welcome"
-  description="Get started in minutes"
-  actions={[{ label: "Start", to: "/docs", variant: "primary" }]}
-/>
-```
-
-### Hero with Brand Highlight
-
-```tsx
-<HoverkraftHero
-  title={
-    <>
-      Welcome to <HoverkraftBrandHighlight>Hoverkraft</HoverkraftBrandHighlight>
-    </>
-  }
-  description="Build amazing things"
-  actions={[
-    { label: "Start", to: "/docs", variant: "primary" },
-    { label: "GitHub", href: "https://...", variant: "secondary", target: "_blank" },
-  ]}
-  align="left"
-  tone="midnight"
-/>
-```
-
-### Feature List
-
-```tsx
-<HoverkraftFeatureList
-  features={[
-    {
-      icon: "🚀",
-      title: "Fast",
-      description: "Lightning fast builds",
-    },
-    {
-      icon: "🔧",
-      title: "Easy",
-      description: "Simple to use",
-    },
-  ]}
-  align="center"
-/>
-```
-
-### Project Card
-
-```tsx
-<HoverkraftProjectCard
-  icon="⚡"
-  title="Project Name"
-  titleHref="https://github.com/..."
-  titleTarget="_blank"
-  meta="⭐ 100 • TypeScript"
-  description="Project description"
-  tags={["tag1", "tag2"]}
-  accent="primary"
-  actions={[{ label: "View", href: "https://...", variant: "outline" }]}
-/>
-```
-
-## Page Templates
-
-### Minimal Homepage
-
-```tsx title="src/pages/index.tsx"
-import React from "react";
-import Layout from "@theme/Layout";
-import { HoverkraftHero } from "@theme/hoverscape/HoverkraftHero";
-
-export default function Home() {
-  return (
-    <Layout>
-      <HoverkraftHero
-        title="My Project"
-        description="Build something amazing"
-        actions={[{ label: "Get Started", to: "/docs", variant: "primary" }]}
-      />
-    </Layout>
-  );
-}
-```
-
-### Feature Page
-
-```tsx title="src/pages/features.tsx"
-import React from "react";
-import Layout from "@theme/Layout";
-import { HoverkraftFeatureList } from "@theme/hoverscape/HoverkraftFeatureList";
-
-export default function Features() {
-  return (
-    <Layout>
-      <div style={{ padding: "4rem 0", maxWidth: "1200px", margin: "0 auto" }}>
-        <HoverkraftFeatureList
-          features={[
-            { icon: "🚀", title: "Fast", description: "Optimized performance" },
-            { icon: "🔒", title: "Secure", description: "Built with security in mind" },
-          ]}
-        />
-      </div>
-    </Layout>
-  );
-}
-```
-
-## Common Layouts
-
-### Grid for Project Cards
-
-```tsx
-<div
-  style={{
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    gap: "2rem",
-  }}
->
-  <HoverkraftProjectCard {...card1} />
-  <HoverkraftProjectCard {...card2} />
-  <HoverkraftProjectCard {...card3} />
-</div>
-```
-
-### Container with Max Width
-
-```tsx
-<div
-  style={{
-    maxWidth: "1200px",
-    margin: "0 auto",
-    padding: "0 1rem",
-  }}
->
-  {/* Your content */}
-</div>
-```
-
-### Section with Background
-
-```tsx
-<section
-  style={{
-    padding: "4rem 0",
-    backgroundColor: "var(--ifm-background-surface-color)",
-  }}
->
-  {/* Your content */}
-</section>
-```
-
-## Troubleshooting
-
-### Module not found errors
-
-```tsx
-// Use @theme/ alias, not package path
-import { HoverkraftHero } from "@theme/hoverscape/HoverkraftHero";
-```
-
-### Verify installation
-
-```bash
-npm list @hoverkraft/docusaurus-theme
-ls node_modules/@hoverkraft/docusaurus-theme/lib/
-```
-
-### Fresh install
-
-```bash
-rm -rf node_modules package-lock.json
-npm install
-```
-
-## Version Commands
-
-```bash
-# Check current version
-npm list @hoverkraft/docusaurus-theme
-
-# Check latest available version
-npm view @hoverkraft/docusaurus-theme version
-
-# Update to latest
-npm update @hoverkraft/docusaurus-theme
-
-# Install specific version
-npm install @hoverkraft/docusaurus-theme@1.0.0
-```
-
-## CSS Variables (Read-only)
-
-Theme provides these CSS variables, but they're not meant to be customized:
-
-```css
-/* Example variables from the theme */
---ifm-color-primary
---ifm-font-family-base
---ifm-background-surface-color
-```
-
-If you need custom styling, add it to `src/css/custom.css` with higher specificity.
-
-## Development Workflow
-
-```bash
-# Start development server
-npm run start
-
-# Build for production
-npm run build
-
-# Serve production build locally
-npm run serve
-
-# Clear cache (if needed)
-npm run clear
-```
-
-## Next Steps
-
-- [Installation Guide](./installation) - Detailed setup instructions
-- [Component Documentation](./components/hero) - Full component API reference
-- [Examples](./examples) - Real-world implementation examples
-- [Migration Guide](./migration) - Migrate from other themes
+Use this page as a navigation map for the Hoverkraft Docusaurus theme documentation. Each link points to the single, canonical source so you never have to reconcile duplicated instructions.
+
+## Task Index
+
+- **Install or verify the theme:** [Installation guide](./installation#installing-the-theme)
+- **Add the theme to your config:** [Installation guide](./installation#add-theme-to-configuration)
+- **Customize styling or swizzle components:** [Configuration](./configuration)
+- **Plan or execute an upgrade:** [Migration guide](./migration)
+- **Browse working pages built with the theme:** [Examples gallery](./examples)
+- **Deep dive into individual components:** [Component docs](./components/layout)
+
+## Component Directory
+
+| Use case                        | Documentation                             | Notes                                                         |
+| ------------------------------- | ----------------------------------------- | ------------------------------------------------------------- |
+| Layout shell & global structure | [Layout](./components/layout)             | Inherits classic theme markup; customize via CSS or swizzle   |
+| Footer                          | [Footer](./components/footer)             | For structure changes use `npx docusaurus swizzle ... Footer` |
+| Navbar logo                     | [Logo](./components/logo)                 | Ships official SVG at `/docusaurus-theme/img/logo.svg`        |
+| Hero banners & brand highlights | [Hero](./components/hero)                 | Includes `HoverkraftBrandHighlight` helper and action types   |
+| Buttons & CTAs                  | [Button](./components/buttons)            | Reuse styling for internal/external links                     |
+| Feature grids                   | [Feature Grid](./components/feature-grid) | Responsive cards with optional eyebrow labels                 |
+| Project listings                | [Project Card](./components/project-card) | Supports metadata, tags, and action buttons                   |
+
+## Package Landmarks
+
+| Location                                                              | Purpose                                                                       |
+| --------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `node_modules/@hoverkraft/docusaurus-theme/lib/index.js`              | Entry point consumed by Docusaurus                                            |
+| `node_modules/@hoverkraft/docusaurus-theme/lib/theme/`                | Compiled React components used by the theme                                   |
+| `node_modules/@hoverkraft/docusaurus-theme/lib/styles/hoverkraft.css` | Published style sheet that enforces branding                                  |
+| `node_modules/@hoverkraft/docusaurus-theme/lib/assets/`               | Static assets (logo, footer icons) copied during `npm run build`              |
+| `node_modules/@hoverkraft/docusaurus-theme/lib/test-utils/`           | Utilities mirrored in docs tests; import from package when writing site tests |
+
+## Troubleshooting Index
+
+- **Theme fails to resolve or build:** follow [Build fails after installing theme](./installation#build-fails-after-installing-theme).
+- **Static assets 404 (logo, footer icons):** use the commands in [Migration guide → Logo 404s](./migration#logo-404s).
+- **TypeScript component errors:** see [Type errors with components](./installation#type-errors-with-components).
+- **Legacy customizations still active:** review [Migration checklist](./migration#checklist-short) to remove redundant overrides.
+
+## Release & Versioning Shortcuts
+
+- Check installed version: [`npm list @hoverkraft/docusaurus-theme`](./installation#verifying-installation).
+- Discover the latest published release: [`npm view @hoverkraft/docusaurus-theme version`](./installation#pre-migration-checklist).
+- Upgrade in place: [`npm update @hoverkraft/docusaurus-theme`](./configuration#upgrading).
+
+## When You Need Examples
+
+- Full landing-page patterns live in the [Examples gallery](./examples#complete-homepage-example).
+- Component-level props and usage notes stay in their dedicated pages (see [Component directory](#component-directory)).
+- For a concise overview of everything the theme bundles, revisit [Getting Started → What's Included](./getting-started#whats-included).

@@ -15,9 +15,12 @@ This example shows how to build a complete homepage using all major theme compon
 ```tsx
 import React from "react";
 import Layout from "@theme/Layout";
-import { HoverkraftHero, HoverkraftBrandHighlight } from "@theme/hoverscape/HoverkraftHero";
-import { HoverkraftFeatureList } from "@theme/hoverscape/HoverkraftFeatureList";
-import { HoverkraftProjectCard } from "@theme/hoverscape/HoverkraftProjectCard";
+import {
+  HoverkraftHero,
+  HoverkraftBrandHighlight,
+  HoverkraftFeatureList,
+  HoverkraftProjectCard,
+} from "@hoverkraft/docusaurus-theme/components";
 
 export default function Home() {
   return (
@@ -133,7 +136,7 @@ For the simplest possible implementation:
 ```tsx title="src/pages/index.tsx"
 import React from "react";
 import Layout from "@theme/Layout";
-import { HoverkraftHero } from "@theme/hoverscape/HoverkraftHero";
+import { HoverkraftHero } from "@hoverkraft/docusaurus-theme/components";
 
 export default function Home() {
   return (
@@ -155,7 +158,7 @@ A dedicated page for showcasing features:
 ```tsx title="src/pages/features.tsx"
 import React from "react";
 import Layout from "@theme/Layout";
-import { HoverkraftFeatureList } from "@theme/hoverscape/HoverkraftFeatureList";
+import { HoverkraftFeatureList } from "@hoverkraft/docusaurus-theme/components";
 
 export default function Features() {
   const features = [
@@ -224,7 +227,7 @@ Create a projects directory using project cards:
 ```tsx title="src/pages/projects.tsx"
 import React from "react";
 import Layout from "@theme/Layout";
-import { HoverkraftProjectCard } from "@theme/hoverscape/HoverkraftProjectCard";
+import { HoverkraftProjectCard } from "@hoverkraft/docusaurus-theme/components";
 
 const projects = [
   {
@@ -340,7 +343,7 @@ The theme components work seamlessly with Docusaurus features:
 
 ```tsx
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import { HoverkraftHero } from "@theme/hoverscape/HoverkraftHero";
+import { HoverkraftHero } from "@hoverkraft/docusaurus-theme/components";
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();

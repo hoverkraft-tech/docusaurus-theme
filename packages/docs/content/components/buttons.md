@@ -6,27 +6,13 @@ sidebar_position: 5
 
 `HoverkraftButton` provides a reusable call-to-action component that mirrors the styling found across Hoverkraft surfaces. Use it for links, primary actions, and grouped CTAs.
 
-## Variants and sizes
+## Accessibility
 
-```tsx title="src/components/CallToAction.tsx"
-import { HoverkraftButton } from "@hoverkraft/docusaurus-theme/components";
+- The component preserves focus rings across variants.
+- When you pass an icon without visible text, include `ariaLabel` so screen readers announce the CTA.
+- External links default to `target="_self"`; set `target="_blank"` and `rel="noopener noreferrer"` when opening new tabs.
 
-export function CallToActionRow() {
-  return (
-    <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-      <HoverkraftButton to="/docs/installation" label="Install" size="lg" />
-      <HoverkraftButton to="/docs/configuration" label="Configure" variant="secondary" />
-      <HoverkraftButton
-        href="https://github.com/hoverkraft-tech"
-        label="GitHub"
-        variant="outline"
-      />
-    </div>
-  );
-}
-```
-
-### Props
+## Props
 
 | Prop               | Type                                    | Description                                                 |
 | ------------------ | --------------------------------------- | ----------------------------------------------------------- |
@@ -42,11 +28,29 @@ export function CallToActionRow() {
 
 > ℹ️ Provide either `to` or `href`. Passing both throws a TypeScript error.
 
-## Using custom content
+## Usage
+
+### Basic
+
+```tsx live
+<div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
+  <HoverkraftButton to="/docs/getting-started" label="Primary" />
+  <HoverkraftButton to="/docs/configuration" label="Secondary" variant="secondary" />
+  <HoverkraftButton
+    href="https://github.com/hoverkraft-tech"
+    label="Outline"
+    variant="outline"
+    target="_blank"
+    rel="noreferrer"
+  />
+</div>
+```
+
+### Using custom content
 
 You can render any child nodes by supplying `children`. This is useful when the CTA combines text with icons or badges:
 
-```tsx
+```tsx live
 <HoverkraftButton href="https://hoverkraft.cloud" ariaLabel="Open Hoverkraft site">
   <span role="img" aria-hidden>
     🌐
@@ -55,8 +59,11 @@ You can render any child nodes by supplying `children`. This is useful when the 
 </HoverkraftButton>
 ```
 
-## Accessibility
+### Size comparison
 
-- The component preserves focus rings across variants.
-- When you pass an icon without visible text, include `ariaLabel` so screen readers announce the CTA.
-- External links default to `target="_self"`; set `target="_blank"` and `rel="noopener noreferrer"` when opening new tabs.
+```tsx live
+<div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
+  <HoverkraftButton to="/docs/examples" label="Medium" size="md" />
+  <HoverkraftButton to="/docs/migration" label="Large" size="lg" />
+</div>
+```
