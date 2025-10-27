@@ -5,6 +5,11 @@ email, or any other method with the owners of this repository before making a ch
 
 Please note we have a code of conduct, please follow it in all your interactions with the project.
 
+## Development Guidelines
+
+- Make accessibility a first-class concern for every change to the theme. Audit color contrast, focus management, ARIA semantics, keyboard navigation, and screen reader behavior for new or updated components.
+- Validate each contribution in both light and dark modes. Ensure accessible color palettes, imagery, and interactive states meet WCAG AA standards regardless of the active color scheme.
+
 ## Pull Request Process
 
 1. Ensure any install or build dependencies are removed before the end of the layer when doing a
