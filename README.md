@@ -1,7 +1,6 @@
-<div align="center">
-  <h1>@hoverkraft/docusaurus-theme</h1>
-  <p>Strictly opinionated Docusaurus theme that enforces Hoverkraft branding and accessibility standards.</p>
-</div>
+# @hoverkraft/docusaurus-theme
+
+Strictly opinionated Docusaurus theme that enforces Hoverkraft branding and accessibility standards.
 
 ---
 
