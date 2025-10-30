@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import clsx from "clsx";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import styles from "./HoverkraftHero.module.css";
 import { HoverkraftButton } from "./HoverkraftButton";
 import { HoverkraftBrandHighlight } from "./HoverkraftBrandHighlight";
@@ -10,7 +11,8 @@ export interface HoverkraftHeroProps {
   title: ReactNode;
   description?: ReactNode;
   brandedText?: ReactNode;
-  supportingVisual?: ReactNode;
+  supportingVisual?: string;
+  supportingVisualAlt?: string;
   actions?: HoverkraftAction[];
   align?: "left" | "center";
   tone?: "midnight" | "daylight";
@@ -38,13 +40,15 @@ export function HoverkraftHero({
   description,
   brandedText,
   supportingVisual,
+  supportingVisualAlt = "",
   actions,
   align = "left",
   tone = "midnight",
   id,
   className,
 }: HoverkraftHeroProps) {
-  const hasSupportingVisual = supportingVisual !== null && supportingVisual !== undefined;
+  const hasSupportingVisual =
+    typeof supportingVisual === "string" && supportingVisual.trim().length > 0;
   const highlightContent =
     brandedText !== null && brandedText !== undefined ? (
       <HoverkraftBrandHighlight>{brandedText}</HoverkraftBrandHighlight>
@@ -73,7 +77,19 @@ export function HoverkraftHero({
             </div>
           )}
         </div>
-        {hasSupportingVisual && <div className={styles.heroVisual}>{supportingVisual}</div>}
+        {hasSupportingVisual && (
+          <div className={styles.heroVisual}>
+            <div className={styles.floatingCard}>
+              <img
+                src={useBaseUrl(supportingVisual)}
+                alt={supportingVisualAlt ?? ""}
+                className={styles.heroVisualImage}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

@@ -33,7 +33,8 @@ export default function Home() {
           </>
         }
         description="Your gateway to open-source innovation."
-        supportingVisual={<img src="/img/home.png" alt="Platform" />}
+        supportingVisual="/static/img/home.png"
+        supportingVisualAlt="Screenshot of the Hoverkraft platform"
         actions={[
           { label: "Explore Projects", to: "/docs/intro", variant: "primary" },
           {
@@ -77,7 +78,6 @@ export default function Home() {
           />
         </div>
       </section>
-
       {/* Projects Grid */}
       <section style={{ padding: "4rem 0" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 1rem" }}>
@@ -316,7 +316,8 @@ You can use multiple hero sections with different tones:
     description="Highlight another key feature"
     tone="daylight"
     align="left"
-    supportingVisual={<img src="/img/feature.png" alt="Feature" />}
+    supportingVisual="img/home.png"
+    supportingVisualAlt="Illustration of the highlighted feature"
   />
 </>
 ```

@@ -95,12 +95,12 @@ export default function Home(): JSX.Element {
           <HoverkraftHero
             title={
               <>
-                <HoverkraftBrandHighlight>Hoverkraft</HoverkraftBrandHighlight> Theme for{" "}
-                Docusaurus
+                <HoverkraftBrandHighlight>Hoverkraft</HoverkraftBrandHighlight> Theme for Docusaurus
               </>
             }
             description="Craft documentation that feels premium out-of-the-box. Opinionated visual language meets pragmatic components that let your content shine."
             actions={heroActions}
+            supportingVisual="/img/home.png"
             tone="midnight"
             align="center"
           />

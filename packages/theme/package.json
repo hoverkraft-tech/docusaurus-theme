@@ -77,7 +77,8 @@
     "testEnvironment": "jsdom",
     "moduleNameMapper": {
       "\\.(css|less|scss|sass)$": "identity-obj-proxy",
-      "^@docusaurus/Link$": "<rootDir>/src/test-utils/docusaurusLinkMock.tsx"
+      "^@docusaurus/Link$": "<rootDir>/src/test-utils/docusaurusLinkMock.tsx",
+      "^@docusaurus/useBaseUrl$": "<rootDir>/src/test-utils/docusaurusUseBaseUrlMock.ts"
     },
     "testMatch": [
       "**/__tests__/**/*.[jt]s?(x)",
