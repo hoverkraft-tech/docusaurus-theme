@@ -14,18 +14,19 @@ The Hoverkraft theme ships a `HoverkraftHero` component that encapsulates the br
 
 ## Props
 
-| Prop               | Type                       | Required | Default      | Description                                         |
-| ------------------ | -------------------------- | -------- | ------------ | --------------------------------------------------- |
-| `title`            | `ReactNode`                | ✅       | -            | Main heading text                                   |
-| `description`      | `ReactNode`                | ❌       | -            | Subheading text                                     |
-| `eyebrow`          | `string`                   | ❌       | -            | Small text above title                              |
-| `brandedText`      | `ReactNode`                | ❌       | -            | Deprecated: use `HoverkraftBrandHighlight` in title |
-| `supportingVisual` | `ReactNode`                | ❌       | -            | Image or graphic to display                         |
-| `actions`          | `HoverkraftAction[]`       | ❌       | -            | Call-to-action buttons                              |
-| `align`            | `'left' \| 'center'`       | ❌       | `'left'`     | Text alignment and grid alignment                   |
-| `tone`             | `'midnight' \| 'daylight'` | ❌       | `'midnight'` | Color scheme (dark or light background)             |
-| `id`               | `string`                   | ❌       | -            | Optional DOM ID for deep-linking                    |
-| `className`        | `string`                   | ❌       | -            | Extend styling with additional classes              |
+| Prop                  | Type                       | Required | Default      | Description                                         |
+| --------------------- | -------------------------- | -------- | ------------ | --------------------------------------------------- |
+| `title`               | `ReactNode`                | ✅       | -            | Main heading text                                   |
+| `description`         | `ReactNode`                | ❌       | -            | Subheading text                                     |
+| `eyebrow`             | `string`                   | ❌       | -            | Small text above title                              |
+| `brandedText`         | `ReactNode`                | ❌       | -            | Deprecated: use `HoverkraftBrandHighlight` in title |
+| `supportingVisual`    | `string`                   | ❌       | -            | Path to the supporting image (e.g., `img/hero.png`) |
+| `supportingVisualAlt` | `string`                   | ❌       | `""`         | Alt text describing the supporting image            |
+| `actions`             | `HoverkraftAction[]`       | ❌       | -            | Call-to-action buttons                              |
+| `align`               | `'left' \| 'center'`       | ❌       | `'left'`     | Text alignment and grid alignment                   |
+| `tone`                | `'midnight' \| 'daylight'` | ❌       | `'midnight'` | Color scheme (dark or light background)             |
+| `id`                  | `string`                   | ❌       | -            | Optional DOM ID for deep-linking                    |
+| `className`           | `string`                   | ❌       | -            | Extend styling with additional classes              |
 
 ### Action Object Structure
 
@@ -75,25 +76,7 @@ const actions = [
   },
 ];
 
-const supportingVisual = (
-  <div
-    style={{
-      display: "grid",
-      placeItems: "center",
-      width: "100%",
-      aspectRatio: "4 / 3",
-      borderRadius: "1rem",
-      background:
-        "radial-gradient(circle at 30% 30%, rgba(255,255,255,0.25), transparent 55%), linear-gradient(135deg, #1b2735, #090a0f)",
-      color: "#fff",
-      fontWeight: 600,
-      fontSize: "1.15rem",
-    }}
-    aria-hidden="true"
-  >
-    Midnight tone
-  </div>
-);
+const supportingVisual = "img/home.png";
 
 render(
   <HoverkraftHero
@@ -108,6 +91,7 @@ render(
     tone="midnight"
     align="center"
     supportingVisual={supportingVisual}
+    supportingVisualAlt="Screenshot of Hoverkraft shown in midnight tone"
     id="hero-midnight"
   />
 );
@@ -121,25 +105,7 @@ const actions = [
   { label: "Configuration", to: "/docs/configuration", variant: "secondary" },
 ];
 
-const supportingVisual = (
-  <div
-    style={{
-      display: "grid",
-      placeItems: "center",
-      width: "100%",
-      aspectRatio: "4 / 3",
-      borderRadius: "1rem",
-      background:
-        "radial-gradient(circle at 60% 30%, rgba(20, 60, 120, 0.15), transparent 55%), linear-gradient(135deg, #f6f8fb, #ffffff)",
-      color: "#1c2738",
-      fontWeight: 600,
-      fontSize: "1.15rem",
-    }}
-    aria-hidden="true"
-  >
-    Daylight tone
-  </div>
-);
+const supportingVisual = "img/home.png";
 
 render(
   <HoverkraftHero
@@ -155,6 +121,7 @@ render(
     tone="daylight"
     align="left"
     supportingVisual={supportingVisual}
+    supportingVisualAlt="Screenshot of Hoverkraft shown in daylight tone"
     id="hero-daylight"
   />
 );

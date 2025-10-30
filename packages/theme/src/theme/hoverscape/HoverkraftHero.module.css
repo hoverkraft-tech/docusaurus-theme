@@ -109,6 +109,32 @@
   align-items: center;
 }
 
+.floatingCard {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 0;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  animation: float 6s ease-in-out infinite;
+  backdrop-filter: blur(10px);
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.heroVisualImage {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 @media (max-width: 880px) {
   .heroContainer {
     grid-template-columns: 1fr;
