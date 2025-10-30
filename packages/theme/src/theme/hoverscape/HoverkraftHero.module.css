@@ -95,6 +95,7 @@
 
 .heroButton {
   min-width: 190px;
+  color: var(--ifm-color-white, #ffffff) !important;
 }
 
 @media (min-width: 768px) {
