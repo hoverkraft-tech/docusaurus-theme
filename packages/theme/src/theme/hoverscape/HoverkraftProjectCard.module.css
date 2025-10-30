@@ -11,22 +11,51 @@
 
 .projectCard:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
-  border-color: #1998ff;
 }
 
 .primary {
-  box-shadow: 0 4px 12px rgba(25, 152, 255, 0.08);
+  background: linear-gradient(135deg, rgba(25, 152, 255, 0.08) 0%, rgba(255, 90, 2, 0.06) 100%);
+  border-color: rgba(25, 152, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(25, 152, 255, 0.15);
+}
+
+.primary:hover {
+  border-color: rgba(25, 152, 255, 0.5);
+  box-shadow: 0 12px 24px rgba(25, 152, 255, 0.2);
 }
 
 .neutral {
-  background: var(--ifm-color-content-secondary, #ffffff);
-  border-color: var(--ifm-color-emphasis-200);
+  background: #ffffff;
+  border-color: #cbd5e0;
+}
+
+.neutral:hover {
+  border-color: #a0aec0;
 }
 
 [data-theme="dark"] .projectCard {
   background: var(--ifm-background-surface-color);
   border-color: rgba(255, 255, 255, 0.14);
+}
+
+[data-theme="dark"] .primary {
+  background: linear-gradient(135deg, rgba(25, 152, 255, 0.15) 0%, rgba(255, 90, 2, 0.1) 100%);
+  border-color: rgba(25, 152, 255, 0.4);
+  box-shadow: 0 4px 12px rgba(25, 152, 255, 0.2);
+}
+
+[data-theme="dark"] .primary:hover {
+  border-color: rgba(25, 152, 255, 0.6);
+  box-shadow: 0 12px 24px rgba(25, 152, 255, 0.3);
+}
+
+[data-theme="dark"] .neutral {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .neutral:hover {
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .projectHeader {
