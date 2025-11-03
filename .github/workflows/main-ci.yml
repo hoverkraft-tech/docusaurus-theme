@@ -72,7 +72,7 @@ jobs:
       page-url: ${{ steps.deployment.outputs.url }}
     steps:
       - id: deployment
-        uses: hoverkraft-tech/ci-github-publish/actions/deploy/github-pages@b2a6d08d60e0adff6736caf6fdaa5fd3bcdd473a # 0.13.0
+        uses: hoverkraft-tech/ci-github-publish/actions/deploy/github-pages@0717eb404857b7e4a15dc0db5fbece52921e85fb # 0.13.1
         with:
           build-path: packages/docs/build
           build-artifact-name: build
@@ -80,6 +80,6 @@ jobs:
   deploy-checks:
     name: Deploy Checks
     needs: deploy
-    uses: hoverkraft-tech/ci-github-publish/.github/workflows/deploy-checks.yml@b2a6d08d60e0adff6736caf6fdaa5fd3bcdd473a # 0.13.0
+    uses: hoverkraft-tech/ci-github-publish/.github/workflows/deploy-checks.yml@0717eb404857b7e4a15dc0db5fbece52921e85fb # 0.13.1
     with:
       url: ${{ needs.deploy.outputs.page-url }}
