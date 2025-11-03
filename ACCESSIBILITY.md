@@ -23,6 +23,14 @@ All colors tested on white background (#ffffff):
 - **Warning** (#8a6b00): 5.02:1 contrast ratio ✓
 - **Danger** (#d1242a): 5.25:1 contrast ratio ✓
 
+### Button Contrast
+
+- **Primary button gradient** (linear-gradient(135deg, #0073cc 0%, #cc4400 100%) on white text):
+  - Start color: 4.86:1 contrast ratio ✓
+  - End color: 4.78:1 contrast ratio ✓
+  - Minimum: 4.78:1 (exceeds WCAG AA)
+- **Outline buttons**: Use solid primary color borders (4.86:1) for proper contrast
+
 ### Dark Mode Color Palette
 
 All colors tested on dark background (#1d2026):
@@ -34,6 +42,12 @@ All colors tested on dark background (#1d2026):
 - **Primary Light** (#66b3ff): 7.35:1 contrast ratio ✓
 - **Primary Lighter** (#73baff): 7.92:1 contrast ratio ✓
 - **Primary Lightest** (#99ccff): 9.66:1 contrast ratio ✓
+- **Secondary text** (#d3d7e2): 11.34:1 contrast ratio ✓
+- **White text** (#ffffff): 16.32:1 contrast ratio ✓
+
+### Button Contrast in Dark Mode
+
+- **Outline buttons**: Use primary-light color (#66b3ff) for borders (7.35:1 contrast ratio) ✓
 
 ### Requirements
 
@@ -57,7 +71,10 @@ All interactive elements are fully accessible via keyboard:
 - Focus indicators use 3px solid outlines with 3px offset
 - `:focus-visible` pseudo-class for keyboard-only focus states
 - Mouse clicks don't show focus rings (better UX)
-- Enhanced visibility in both light and dark modes
+- Enhanced visibility in both light and dark modes:
+  - Light mode: Uses primary color (#0073cc) for focus outlines
+  - Dark mode: Uses primary-light color (#66b3ff) for better visibility
+- Focus outlines are visible on all interactive elements
 
 ## Screen Reader Support
 
@@ -96,8 +113,10 @@ The theme respects `prefers-reduced-motion` settings:
 
 The theme adapts to high contrast preferences:
 
-- Darker primary colors in high contrast mode
+- Enhanced primary colors in high contrast mode (#005299 for primary, #993300 for secondary)
+- Solid backgrounds for gradient buttons to ensure maximum contrast
 - Thicker focus outlines (4px instead of 3px)
+- Thicker borders on outline buttons (3px instead of 2px)
 - Enhanced borders for better element distinction
 - Maintains usability for users with low vision
 

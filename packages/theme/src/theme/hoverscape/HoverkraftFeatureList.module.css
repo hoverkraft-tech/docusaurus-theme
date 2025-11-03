@@ -22,8 +22,8 @@
 
 .featureCard:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 30px rgba(25, 152, 255, 0.2);
-  border-color: #1998ff;
+  box-shadow: 0 16px 30px rgba(0, 115, 204, 0.2);
+  border-color: var(--hk-color-primary, #0073cc);
 }
 
 [data-theme="dark"] .featureCard {

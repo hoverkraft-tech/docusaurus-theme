@@ -1,5 +1,9 @@
 .highlight {
-  background: linear-gradient(45deg, #1998ff, #ff5a02);
+  background: linear-gradient(
+    45deg,
+    var(--hk-color-primary, #0073cc),
+    var(--hk-color-secondary, #cc4400)
+  );
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

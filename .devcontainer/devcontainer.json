@@ -17,16 +17,16 @@
         "esbenp.prettier-vscode",
         "msjsdiag.vscode-react-native"
       ],
-      "mcpServers": {
-        "playwright": {
-          "command": "npx",
-          "args": ["@playwright/mcp@latest"]
-        },
-        "lighthouse": {
-          "command": "npx",
-          "args": ["lighthouse-mcp"],
-          "disabled": false,
-          "autoApprove": []
+      "mcp": {
+        "servers": {
+          "playwright": {
+            "command": "npx",
+            "args": ["@playwright/mcp@latest"]
+          },
+          "lighthouse": {
+            "command": "npx",
+            "args": ["lighthouse-mcp"]
+          }
         }
       }
     }
