@@ -40,7 +40,7 @@
 
   --ifm-navbar-shadow: 0 1px 3px rgba(29, 32, 38, 0.1);
   --ifm-button-border-radius: 8px;
-  --docusaurus-highlighted-code-line-bg: rgba(25, 152, 255, 0.1);
+  --docusaurus-highlighted-code-line-bg: rgba(0, 115, 204, 0.1);
 }
 
 [data-theme="dark"] {
@@ -58,7 +58,7 @@
   --ifm-font-color-secondary: #d3d7e2;
   --ifm-navbar-background-color: rgba(37, 40, 50, 0.95);
   --ifm-navbar-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  --docusaurus-highlighted-code-line-bg: rgba(25, 152, 255, 0.2);
+  --docusaurus-highlighted-code-line-bg: rgba(77, 166, 255, 0.2);
 }
 
 html,
@@ -82,7 +82,8 @@ body {
 }
 
 [data-theme="dark"] :focus-visible {
-  outline: 3px solid var(--ifm-color-primary);
+  outline: 3px solid var(--ifm-color-primary-light);
+  outline-offset: 3px;
 }
 
 .navbar {
@@ -180,7 +181,7 @@ body {
 
 .button.button--primary,
 .button--primary {
-  background: linear-gradient(135deg, #1998ff 0%, #ff5a02 100%);
+  background: linear-gradient(135deg, #0073cc 0%, #cc4400 100%);
   border: none;
   border-radius: 999px;
   color: #ffffff !important;
@@ -191,7 +192,7 @@ body {
   padding: 0.875rem 2.25rem;
   font-weight: 600;
   text-decoration: none !important;
-  box-shadow: 0 8px 24px rgba(25, 152, 255, 0.35);
+  box-shadow: 0 8px 24px rgba(0, 115, 204, 0.35);
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease,
@@ -201,21 +202,21 @@ body {
 .button.button--primary:hover,
 .button--primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 32px rgba(25, 152, 255, 0.45);
-  filter: brightness(1.03);
+  box-shadow: 0 14px 32px rgba(0, 115, 204, 0.45);
+  filter: brightness(1.1);
 }
 
 .button.button--primary:active,
 .button--primary:active {
   transform: translateY(0);
-  box-shadow: 0 6px 18px rgba(25, 152, 255, 0.4);
+  box-shadow: 0 6px 18px rgba(0, 115, 204, 0.4);
 }
 
 .button.button--primary:focus-visible,
 .button--primary:focus-visible {
   box-shadow:
-    0 0 0 4px rgba(25, 152, 255, 0.25),
-    0 12px 28px rgba(25, 152, 255, 0.45);
+    0 0 0 4px rgba(0, 115, 204, 0.25),
+    0 12px 28px rgba(0, 115, 204, 0.45);
 }
 
 .button.button--secondary,
@@ -224,7 +225,7 @@ body {
 .button--outline {
   background: transparent;
   border-radius: 999px;
-  border: 2px solid rgba(25, 152, 255, 0.35);
+  border: 2px solid var(--hk-color-primary);
   color: var(--hk-color-dark);
   display: inline-flex;
   align-items: center;
@@ -245,7 +246,7 @@ body {
 [data-theme="dark"] .button.button--outline,
 [data-theme="dark"] .button--outline {
   color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.4);
+  border-color: var(--ifm-color-primary);
 }
 
 .button.button--secondary:hover,
@@ -253,23 +254,23 @@ body {
 .button.button--outline:hover,
 .button--outline:hover {
   transform: translateY(-2px);
-  background: rgba(25, 152, 255, 0.08);
-  border-color: rgba(25, 152, 255, 0.5);
+  background: rgba(0, 115, 204, 0.08);
+  border-color: var(--hk-color-primary);
 }
 
 [data-theme="dark"] .button.button--secondary:hover,
 [data-theme="dark"] .button--secondary:hover,
 [data-theme="dark"] .button.button--outline:hover,
 [data-theme="dark"] .button--outline:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(77, 166, 255, 0.12);
+  border-color: var(--ifm-color-primary-light);
 }
 
 .button.button--secondary:focus-visible,
 .button--secondary:focus-visible,
 .button.button--outline:focus-visible,
 .button--outline:focus-visible {
-  box-shadow: 0 0 0 4px rgba(25, 152, 255, 0.25);
+  box-shadow: 0 0 0 4px rgba(0, 115, 204, 0.25);
 }
 
 a {
@@ -350,18 +351,18 @@ a:hover {
 
 .hero .button.button--primary,
 .hero .button--primary {
-  box-shadow: 0 12px 30px rgba(25, 152, 255, 0.45);
+  box-shadow: 0 12px 30px rgba(0, 115, 204, 0.45);
 }
 
 .hero .button.button--primary:hover,
 .hero .button--primary:hover {
-  box-shadow: 0 18px 40px rgba(25, 152, 255, 0.5);
+  box-shadow: 0 18px 40px rgba(0, 115, 204, 0.5);
 }
 
 @media (prefers-contrast: high) {
   :root {
-    --hk-color-primary: #0056b3;
-    --hk-color-secondary: #b33d00;
+    --hk-color-primary: #005299;
+    --hk-color-secondary: #993300;
   }
 
   :focus-visible {
@@ -370,6 +371,19 @@ a:hover {
 
   .navbar {
     border-bottom: 2px solid currentColor;
+  }
+
+  .button.button--primary,
+  .button--primary {
+    background: #005299;
+    border: 2px solid #003d73;
+  }
+
+  .button.button--secondary,
+  .button--secondary,
+  .button.button--outline,
+  .button--outline {
+    border-width: 3px;
   }
 }
 

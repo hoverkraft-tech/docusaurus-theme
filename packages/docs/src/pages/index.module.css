@@ -39,6 +39,11 @@
 .swatch code {
   font-family: var(--ifm-font-family-monospace);
   font-size: 0.85rem;
+  color: var(--hk-color-dark);
+}
+
+[data-theme="dark"] .swatch code {
+  color: #fff;
 }
 
 .callout {
