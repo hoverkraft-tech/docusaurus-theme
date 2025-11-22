@@ -5,13 +5,7 @@ on:
     branches: [main]
     tags: ["*"]
 
-permissions:
-  actions: read
-  contents: read
-  id-token: write
-  pages: write
-  security-events: write
-  statuses: write
+permissions: {}
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -24,10 +18,11 @@ jobs:
     permissions:
       actions: read
       contents: read
+      packages: read
+      pull-requests: write
+      id-token: write
       security-events: write
       statuses: write
-      # FIXME: This is a workaround for having workflow ref. See https://github.com/orgs/community/discussions/38659
-      id-token: write
 
   npm-publish:
     needs: ci
@@ -37,14 +32,14 @@ jobs:
       contents: read
       id-token: write
     steps:
-      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
       - name: Setup Node.js
-        uses: hoverkraft-tech/ci-github-nodejs/actions/setup-node@23af54bc615d657aa9c13c472ae701445c1811a6 # 0.17.1
+        uses: hoverkraft-tech/ci-github-nodejs/actions/setup-node@e96599d869b66887c4c9dc18dd40b59249ad9cd0 # 0.20.2
 
       - name: Download package tarball
         uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
         with:
-          name: package-tarball
+          artifact-ids: ${{ needs.ci.outputs.package-tarball-artifact-id }}
           path: .
       - name: Publish CLI to npm
         run: |
@@ -72,7 +67,7 @@ jobs:
       page-url: ${{ steps.deployment.outputs.url }}
     steps:
       - id: deployment
-        uses: hoverkraft-tech/ci-github-publish/actions/deploy/github-pages@38963f37ef5be0b6ae84147f542d96d9eb02802b # 0.14.0
+        uses: hoverkraft-tech/ci-github-publish/actions/deploy/github-pages@667d05650cefbf57afe043737ba5948601d76ec8 # 0.15.1
         with:
           build-path: packages/docs/build
-          build-artifact-name: build
+          build-artifact-id: ${{ needs.ci.outputs.build-artifact-id }}
