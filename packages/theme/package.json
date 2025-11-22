@@ -61,12 +61,12 @@
     "@docusaurus/types": "^3.9.2",
     "@docusaurus/utils": "^3.9.2",
     "@docusaurus/utils-validation": "^3.9.2",
-    "@types/react": "^19.2.2",
-    "@types/react-dom": "^19.2.2",
+    "@types/react": "^19.2.6",
+    "@types/react-dom": "^19.2.3",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "identity-obj-proxy": "^3.0.0",
-    "rimraf": "^6.1.0",
+    "rimraf": "^6.1.2",
     "typescript": "^5.9.3"
   },
   "engines": {
