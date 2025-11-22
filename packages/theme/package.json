@@ -25,14 +25,15 @@
     "prebuild": "rimraf lib",
     "build": "tsc && node scripts/copy-static-assets.js",
     "start": "tsc --watch",
+    "format": "prettier --cache --write '**/*.ts'",
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "lint:fix": "npm run lint -- --fix",
-    "test": "npm run jest --maxWorkers=50%",
-    "test:ci": "npm run test:cov --runInBand",
-    "format": "prettier --cache --write '**/*.ts'",
+    "lint:ci": "npm run lint -- --output-file eslint-report.json --format json",
     "jest": "jest --detectOpenHandles --forceExit",
-    "test:watch": "npm run jest --watch --maxWorkers=25%",
-    "test:cov": "npm run test --coverage"
+    "test:watch": "npm run jest -- --watch --maxWorkers=25%",
+    "test:cov": "npm run test -- --coverage",
+    "test": "npm run jest -- --maxWorkers=50%",
+    "test:ci": "npm run jest -- --coverage --runInBand"
   },
   "keywords": [
     "docusaurus",

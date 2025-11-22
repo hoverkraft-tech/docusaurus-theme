@@ -2,18 +2,24 @@ name: Common Continuous Integration tasks
 
 on:
   workflow_call:
+    outputs:
+      build-artifact-id:
+        description: "The artifact ID of the build output"
+        value: ${{ jobs.nodejs.outputs.build-artifact-id }}
+      package-tarball-artifact-id:
+        description: "The artifact ID of the uploaded package tarball"
+        value: ${{ jobs.package-theme.outputs.package-tarball-artifact-id }}
 
-permissions:
-  actions: read
-  contents: read
-  security-events: write
-  statuses: write
-  # FIXME: This is a workaround for having workflow ref. See https://github.com/orgs/community/discussions/38659
-  id-token: write
+permissions: {}
 
 jobs:
   linter:
-    uses: hoverkraft-tech/ci-github-common/.github/workflows/linter.yml@5f11437c716059f30c635f90055060e4ef8b31a0 # 0.28.0
+    uses: hoverkraft-tech/ci-github-common/.github/workflows/linter.yml@5e8d0e6d1e76d8577a070db6d0128a91b1c9d5ad # 0.30.2
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+      statuses: write
     with:
       linter-env: |
         FILTER_REGEX_EXCLUDE=packages/theme/lib/**/*,packages/docs/build/**/*
@@ -23,7 +29,13 @@ jobs:
         VALIDATE_CSS=false
 
   nodejs:
-    uses: hoverkraft-tech/ci-github-nodejs/.github/workflows/continuous-integration.yml@23af54bc615d657aa9c13c472ae701445c1811a6 # 0.17.1
+    uses: hoverkraft-tech/ci-github-nodejs/.github/workflows/continuous-integration.yml@e96599d869b66887c4c9dc18dd40b59249ad9cd0 # 0.20.2
+    permissions:
+      contents: read
+      id-token: write
+      packages: read
+      pull-requests: write
+      security-events: write
     with:
       build: |
         {
@@ -34,14 +46,22 @@ jobs:
     name: Package and verify Docusaurus theme
     needs: [linter, nodejs]
     runs-on: ubuntu-latest
+    outputs:
+      package-tarball-artifact-id: ${{ steps.upload-package-tarball.outputs.artifact-id }}
+    permissions:
+      contents: read
     steps:
-      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+        with:
+          persist-credentials: false
+
       - name: Setup Node.js
-        uses: hoverkraft-tech/ci-github-nodejs/actions/setup-node@23af54bc615d657aa9c13c472ae701445c1811a6 # 0.17.1
+        uses: hoverkraft-tech/ci-github-nodejs/actions/setup-node@e96599d869b66887c4c9dc18dd40b59249ad9cd0 # 0.20.2
+
       - name: Download build artifacts
         uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
         with:
-          name: build
+          artifact-ids: ${{ needs.nodejs.outputs.build-artifact-id }}
           path: /
 
       - name: Create package tarball
@@ -63,6 +83,7 @@ jobs:
           npm run build
 
       - name: Upload package tarball
+        id: upload-package-tarball
         uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
         with:
           name: package-tarball
