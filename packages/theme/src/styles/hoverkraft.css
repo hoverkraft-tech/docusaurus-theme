@@ -87,8 +87,7 @@ body {
 }
 
 .navbar {
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.95);
+  background: transparent;
   box-shadow: var(--ifm-navbar-shadow);
   color: var(--hk-color-dark);
   padding: 0.75rem 2rem;
@@ -100,9 +99,22 @@ body {
     box-shadow 0.3s ease;
 }
 
+.navbar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: -1;
+}
+
 [data-theme="dark"] .navbar {
-  background: rgba(37, 40, 50, 0.95);
   color: var(--hk-color-light);
+}
+
+[data-theme="dark"] .navbar::before {
+  background: rgba(37, 40, 50, 0.95);
 }
 
 .navbar__title {
