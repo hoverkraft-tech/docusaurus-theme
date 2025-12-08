@@ -26,15 +26,13 @@
     "prepare": "ts-dev-tools install"
   },
   "devDependencies": {
-    "@ts-dev-tools/react": "^1.9.8"
+    "@ts-dev-tools/react": "^1.9.11"
   },
   "prettier": {
     "semi": true,
     "printWidth": 100,
     "trailingComma": "es5",
-    "plugins": [
-      "@prettier/plugin-oxc"
-    ]
+    "plugins": []
   },
   "commitlint": {
     "extends": [
@@ -64,6 +62,6 @@
     ]
   },
   "tsDevTools": {
-    "version": "20250623095500-add-prettier-oxc"
+    "version": "20250623095600-remove-prettier-oxc"
   }
 }

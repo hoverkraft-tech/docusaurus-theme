@@ -30,8 +30,8 @@ test: ## Run tests
 
 ci: ## Run tests in CI mode
 	$(MAKE) prepare
-	$(MAKE) lint-fix
 	npm audit fix
+	$(MAKE) lint-fix
 	$(MAKE) build
 	$(MAKE) test
 
