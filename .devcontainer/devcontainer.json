@@ -18,6 +18,9 @@
         "esbenp.prettier-vscode",
         "msjsdiag.vscode-react-native"
       ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh"
+      },
       "mcp": {
         "servers": {
           "playwright": {

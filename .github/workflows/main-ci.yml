@@ -36,7 +36,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Setup Node.js
-        uses: hoverkraft-tech/ci-github-nodejs/actions/setup-node@25ef8d971c0a866fb9e5d90130c7aaa084619df6 # 0.21.0
+        uses: hoverkraft-tech/ci-github-nodejs/actions/setup-node@c9d9d041ba4ef35695ee469c4782fa6a8bbebbcc # 0.21.2
 
       - name: Download package tarball
         uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
@@ -69,7 +69,7 @@ jobs:
       page-url: ${{ steps.deployment.outputs.url }}
     steps:
       - id: deployment
-        uses: hoverkraft-tech/ci-github-publish/actions/deploy/github-pages@44e0f1bacebf3711bf90895fc45d815e9fe582e8 # 0.18.0
+        uses: hoverkraft-tech/ci-github-publish/actions/deploy/github-pages@84e8ace407055e7a40ba6670a8c697e1ce2dfafa # 0.20.1
         with:
           build-path: packages/docs/build
           build-artifact-id: ${{ needs.ci.outputs.build-artifact-id }}
