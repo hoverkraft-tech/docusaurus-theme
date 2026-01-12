@@ -16,7 +16,7 @@
     "packages/docs"
   ],
   "scripts": {
-    "build": "npm run build --workspaces --if-present",
+    "build": "npm run build --workspace=@hoverkraft/docusaurus-theme && npm run build --workspace=@hoverkraft/hoverkraft-theme-docs",
     "start": "npm run start --workspace=@hoverkraft/hoverkraft-theme-docs",
     "lint": "npm run lint --workspaces --if-present",
     "lint:fix": "npm run lint:fix --workspaces --if-present",
