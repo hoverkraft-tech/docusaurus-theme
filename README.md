@@ -52,13 +52,13 @@ The theme is opinionated by design and intentionally exposes no customization kn
 
 ## Development
 
-Use npm workspaces to manage both packages in the monorepo:
+Use make targets to manage both packages in the monorepo:
 
 ```bash
-npm install                              # Install workspace dependencies
-npm run lint --workspaces                # Run ESLint across packages
-npm run build --workspaces               # Build theme and docs outputs
-npm run start --workspace=@hoverkraft/hoverkraft-theme-docs  # Launch the docs site
+make setup      # Prepare stack to run
+make lint       # Run linters
+make build      # Build libs and applications
+make start      # Start application in dev mode
 ```
 
 - Run builds before publishing or submitting pull requests to ensure `packages/theme/lib` is up to date.
@@ -67,19 +67,18 @@ npm run start --workspace=@hoverkraft/hoverkraft-theme-docs  # Launch the docs s
 ## Testing
 
 ```bash
-npm run test --workspaces                # Execute ts-jest suites
-npm run test:ci --workspaces             # Serial test run for CI environments
-npm run lint --workspaces                # Linting serves as static analysis guardrail
+make test       # Run tests
+make lint       # Run linters
 ```
 
 - Theme unit tests are located in `packages/theme/src/__tests__`.
-- The docs site can be smoke-tested locally with `npm run start --workspace=@hoverkraft/hoverkraft-theme-docs`.
+- The docs site can be smoke-tested locally with `make start`.
 
 ## Releasing
 
 1. Update semantic versioning in `packages/theme/package.json`.
-2. Regenerate `packages/theme/lib` via `npm run build --workspaces`.
-3. Validate docs output with `npm run build --workspace=@hoverkraft/hoverkraft-theme-docs` when content changes.
+2. Regenerate `packages/theme/lib` via `make build`.
+3. Validate docs output with `make build` when content changes.
 4. Publish the theme package via your chosen registry workflow (GitHub Actions or manual `npm publish`).
 
 ## Contributing

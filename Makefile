@@ -8,7 +8,7 @@ help: ## Show help message
 
 include .env
 
-prepare: ## Prepare stack to run
+setup: ## Prepare stack to run
 	npm install
 
 start: ## Start application in dev mode
@@ -29,7 +29,7 @@ test: ## Run tests
 	npm run test:ci
 
 ci: ## Run tests in CI mode
-	$(MAKE) prepare
+	$(MAKE) setup
 	npm audit fix
 	$(MAKE) lint-fix
 	$(MAKE) build
