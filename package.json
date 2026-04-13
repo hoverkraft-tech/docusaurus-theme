@@ -26,7 +26,7 @@
     "prepare": "ts-dev-tools install"
   },
   "devDependencies": {
-    "@ts-dev-tools/react": "^1.9.17"
+    "@ts-dev-tools/react": "^1.10.0"
   },
   "prettier": {
     "semi": true,
