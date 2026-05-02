@@ -57,8 +57,8 @@
     "react-dom": "^19.2.5"
   },
   "devDependencies": {
-    "@docusaurus/core": "^3.10.0",
-    "@docusaurus/theme-common": "^3.10.0",
+    "@docusaurus/core": "^3.10.1",
+    "@docusaurus/theme-common": "^3.10.1",
     "@docusaurus/types": "^3.9.2",
     "@docusaurus/utils": "^3.9.2",
     "@docusaurus/utils-validation": "^3.9.2",
