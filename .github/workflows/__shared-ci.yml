@@ -8,13 +8,13 @@ on:
         value: ${{ jobs.nodejs.outputs.build-artifact-id }}
       package-tarball-artifact-id:
         description: "The artifact ID of the uploaded package tarball"
-        value: ${{ jobs.package-theme.outputs.package-tarball-artifact-id }}
+        value: ${{ jobs.package-test.outputs.package-tarball-artifact-id }}
 
 permissions: {}
 
 jobs:
   linter:
-    uses: hoverkraft-tech/ci-github-common/.github/workflows/linter.yml@4b53189212d5810f710bed89711002626977215b # 0.33.0
+    uses: hoverkraft-tech/ci-github-common/.github/workflows/linter.yml@4c9d51717dc04d823dac2dc9ac2857e7b3069454 # 0.35.0
     permissions:
       actions: read
       contents: read
@@ -29,7 +29,7 @@ jobs:
         VALIDATE_CSS=false
 
   nodejs:
-    uses: hoverkraft-tech/ci-github-nodejs/.github/workflows/continuous-integration.yml@775ce0902c528062cc94141dd7d13261083b752a # 0.22.0
+    uses: hoverkraft-tech/ci-github-nodejs/.github/workflows/continuous-integration.yml@a10d5e32daef8e060c49fe617833fb0d53476f22 # 0.24.0
     permissions:
       contents: read
       id-token: write
@@ -42,49 +42,30 @@ jobs:
           "artifact": ["packages/theme/lib", "packages/docs/build"]
         }
 
-  package-theme:
+  package-test:
     name: Package and verify Docusaurus theme
     needs: [linter, nodejs]
     runs-on: ubuntu-latest
     outputs:
-      package-tarball-artifact-id: ${{ steps.upload-package-tarball.outputs.artifact-id }}
+      package-tarball-artifact-id: ${{ steps.package.outputs.package-tarball-artifact-id }}
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - id: package
+        name: Create package tarball
+        uses: hoverkraft-tech/ci-github-nodejs/actions/package@a10d5e32daef8e060c49fe617833fb0d53476f22 # 0.24.0
         with:
-          persist-credentials: false
+          working-directory: .
+          package-directory: packages/theme
+          build-artifact-id: ${{ needs.nodejs.outputs.build-artifact-id }}
+          build-artifact-path: /
+          version: ${{ github.ref_type == 'tag' && github.ref_name || '' }}
 
-      - name: Setup Node.js
-        uses: hoverkraft-tech/ci-github-nodejs/actions/setup-node@775ce0902c528062cc94141dd7d13261083b752a # 0.22.0
-
-      - name: Download build artifacts
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
-        with:
-          artifact-ids: ${{ needs.nodejs.outputs.build-artifact-id }}
-          path: /
-
-      - name: Create package tarball
-        working-directory: packages/theme
-        run: |
-          # When running for tags, update package.json version to match tag name
-          if [ "${{ github.ref_type }}" == "tag" ] && [ -n "${{ github.ref_name }}" ]; then
-            echo "Updating package version to match tag name: ${{ github.ref_name }}"
-            npm version "${{ github.ref_name }}" --no-git-tag-version --no-workspaces-update
-          fi
-
-          npm pack --pack-destination ${{ runner.temp }}/
-
-      - name: Install package in the docs package to verify
+      - name: Build docs with packaged theme
         working-directory: packages/docs
+        env:
+          PACKAGE_TARBALL_PATH: ${{ steps.package.outputs.package-tarball-path }}
         run: |
           npm uninstall @hoverkraft/docusaurus-theme || true
-          npm install ${{ runner.temp }}/hoverkraft-docusaurus-theme-*.tgz
+          npm install "${PACKAGE_TARBALL_PATH}"
           npm run build
-
-      - name: Upload package tarball
-        id: upload-package-tarball
-        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
-        with:
-          name: package-tarball
-          path: ${{ runner.temp }}/hoverkraft-docusaurus-theme-*.tgz

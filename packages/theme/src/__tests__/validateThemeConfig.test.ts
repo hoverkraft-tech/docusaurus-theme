@@ -24,7 +24,8 @@ describe("validateThemeConfig", () => {
     const [schema] = validate.mock.calls[0];
     const { error, value } = (schema as Joi.Schema).validate(config);
     expect(error).toBeUndefined();
-    expect(value).toEqual(config);
+    expect(value).toMatchObject(config);
+    expect((value as Record<string, unknown>).prism).toBeDefined();
 
     // The theme forces the navbar logo to Hoverkraft branding
     expect(result).toHaveProperty("navbar");
@@ -32,6 +33,18 @@ describe("validateThemeConfig", () => {
       alt: "Hoverkraft Logo",
       src: "img/logo.svg",
     });
+  });
+
+  it("preserves classic theme defaults required by Docusaurus builds", () => {
+    const validate = jest.fn(runValidation);
+
+    const result = validateThemeConfig({
+      validate,
+      themeConfig: { navbar: { title: "Hoverkraft" } } as unknown as ThemeConfig,
+    }) as unknown as Record<string, unknown>;
+
+    expect(result).toHaveProperty("prism");
+    expect((result.prism as Record<string, unknown>).additionalLanguages).toEqual([]);
   });
 
   it("allows unknown top-level fields (navbar etc.)", () => {
