@@ -1,3 +1,4 @@
+import { ThemeConfigSchema as ClassicThemeConfigSchema } from "@docusaurus/theme-classic/lib/options";
 import { Joi } from "@docusaurus/utils-validation";
 import type { ThemeConfig } from "./types";
 
@@ -5,7 +6,7 @@ const DEFAULT_CONFIG: ThemeConfig = {
   hoverkraft: {},
 };
 
-const ThemeConfigSchema = Joi.object({
+const ThemeConfigSchema = ClassicThemeConfigSchema.append({
   hoverkraft: Joi.object({}).optional(),
 }).unknown(true);
 
