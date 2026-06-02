@@ -44,7 +44,8 @@ linter-fix: ## Execute linting and fix
 		-e FIX_YAML_PRETTIER=true \
 		-e FIX_MARKDOWN=true \
 		-e FIX_MARKDOWN_PRETTIER=true \
-		-e FIX_NATURAL_LANGUAGE=true)
+		-e FIX_NATURAL_LANGUAGE=true \
+	)
 
 define run_linter
 	DEFAULT_WORKSPACE="$(CURDIR)"; \
@@ -62,10 +63,6 @@ define run_linter
 		-v $$VOLUME \
 		--rm \
 		$$LINTER_IMAGE
-endef
-
-define docker-compose
-    COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose -f docker-compose.yml -f docker-compose.local.yml -f docker-compose.$(1).yml $(2)
 endef
 
 define open-in-browser
