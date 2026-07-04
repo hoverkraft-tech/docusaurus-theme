@@ -43,7 +43,8 @@ const config = {
         docs: {
           path: "content",
           sidebarPath: "./sidebars.js",
-          editUrl: "https://github.com/hoverkraft-tech/docusaurus-theme/tree/main/packages/docs/",
+          editUrl:
+            "https://github.com/hoverkraft-tech/docusaurus-theme/tree/main/packages/docs/",
         },
         blog: {
           showReadingTime: true,
@@ -51,7 +52,8 @@ const config = {
             type: ["rss", "atom"],
             xslt: true,
           },
-          editUrl: "https://github.com/hoverkraft-tech/docusaurus-theme/tree/main/packages/docs/",
+          editUrl:
+            "https://github.com/hoverkraft-tech/docusaurus-theme/tree/main/packages/docs/",
         },
       }),
     ],

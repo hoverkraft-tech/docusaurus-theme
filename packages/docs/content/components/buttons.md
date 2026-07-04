@@ -35,7 +35,11 @@ sidebar_position: 5
 ```tsx live
 <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
   <HoverkraftButton to="/docs/getting-started" label="Primary" />
-  <HoverkraftButton to="/docs/configuration" label="Secondary" variant="secondary" />
+  <HoverkraftButton
+    to="/docs/configuration"
+    label="Secondary"
+    variant="secondary"
+  />
   <HoverkraftButton
     href="https://github.com/hoverkraft-tech"
     label="Outline"
@@ -51,7 +55,10 @@ sidebar_position: 5
 You can render any child nodes by supplying `children`. This is useful when the CTA combines text with icons or badges:
 
 ```tsx live
-<HoverkraftButton href="https://hoverkraft.cloud" ariaLabel="Open Hoverkraft site">
+<HoverkraftButton
+  href="https://hoverkraft.cloud"
+  ariaLabel="Open Hoverkraft site"
+>
   <span role="img" aria-hidden>
     🌐
   </span>

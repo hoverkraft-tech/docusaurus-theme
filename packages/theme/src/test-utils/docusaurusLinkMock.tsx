@@ -1,7 +1,9 @@
 import type { PropsWithChildren } from "react";
 
 export default function DocusaurusLinkMock(
-  props: PropsWithChildren<{ to?: string; href?: string } & Record<string, unknown>>
+  props: PropsWithChildren<
+    { to?: string; href?: string } & Record<string, unknown>
+  >,
 ) {
   const { to, href, children, ...rest } = props;
   return (

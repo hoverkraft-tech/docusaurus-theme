@@ -23,7 +23,10 @@ export function validateThemeConfig({
   themeConfig: ThemeConfig;
 }): ThemeConfig {
   // Validate incoming config first (allows unknown fields such as navbar)
-  const validated = validate(ThemeConfigSchema, themeConfig) as unknown as Record<string, unknown>;
+  const validated = validate(
+    ThemeConfigSchema,
+    themeConfig,
+  ) as unknown as Record<string, unknown>;
 
   // Force-inject Hoverkraft logo into the top-level navbar config
   const navbar = Object.assign(
@@ -31,7 +34,7 @@ export function validateThemeConfig({
     (validated.navbar as Record<string, unknown> | undefined) ?? {},
     {
       logo: FORCED_LOGO,
-    }
+    },
   );
 
   const merged = {

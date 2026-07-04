@@ -14,7 +14,11 @@
 }
 
 .primary {
-  background: linear-gradient(135deg, rgba(0, 115, 204, 0.08) 0%, rgba(204, 68, 0, 0.06) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(0, 115, 204, 0.08) 0%,
+    rgba(204, 68, 0, 0.06) 100%
+  );
   border-color: rgba(0, 115, 204, 0.3);
   box-shadow: 0 4px 12px rgba(0, 115, 204, 0.15);
 }
@@ -39,7 +43,11 @@
 }
 
 [data-theme="dark"] .primary {
-  background: linear-gradient(135deg, rgba(77, 166, 255, 0.15) 0%, rgba(204, 68, 0, 0.1) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(77, 166, 255, 0.15) 0%,
+    rgba(204, 68, 0, 0.1) 100%
+  );
   border-color: rgba(77, 166, 255, 0.4);
   box-shadow: 0 4px 12px rgba(77, 166, 255, 0.2);
 }

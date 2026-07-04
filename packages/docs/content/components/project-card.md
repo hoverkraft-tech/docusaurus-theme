@@ -55,7 +55,10 @@ import { HoverkraftProjectCard } from "@hoverkraft/docusaurus-theme/components";
   description="GitHub Action that runs docker-compose and cleans up gracefully."
   tags={["github-actions", "docker", "ci"]}
   actions={[
-    { label: "View on GitHub", href: "https://github.com/hoverkraft-tech/compose-action" },
+    {
+      label: "View on GitHub",
+      href: "https://github.com/hoverkraft-tech/compose-action",
+    },
     {
       label: "Marketplace",
       href: "https://github.com/marketplace/actions/docker-compose-action",
@@ -71,10 +74,14 @@ const primaryCard = {
   title: "compose-action",
   titleHref: "https://github.com/hoverkraft-tech/compose-action",
   meta: "Starred 190 | TypeScript",
-  description: "GitHub Action that runs docker-compose workflows with graceful clean-up and logs.",
+  description:
+    "GitHub Action that runs docker-compose workflows with graceful clean-up and logs.",
   tags: ["github-actions", "docker", "ci"],
   actions: [
-    { label: "View on GitHub", href: "https://github.com/hoverkraft-tech/compose-action" },
+    {
+      label: "View on GitHub",
+      href: "https://github.com/hoverkraft-tech/compose-action",
+    },
     {
       label: "Marketplace",
       href: "https://github.com/marketplace/actions/docker-compose-action",
@@ -109,6 +116,6 @@ render(
   >
     <HoverkraftProjectCard {...primaryCard} />
     <HoverkraftProjectCard {...neutralCard} />
-  </div>
+  </div>,
 );
 ```

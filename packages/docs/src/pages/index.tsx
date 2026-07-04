@@ -1,14 +1,14 @@
 import Head from "@docusaurus/Head";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import Layout from "@theme/Layout";
 import {
-  HoverkraftHero,
+  type HoverkraftAction,
   HoverkraftBrandHighlight,
-  HoverkraftFeatureList,
   HoverkraftButton,
   type HoverkraftFeatureItem,
-  type HoverkraftAction,
+  HoverkraftFeatureList,
+  HoverkraftHero,
 } from "@hoverkraft/docusaurus-theme/components";
+import Layout from "@theme/Layout";
 import styles from "./index.module.css";
 
 const heroActions: HoverkraftAction[] = [
@@ -74,14 +74,14 @@ const colorSwatches = [
   },
 ];
 
-export default function Home(): JSX.Element {
+export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   const pageTitle = `Meet ${siteConfig.title}`;
   const pageDescription =
     "Elevate your Docusaurus site with the Hoverkraft theme: opinionated styling, smart defaults, and extensible components.";
 
   return (
-    <Layout description={pageDescription}>
+    <Layout>
       <Head>
         <title>{pageTitle}</title>
         <meta property="og:title" content={pageTitle} />
@@ -95,7 +95,8 @@ export default function Home(): JSX.Element {
           <HoverkraftHero
             title={
               <>
-                <HoverkraftBrandHighlight>Hoverkraft</HoverkraftBrandHighlight> Theme for Docusaurus
+                <HoverkraftBrandHighlight>Hoverkraft</HoverkraftBrandHighlight>{" "}
+                Theme for Docusaurus
               </>
             }
             description="Craft documentation that feels premium out-of-the-box. Opinionated visual language meets pragmatic components that let your content shine."
@@ -108,10 +109,13 @@ export default function Home(): JSX.Element {
 
         <section className={styles.section}>
           <div className="container">
-            <h2 className={styles.sectionTitle}>Everything your docs need to stand out</h2>
+            <h2 className={styles.sectionTitle}>
+              Everything your docs need to stand out
+            </h2>
             <p className={styles.sectionSubtitle}>
-              We distilled years of product storytelling into a reusable design system that works
-              for launches, integrations, and long-form documentation.
+              We distilled years of product storytelling into a reusable design
+              system that works for launches, integrations, and long-form
+              documentation.
             </p>
             <HoverkraftFeatureList features={featureList} align="center" />
           </div>
@@ -121,8 +125,9 @@ export default function Home(): JSX.Element {
           <div className="container">
             <h2 className={styles.sectionTitle}>Color system ready to remix</h2>
             <p className={styles.sectionSubtitle}>
-              Update three CSS variables and the entire site adapts—from hero gradients to code
-              blocks and footers—while respecting accessibility contrast ratios.
+              Update three CSS variables and the entire site adapts—from hero
+              gradients to code blocks and footers—while respecting
+              accessibility contrast ratios.
             </p>
             <div className={styles.palette}>
               {colorSwatches.map((swatch) => (
@@ -144,18 +149,24 @@ export default function Home(): JSX.Element {
           <div className="container">
             <h2 className={styles.sectionTitle}>Built for modern teams</h2>
             <p className={styles.sectionSubtitle}>
-              Every detail—from TypeScript support to content structure—was designed to keep teams
-              shipping purposeful, consistent documentation.
+              Every detail—from TypeScript support to content structure—was
+              designed to keep teams shipping purposeful, consistent
+              documentation.
             </p>
             <div className={styles.callout}>
-              <h3 className={styles.calloutTitle}>Ready to bring Hoverkraft to your docs?</h3>
+              <h3 className={styles.calloutTitle}>
+                Ready to bring Hoverkraft to your docs?
+              </h3>
               <p>
-                Follow the installation guide, wire up the theme config, and customize the layout in
-                minutes. We included live examples, copy-ready snippets, and a migration path for
-                existing sites.
+                Follow the installation guide, wire up the theme config, and
+                customize the layout in minutes. We included live examples,
+                copy-ready snippets, and a migration path for existing sites.
               </p>
               <div className={styles.calloutButtons}>
-                <HoverkraftButton to="/docs/installation" label="Install the theme" />
+                <HoverkraftButton
+                  to="/docs/installation"
+                  label="Install the theme"
+                />
                 <HoverkraftButton
                   to="/docs/configuration"
                   label="Configure Hoverkraft"

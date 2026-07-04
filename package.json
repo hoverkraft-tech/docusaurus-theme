@@ -26,42 +26,17 @@
     "prepare": "ts-dev-tools install"
   },
   "devDependencies": {
-    "@ts-dev-tools/react": "^1.10.1"
-  },
-  "prettier": {
-    "semi": true,
-    "printWidth": 100,
-    "trailingComma": "es5",
-    "plugins": []
+    "@ts-dev-tools/react": "^1.10.4"
   },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
     ]
   },
-  "lint-staged": {
-    "*.{js,ts,tsx}": [
-      "eslint --fix"
-    ]
-  },
-  "importSort": {
-    ".js, .jsx, .ts, .tsx": {
-      "style": "module",
-      "parser": "typescript"
-    }
-  },
-  "jest": {
-    "preset": "ts-jest",
-    "testEnvironment": "jsdom",
-    "testMatch": [
-      "**/__tests__/**/*.[jt]s?(x)",
-      "**/?(*.)+(spec|test)?(.*).+(ts|tsx|js)"
-    ],
-    "collectCoverageFrom": [
-      "**/src/**/*.[jt]s?(x)"
-    ]
-  },
   "tsDevTools": {
-    "version": "20250623095600-remove-prettier-oxc"
+    "version": "20260604100001-migrate-to-vitest"
+  },
+  "allowScripts": {
+    "core-js@3.47.0": true
   }
 }

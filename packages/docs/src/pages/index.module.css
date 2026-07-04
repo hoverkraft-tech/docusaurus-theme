@@ -50,7 +50,11 @@
   margin-top: 4rem;
   padding: 2rem;
   border-radius: calc(var(--ifm-global-radius) * 1.5);
-  background: linear-gradient(135deg, rgba(25, 152, 255, 0.1), rgba(255, 90, 2, 0.05));
+  background: linear-gradient(
+    135deg,
+    rgba(25, 152, 255, 0.1),
+    rgba(255, 90, 2, 0.05)
+  );
   border: 1px solid rgba(25, 152, 255, 0.3);
   text-align: center;
 }

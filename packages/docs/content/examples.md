@@ -29,7 +29,8 @@ export default function Home() {
       <HoverkraftHero
         title={
           <>
-            Welcome to <HoverkraftBrandHighlight>Hoverkraft</HoverkraftBrandHighlight>
+            Welcome to{" "}
+            <HoverkraftBrandHighlight>Hoverkraft</HoverkraftBrandHighlight>
           </>
         }
         description="Your gateway to open-source innovation."
@@ -50,10 +51,21 @@ export default function Home() {
 
       {/* Features Section */}
       <section
-        style={{ padding: "4rem 0", backgroundColor: "var(--ifm-background-surface-color)" }}
+        style={{
+          padding: "4rem 0",
+          backgroundColor: "var(--ifm-background-surface-color)",
+        }}
       >
-        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 1rem" }}>
-          <h2 style={{ textAlign: "center", fontSize: "2.5rem", marginBottom: "3rem" }}>
+        <div
+          style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 1rem" }}
+        >
+          <h2
+            style={{
+              textAlign: "center",
+              fontSize: "2.5rem",
+              marginBottom: "3rem",
+            }}
+          >
             Why Choose Hoverkraft?
           </h2>
           <HoverkraftFeatureList
@@ -61,7 +73,8 @@ export default function Home() {
               {
                 icon: "🔓",
                 title: "Open Source",
-                description: "Every project is open source and community-driven.",
+                description:
+                  "Every project is open source and community-driven.",
               },
               {
                 icon: "⚡",
@@ -80,8 +93,16 @@ export default function Home() {
       </section>
       {/* Projects Grid */}
       <section style={{ padding: "4rem 0" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 1rem" }}>
-          <h2 style={{ textAlign: "center", fontSize: "2.5rem", marginBottom: "3rem" }}>
+        <div
+          style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 1rem" }}
+        >
+          <h2
+            style={{
+              textAlign: "center",
+              fontSize: "2.5rem",
+              marginBottom: "3rem",
+            }}
+          >
             Featured Projects
           </h2>
           <div
@@ -119,7 +140,9 @@ export default function Home() {
               description="Your amazing project description goes here."
               tags={["typescript", "framework"]}
               accent="primary"
-              actions={[{ label: "Documentation", to: "/docs", variant: "outline" }]}
+              actions={[
+                { label: "Documentation", to: "/docs", variant: "outline" },
+              ]}
             />
           </div>
         </div>
@@ -175,21 +198,24 @@ export default function Features() {
       icon: "♿",
       eyebrow: "Accessibility",
       title: "WCAG Compliant",
-      description: "Built with accessibility in mind, meeting WCAG 2.1 AA standards.",
+      description:
+        "Built with accessibility in mind, meeting WCAG 2.1 AA standards.",
     },
     {
       id: "customizable",
       icon: "🎨",
       eyebrow: "Branding",
       title: "Consistent Design",
-      description: "Hoverkraft-branded components with consistent styling across all pages.",
+      description:
+        "Hoverkraft-branded components with consistent styling across all pages.",
     },
     {
       id: "documented",
       icon: "📚",
       eyebrow: "Documentation",
       title: "Well Documented",
-      description: "Comprehensive guides and examples to get you started quickly.",
+      description:
+        "Comprehensive guides and examples to get you started quickly.",
     },
     {
       id: "tested",
@@ -203,16 +229,25 @@ export default function Features() {
       icon: "🔓",
       eyebrow: "Community",
       title: "Open Source",
-      description: "MIT licensed and open for contributions from the community.",
+      description:
+        "MIT licensed and open for contributions from the community.",
     },
   ];
 
   return (
     <Layout title="Features" description="All the features of Hoverkraft theme">
       <div style={{ padding: "4rem 0" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 1rem" }}>
-          <h1 style={{ textAlign: "center", marginBottom: "3rem" }}>Features</h1>
-          <HoverkraftFeatureList features={features} align="start" minColumnWidth={350} />
+        <div
+          style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 1rem" }}
+        >
+          <h1 style={{ textAlign: "center", marginBottom: "3rem" }}>
+            Features
+          </h1>
+          <HoverkraftFeatureList
+            features={features}
+            align="start"
+            minColumnWidth={350}
+          />
         </div>
       </div>
     </Layout>
@@ -236,7 +271,8 @@ const projects = [
     titleHref: "https://github.com/hoverkraft-tech/compose-action",
     titleTarget: "_blank",
     meta: "⭐ 190 • TypeScript",
-    description: "GitHub Action that runs docker-compose for testing and CI/CD.",
+    description:
+      "GitHub Action that runs docker-compose for testing and CI/CD.",
     tags: ["github-actions", "docker", "ci"],
     accent: "primary" as const,
     actions: [
@@ -253,7 +289,8 @@ const projects = [
     titleHref: "https://github.com/hoverkraft-tech/docusaurus-theme",
     titleTarget: "_blank",
     meta: "⭐ 45 • TypeScript",
-    description: "Opinionated Docusaurus theme with Hoverkraft branding and components.",
+    description:
+      "Opinionated Docusaurus theme with Hoverkraft branding and components.",
     tags: ["docusaurus", "theme", "react"],
     accent: "neutral" as const,
     actions: [
@@ -270,9 +307,19 @@ export default function Projects() {
   return (
     <Layout title="Projects" description="Hoverkraft open source projects">
       <div style={{ padding: "4rem 0" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 1rem" }}>
-          <h1 style={{ textAlign: "center", marginBottom: "1rem" }}>Our Projects</h1>
-          <p style={{ textAlign: "center", fontSize: "1.25rem", marginBottom: "3rem" }}>
+        <div
+          style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 1rem" }}
+        >
+          <h1 style={{ textAlign: "center", marginBottom: "1rem" }}>
+            Our Projects
+          </h1>
+          <p
+            style={{
+              textAlign: "center",
+              fontSize: "1.25rem",
+              marginBottom: "3rem",
+            }}
+          >
             Open source tools and libraries from the Hoverkraft community
           </p>
           <div
@@ -354,7 +401,9 @@ export default function Home() {
       <HoverkraftHero
         title={siteConfig.title}
         description={siteConfig.tagline}
-        actions={[{ label: "Get Started", to: "/docs/intro", variant: "primary" }]}
+        actions={[
+          { label: "Get Started", to: "/docs/intro", variant: "primary" },
+        ]}
       />
     </Layout>
   );

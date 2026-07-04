@@ -43,7 +43,10 @@ Each action in the `actions` array has the following structure:
 ## Usage
 
 ```tsx
-import { HoverkraftHero, HoverkraftBrandHighlight } from "@hoverkraft/docusaurus-theme/components";
+import {
+  HoverkraftHero,
+  HoverkraftBrandHighlight,
+} from "@hoverkraft/docusaurus-theme/components";
 ```
 
 ### Basic
@@ -53,11 +56,14 @@ import { HoverkraftHero, HoverkraftBrandHighlight } from "@hoverkraft/docusaurus
   eyebrow="Introducing"
   title={
     <>
-      Hoverkraft Docusaurus <HoverkraftBrandHighlight>Theme</HoverkraftBrandHighlight>
+      Hoverkraft Docusaurus{" "}
+      <HoverkraftBrandHighlight>Theme</HoverkraftBrandHighlight>
     </>
   }
   description="Opinionated styling, accessible defaults, and production-ready building blocks."
-  actions={[{ label: "Get started", to: "/docs/getting-started", variant: "primary" }]}
+  actions={[
+    { label: "Get started", to: "/docs/getting-started", variant: "primary" },
+  ]}
 />
 ```
 
@@ -83,7 +89,8 @@ render(
     eyebrow="Introducing"
     title={
       <>
-        Hoverkraft Docusaurus <HoverkraftBrandHighlight>Theme</HoverkraftBrandHighlight>
+        Hoverkraft Docusaurus{" "}
+        <HoverkraftBrandHighlight>Theme</HoverkraftBrandHighlight>
       </>
     }
     description="Opinionated styling, accessible defaults, and production-ready building blocks."
@@ -93,7 +100,7 @@ render(
     supportingVisual={supportingVisual}
     supportingVisualAlt="Screenshot of Hoverkraft shown in midnight tone"
     id="hero-midnight"
-  />
+  />,
 );
 ```
 
@@ -112,7 +119,8 @@ render(
     eyebrow="Docs ready"
     title={
       <>
-        Compose faster with <HoverkraftBrandHighlight>Hoverkraft</HoverkraftBrandHighlight>{" "}
+        Compose faster with{" "}
+        <HoverkraftBrandHighlight>Hoverkraft</HoverkraftBrandHighlight>{" "}
         workflows.
       </>
     }
@@ -123,6 +131,6 @@ render(
     supportingVisual={supportingVisual}
     supportingVisualAlt="Screenshot of Hoverkraft shown in daylight tone"
     id="hero-daylight"
-  />
+  />,
 );
 ```

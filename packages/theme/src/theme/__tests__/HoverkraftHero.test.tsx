@@ -1,4 +1,3 @@
-import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 
 import { HoverkraftHero } from "../hoverscape/HoverkraftHero";
@@ -10,7 +9,7 @@ describe("HoverkraftHero", () => {
         title="Hoverkraft"
         supportingVisual="/img/example.png"
         supportingVisualAlt="Dashboard screenshot"
-      />
+      />,
     );
 
     expect(markup).toContain("img");
@@ -20,7 +19,7 @@ describe("HoverkraftHero", () => {
 
   it("omits supporting image when the path is empty", () => {
     const markup = renderToStaticMarkup(
-      <HoverkraftHero title="Hoverkraft" supportingVisual="   " />
+      <HoverkraftHero title="Hoverkraft" supportingVisual="   " />,
     );
 
     expect(markup).not.toContain("<img");

@@ -78,18 +78,21 @@ import {
     {
       icon: "🔧",
       title: "Configurable",
-      description: "Tune layout and spacing tokens without dropping into raw CSS.",
+      description:
+        "Tune layout and spacing tokens without dropping into raw CSS.",
     },
     {
       icon: "🧱",
       eyebrow: "Composable",
       title: "Slot in your content",
-      description: "Drop in markdown or React components and keep consistent rhythm.",
+      description:
+        "Drop in markdown or React components and keep consistent rhythm.",
     },
     {
       icon: "🌓",
       title: "Dark-mode ready",
-      description: "Automatic color tokens keep contrast compliant in both themes.",
+      description:
+        "Automatic color tokens keep contrast compliant in both themes.",
     },
   ]}
   align="center"
@@ -116,12 +119,14 @@ import {
     {
       icon: "🧪",
       title: "Tested",
-      description: "Snapshots ensure card spacing and responsive breakpoints stay intact.",
+      description:
+        "Snapshots ensure card spacing and responsive breakpoints stay intact.",
     },
     {
       icon: "🚀",
       title: "Production ready",
-      description: "Shipped with sensible defaults, ready to deploy out of the box.",
+      description:
+        "Shipped with sensible defaults, ready to deploy out of the box.",
     },
   ]}
   align="start"

@@ -1,9 +1,12 @@
-import type { ReactNode } from "react";
-import clsx from "clsx";
 import Link from "@docusaurus/Link";
-import styles from "./HoverkraftProjectCard.module.css";
+import clsx from "clsx";
+import type { ReactNode } from "react";
+import type {
+  HoverkraftAction,
+  HoverkraftProjectCardProps,
+} from "../components.types";
 import { HoverkraftButton } from "./HoverkraftButton";
-import type { HoverkraftAction, HoverkraftProjectCardProps } from "../components.types";
+import styles from "./HoverkraftProjectCard.module.css";
 
 function renderTitle(
   title: ReactNode,
@@ -12,11 +15,18 @@ function renderTitle(
     titleTo,
     titleTarget,
     titleRel,
-  }: Pick<HoverkraftProjectCardProps, "titleHref" | "titleTo" | "titleTarget" | "titleRel">
+  }: Pick<
+    HoverkraftProjectCardProps,
+    "titleHref" | "titleTo" | "titleTarget" | "titleRel"
+  >,
 ) {
   if (titleHref) {
     return (
-      <a href={titleHref} target={titleTarget ?? "_blank"} rel={titleRel ?? "noopener noreferrer"}>
+      <a
+        href={titleHref}
+        target={titleTarget ?? "_blank"}
+        rel={titleRel ?? "noopener noreferrer"}
+      >
         <span className={styles.titleLinkContent}>{title}</span>
       </a>
     );
@@ -33,7 +43,11 @@ function renderTitle(
   return <>{title}</>;
 }
 
-function renderAction(action: HoverkraftAction, className: string, index: number) {
+function renderAction(
+  action: HoverkraftAction,
+  className: string,
+  index: number,
+) {
   const { id, size, variant, ...rest } = action;
 
   return (
@@ -66,9 +80,14 @@ export function HoverkraftProjectCard({
   const accentClass = accent === "neutral" ? styles.neutral : styles.primary;
 
   return (
-    <article id={id} className={clsx(styles.projectCard, accentClass, className)}>
+    <article
+      id={id}
+      className={clsx(styles.projectCard, accentClass, className)}
+    >
       <header className={styles.projectHeader}>
-        {icon !== null && icon !== undefined ? <div className={styles.projectIcon}>{icon}</div> : null}
+        {icon !== null && icon !== undefined ? (
+          <div className={styles.projectIcon}>{icon}</div>
+        ) : null}
         <div>
           <h3 className={styles.projectTitle}>
             {renderTitle(title, { titleHref, titleTo, titleTarget, titleRel })}
@@ -80,7 +99,10 @@ export function HoverkraftProjectCard({
       {tags && tags.length > 0 ? (
         <ul className={styles.projectTagList}>
           {tags.map((tag, index) => (
-            <li key={typeof tag === "string" ? tag : index} className={styles.projectTag}>
+            <li
+              key={typeof tag === "string" ? tag : index}
+              className={styles.projectTag}
+            >
               {tag}
             </li>
           ))}
@@ -88,7 +110,9 @@ export function HoverkraftProjectCard({
       ) : null}
       {actions && actions.length > 0 ? (
         <div className={styles.projectActions}>
-          {actions.map((action, index) => renderAction(action, styles.projectButton, index))}
+          {actions.map((action, index) =>
+            renderAction(action, styles.projectButton, index),
+          )}
         </div>
       ) : null}
     </article>

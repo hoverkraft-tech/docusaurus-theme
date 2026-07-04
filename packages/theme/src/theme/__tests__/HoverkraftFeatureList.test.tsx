@@ -1,4 +1,3 @@
-import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { HoverkraftFeatureList } from "../hoverscape/HoverkraftFeatureList";
 
@@ -20,7 +19,7 @@ const features = [
 describe("HoverkraftFeatureList", () => {
   it("renders a card per feature", () => {
     const markup = renderToStaticMarkup(
-      <HoverkraftFeatureList features={features} />
+      <HoverkraftFeatureList features={features} />,
     );
 
     const occurrences = markup.match(/class="[^"]*featureCard[^"]*"/g) ?? [];
