@@ -20,5 +20,6 @@ jobs:
       packages: read
       pull-requests: write
       id-token: write
+      issues: write
       security-events: write
       statuses: write
