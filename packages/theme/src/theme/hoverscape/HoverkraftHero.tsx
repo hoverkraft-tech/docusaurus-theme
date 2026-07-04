@@ -1,10 +1,10 @@
-import type { ReactNode } from "react";
-import clsx from "clsx";
 import useBaseUrl from "@docusaurus/useBaseUrl";
-import styles from "./HoverkraftHero.module.css";
-import { HoverkraftButton } from "./HoverkraftButton";
-import { HoverkraftBrandHighlight } from "./HoverkraftBrandHighlight";
+import clsx from "clsx";
+import type { ReactNode } from "react";
 import type { HoverkraftAction } from "../components.types";
+import { HoverkraftBrandHighlight } from "./HoverkraftBrandHighlight";
+import { HoverkraftButton } from "./HoverkraftButton";
+import styles from "./HoverkraftHero.module.css";
 
 export interface HoverkraftHeroProps {
   eyebrow?: string;
@@ -49,19 +49,25 @@ export function HoverkraftHero({
 }: HoverkraftHeroProps) {
   const hasSupportingVisual =
     typeof supportingVisual === "string" && supportingVisual.trim().length > 0;
+  const supportingVisualUrl = useBaseUrl(
+    hasSupportingVisual ? supportingVisual : "",
+  );
   const highlightContent =
     brandedText !== null && brandedText !== undefined ? (
       <HoverkraftBrandHighlight>{brandedText}</HoverkraftBrandHighlight>
     ) : null;
 
   return (
-    <section id={id} className={clsx(styles.heroSection, styles[tone], className)}>
+    <section
+      id={id}
+      className={clsx(styles.heroSection, styles[tone], className)}
+    >
       <div className={styles.heroBackground} aria-hidden="true" />
       <div
         className={clsx(
           styles.heroContainer,
           align === "center" && styles.centerAlign,
-          !hasSupportingVisual && styles.heroContainerNoVisual
+          !hasSupportingVisual && styles.heroContainerNoVisual,
         )}
       >
         <div className={styles.heroContent}>
@@ -70,7 +76,9 @@ export function HoverkraftHero({
             {title}
             {highlightContent}
           </h1>
-          {description && <p className={styles.heroDescription}>{description}</p>}
+          {description && (
+            <p className={styles.heroDescription}>{description}</p>
+          )}
           {actions && actions.length > 0 && (
             <div className={styles.heroActions}>
               {actions.map((action, index) => renderAction(action, index))}
@@ -81,7 +89,7 @@ export function HoverkraftHero({
           <div className={styles.heroVisual}>
             <div className={styles.floatingCard}>
               <img
-                src={useBaseUrl(supportingVisual)}
+                src={supportingVisualUrl}
                 alt={supportingVisualAlt ?? ""}
                 className={styles.heroVisualImage}
                 loading="lazy"
@@ -97,5 +105,5 @@ export function HoverkraftHero({
 
 export default HoverkraftHero;
 
-export { HoverkraftBrandHighlight } from "./HoverkraftBrandHighlight";
 export type { HoverkraftBrandHighlightProps } from "./HoverkraftBrandHighlight";
+export { HoverkraftBrandHighlight } from "./HoverkraftBrandHighlight";

@@ -12,13 +12,13 @@ const runValidation = <T>(schema: Joi.Schema, value: T): T => {
 
 describe("validateThemeConfig", () => {
   it("delegates validation to the provided validator and injects the Hoverkraft logo", () => {
-    const validate = jest.fn(runValidation);
+    const validate = vi.fn(runValidation);
     const config: ThemeConfig = { hoverkraft: {} };
 
-    const result = validateThemeConfig({ validate, themeConfig: config }) as unknown as Record<
-      string,
-      unknown
-    >;
+    const result = validateThemeConfig({
+      validate,
+      themeConfig: config,
+    }) as unknown as Record<string, unknown>;
 
     expect(validate).toHaveBeenCalledWith(expect.anything(), config);
     const [schema] = validate.mock.calls[0];
@@ -36,32 +36,36 @@ describe("validateThemeConfig", () => {
   });
 
   it("preserves classic theme defaults required by Docusaurus builds", () => {
-    const validate = jest.fn(runValidation);
+    const validate = vi.fn(runValidation);
 
     const result = validateThemeConfig({
       validate,
-      themeConfig: { navbar: { title: "Hoverkraft" } } as unknown as ThemeConfig,
+      themeConfig: {
+        navbar: { title: "Hoverkraft" },
+      } as unknown as ThemeConfig,
     }) as unknown as Record<string, unknown>;
 
     expect(result).toHaveProperty("prism");
-    expect((result.prism as Record<string, unknown>).additionalLanguages).toEqual([]);
+    expect(
+      (result.prism as Record<string, unknown>).additionalLanguages,
+    ).toEqual([]);
   });
 
   it("allows unknown top-level fields (navbar etc.)", () => {
-    const validate = jest.fn(runValidation);
+    const validate = vi.fn(runValidation);
 
     // Unknown fields should be permitted by the theme validation - they will be preserved
     expect(() =>
       validateThemeConfig({
         validate,
         themeConfig: { unexpected: true } as unknown as ThemeConfig,
-      })
+      }),
     ).not.toThrow();
   });
 
   it("bubbles up validation errors", () => {
     const failure = new Error("validation failed");
-    const validate = jest.fn(() => {
+    const validate = vi.fn(() => {
       throw failure;
     });
 
@@ -69,7 +73,7 @@ describe("validateThemeConfig", () => {
       validateThemeConfig({
         validate,
         themeConfig: DEFAULT_CONFIG,
-      })
+      }),
     ).toThrow(failure);
   });
 });

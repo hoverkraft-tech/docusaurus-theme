@@ -1,19 +1,33 @@
-import type { CSSProperties } from "react";
 import clsx from "clsx";
+import type { CSSProperties } from "react";
+import type {
+  HoverkraftFeatureItem,
+  HoverkraftFeatureListProps,
+} from "../components.types";
 import styles from "./HoverkraftFeatureList.module.css";
-import type { HoverkraftFeatureItem, HoverkraftFeatureListProps } from "../components.types";
 
-export type { HoverkraftFeatureItem, HoverkraftFeatureListProps } from "../components.types";
+export type {
+  HoverkraftFeatureItem,
+  HoverkraftFeatureListProps,
+} from "../components.types";
 
 type GridStyle = CSSProperties & {
   "--hk-feature-min-width"?: string;
 };
 
-function FeatureCard({ id, icon, eyebrow, title, description }: HoverkraftFeatureItem) {
+function FeatureCard({
+  id,
+  icon,
+  eyebrow,
+  title,
+  description,
+}: HoverkraftFeatureItem) {
   return (
     <article id={id} className={styles.featureCard}>
       {eyebrow ? <p className={styles.featureEyebrow}>{eyebrow}</p> : null}
-      {icon !== null && icon !== undefined ? <div className={styles.featureIcon}>{icon}</div> : null}
+      {icon !== null && icon !== undefined ? (
+        <div className={styles.featureIcon}>{icon}</div>
+      ) : null}
       <h3 className={styles.featureTitle}>{title}</h3>
       <p className={styles.featureDescription}>{description}</p>
     </article>
@@ -33,7 +47,14 @@ export function HoverkraftFeatureList({
   };
 
   return (
-    <div className={clsx(styles.featureGrid, align === "center" && styles.centerAligned, className)} style={gridStyle}>
+    <div
+      className={clsx(
+        styles.featureGrid,
+        align === "center" && styles.centerAligned,
+        className,
+      )}
+      style={gridStyle}
+    >
       {features.map((feature, index) => (
         <FeatureCard key={feature.id ?? `feature-${index}`} {...feature} />
       ))}

@@ -22,7 +22,9 @@ describe("sidebars.js", () => {
   it("exposes the tutorial sidebar entries", async () => {
     const module = await import("../sidebars.js");
     const sidebars = module.default as {
-      tutorialSidebar: Array<string | { type: string; label: string; items: string[] }>;
+      tutorialSidebar: Array<
+        string | { type: string; label: string; items: string[] }
+      >;
     };
 
     expect(sidebars.tutorialSidebar).toContain("getting-started");
@@ -36,11 +38,17 @@ describe("sidebars.js", () => {
   it("lists component documentation inside a category", async () => {
     const module = await import("../sidebars.js");
     const sidebars = module.default as {
-      tutorialSidebar: Array<string | { type: string; label: string; items: string[] }>;
+      tutorialSidebar: Array<
+        string | { type: string; label: string; items: string[] }
+      >;
     };
 
     const componentsCategory = sidebars.tutorialSidebar.find(
-      (entry) => typeof entry === "object" && entry !== null && "label" in entry && "items" in entry
+      (entry) =>
+        typeof entry === "object" &&
+        entry !== null &&
+        "label" in entry &&
+        "items" in entry,
     ) as { label: string; items: string[] } | undefined;
 
     expect(componentsCategory).toBeDefined();

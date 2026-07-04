@@ -1,8 +1,11 @@
-import type { ReactNode } from "react";
 import Link from "@docusaurus/Link";
 import clsx from "clsx";
+import type { ReactNode } from "react";
+import type {
+  HoverkraftActionSize,
+  HoverkraftActionVariant,
+} from "../components.types";
 import styles from "./HoverkraftButton.module.css";
-import type { HoverkraftActionVariant, HoverkraftActionSize } from "../components.types";
 
 export interface HoverkraftButtonBaseProps {
   label: ReactNode;
@@ -27,7 +30,9 @@ interface HoverkraftButtonWithHref extends HoverkraftButtonBaseProps {
   to?: never;
 }
 
-export type HoverkraftButtonProps = HoverkraftButtonWithTo | HoverkraftButtonWithHref;
+export type HoverkraftButtonProps =
+  | HoverkraftButtonWithTo
+  | HoverkraftButtonWithHref;
 
 function getVariantClass(variant: HoverkraftActionVariant | undefined) {
   switch (variant) {
@@ -44,7 +49,6 @@ function getSizeClass(size: HoverkraftActionSize | undefined) {
   switch (size) {
     case "lg":
       return styles.sizeLg;
-    case "md":
     default:
       return styles.sizeMd;
   }
@@ -65,7 +69,12 @@ export function HoverkraftButton({
   children,
 }: HoverkraftButtonProps) {
   const content = children ?? label;
-  const buttonClassName = clsx(styles.button, getVariantClass(variant), getSizeClass(size), className);
+  const buttonClassName = clsx(
+    styles.button,
+    getVariantClass(variant),
+    getSizeClass(size),
+    className,
+  );
 
   if (href) {
     return (
@@ -86,8 +95,17 @@ export function HoverkraftButton({
   }
 
   return (
-    <Link id={id} to={to} className={buttonClassName} aria-label={ariaLabel} target={target} rel={rel}>
-      {icon !== null && icon !== undefined ? <span className={styles.icon}>{icon}</span> : null}
+    <Link
+      id={id}
+      to={to}
+      className={buttonClassName}
+      aria-label={ariaLabel}
+      target={target}
+      rel={rel}
+    >
+      {icon !== null && icon !== undefined ? (
+        <span className={styles.icon}>{icon}</span>
+      ) : null}
       <span className={styles.label}>{content}</span>
     </Link>
   );

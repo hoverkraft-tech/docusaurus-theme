@@ -1,14 +1,19 @@
+import { createRequire } from "node:module";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import themeClassic from "@docusaurus/theme-classic";
 import type { LoadContext } from "@docusaurus/types";
 import themeHoverkraft from "../index";
 
+const currentDir = path.dirname(fileURLToPath(import.meta.url));
+const nodeRequire = createRequire(import.meta.url);
+
 function createLoadContext(
-  siteConfigOverrides: Partial<LoadContext["siteConfig"]> = {}
+  siteConfigOverrides: Partial<LoadContext["siteConfig"]> = {},
 ): LoadContext {
   return {
-    siteDir: __dirname,
-    generatedFilesDir: path.join(__dirname, ".docusaurus"),
+    siteDir: currentDir,
+    generatedFilesDir: path.join(currentDir, ".docusaurus"),
     siteConfig: {
       baseUrl: "/",
       i18n: {
@@ -66,7 +71,9 @@ describe("themeHoverkraft plugin", () => {
 
     expect(plugin.name).toBe("@hoverkraft/docusaurus-theme");
     expect(plugin.getThemePath?.()).toEqual(classic.getThemePath?.());
-    expect(plugin.getTypeScriptThemePath?.()).toEqual(classic.getTypeScriptThemePath?.());
+    expect(plugin.getTypeScriptThemePath?.()).toEqual(
+      classic.getTypeScriptThemePath?.(),
+    );
   });
 
   it("registers the Hoverkraft stylesheet", () => {
@@ -74,13 +81,19 @@ describe("themeHoverkraft plugin", () => {
     const plugin = themeHoverkraft(context);
     const clientModules = plugin.getClientModules?.() ?? [];
 
-    expect(clientModules.some((modulePath) => modulePath.endsWith("styles/hoverkraft.css"))).toBe(
-      true
+    expect(
+      clientModules.some((modulePath) =>
+        modulePath.endsWith("styles/hoverkraft.css"),
+      ),
+    ).toBe(true);
+    expect(clientModules).toContain(
+      nodeRequire.resolve(
+        "@docusaurus/theme-classic/lib/prism-include-languages",
+      ),
     );
     expect(clientModules).toContain(
-      require.resolve("@docusaurus/theme-classic/lib/prism-include-languages")
+      nodeRequire.resolve("@docusaurus/theme-classic/lib/nprogress"),
     );
-    expect(clientModules).toContain(require.resolve("@docusaurus/theme-classic/lib/nprogress"));
   });
 
   it("exposes default translation messages from the base theme", async () => {
@@ -101,14 +114,14 @@ describe("themeHoverkraft plugin", () => {
 
     expect(context.siteConfig.staticDirectories).toEqual([
       ...initialStaticDirectories,
-      path.resolve(__dirname, "../assets"),
+      path.resolve(currentDir, "../assets"),
     ]);
 
     // Ensure repeated instantiation does not duplicate entries
     themeHoverkraft(context);
     expect(context.siteConfig.staticDirectories).toEqual([
       ...initialStaticDirectories,
-      path.resolve(__dirname, "../assets"),
+      path.resolve(currentDir, "../assets"),
     ]);
   });
 

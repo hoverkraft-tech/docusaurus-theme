@@ -1,7 +1,7 @@
-import React from "react";
+import type React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 
-jest.mock("@docusaurus/Link", () => ({
+vi.mock("@docusaurus/Link", () => ({
   __esModule: true,
   default: (props: React.PropsWithChildren<Record<string, unknown>>) => (
     <a {...props} href={props.to as string}>
@@ -30,7 +30,9 @@ describe("HoverkraftProjectCard", () => {
   it("renders title as external link and actions as buttons", () => {
     const markup = renderToStaticMarkup(<HoverkraftProjectCard {...project} />);
 
-    expect(markup).toContain("href=\"https://github.com/hoverkraft-tech/compose-action\"");
+    expect(markup).toContain(
+      'href="https://github.com/hoverkraft-tech/compose-action"',
+    );
     expect(markup).toContain("View on GitHub");
     expect(markup).toContain("github-actions");
   });

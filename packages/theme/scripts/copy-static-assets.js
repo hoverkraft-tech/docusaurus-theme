@@ -42,7 +42,7 @@ async function processDirectory(currentSourceDir) {
       }
 
       await copyFile(absoluteSourcePath, absoluteDestinationPath);
-    })
+    }),
   );
 }
 
