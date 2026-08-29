@@ -18,6 +18,7 @@
   "scripts": {
     "build": "npm run build --workspace=@hoverkraft/docusaurus-theme && npm run build --workspace=@hoverkraft/hoverkraft-theme-docs",
     "start": "npm run start --workspace=@hoverkraft/hoverkraft-theme-docs",
+    "typecheck": "npm run typecheck --workspaces --if-present",
     "lint": "npm run lint --workspaces --if-present",
     "lint:fix": "npm run lint:fix --workspaces --if-present",
     "lint:ci": "npm run lint:ci --workspaces --if-present",
@@ -26,7 +27,7 @@
     "prepare": "ts-dev-tools install"
   },
   "devDependencies": {
-    "@ts-dev-tools/react": "^1.10.4"
+    "@ts-dev-tools/react": "^1.11.1"
   },
   "commitlint": {
     "extends": [

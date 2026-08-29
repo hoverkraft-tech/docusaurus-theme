@@ -1,6 +1,6 @@
 import Link from "@docusaurus/Link";
 import clsx from "clsx";
-import type { ReactNode } from "react";
+import type { ReactElement, ReactNode } from "react";
 import type {
   HoverkraftActionSize,
   HoverkraftActionVariant,
@@ -67,7 +67,7 @@ export function HoverkraftButton({
   target,
   rel,
   children,
-}: HoverkraftButtonProps) {
+}: HoverkraftButtonProps): ReactElement {
   const content = children ?? label;
   const buttonClassName = clsx(
     styles.button,

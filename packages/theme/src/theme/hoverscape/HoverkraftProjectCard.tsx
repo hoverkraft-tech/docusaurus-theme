@@ -1,6 +1,6 @@
 import Link from "@docusaurus/Link";
 import clsx from "clsx";
-import type { ReactNode } from "react";
+import type { ReactElement, ReactNode } from "react";
 import type {
   HoverkraftAction,
   HoverkraftProjectCardProps,
@@ -19,7 +19,7 @@ function renderTitle(
     HoverkraftProjectCardProps,
     "titleHref" | "titleTo" | "titleTarget" | "titleRel"
   >,
-) {
+): ReactElement {
   if (titleHref) {
     return (
       <a
@@ -47,7 +47,7 @@ function renderAction(
   action: HoverkraftAction,
   className: string,
   index: number,
-) {
+): ReactElement {
   const { id, size, variant, ...rest } = action;
 
   return (
@@ -76,7 +76,7 @@ export function HoverkraftProjectCard({
   actions,
   accent = "primary",
   className,
-}: HoverkraftProjectCardProps) {
+}: HoverkraftProjectCardProps): ReactElement {
   const accentClass = accent === "neutral" ? styles.neutral : styles.primary;
 
   return (
