@@ -6,7 +6,8 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start --host 0.0.0.0",
-    "build": "docusaurus build",
+    "build": "npm run typecheck && docusaurus build",
+    "typecheck": "tsc --noEmit",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
@@ -40,33 +41,6 @@
       "last 5 safari version"
     ]
   },
-  "jest": {
-    "preset": "ts-jest",
-    "testEnvironment": "jsdom",
-    "extensionsToTreatAsEsm": [
-      ".ts",
-      ".tsx"
-    ],
-    "transform": {
-      "^.+\\.(t|j)sx?$": [
-        "ts-jest",
-        {
-          "useESM": true,
-          "tsconfig": "<rootDir>/tsconfig.jest.json"
-        }
-      ]
-    },
-    "transformIgnorePatterns": [
-      "node_modules/(?!(prism-react-renderer)/)"
-    ],
-    "testMatch": [
-      "**/__tests__/**/*.[jt]s?(x)",
-      "**/?(*.)+(spec|test)?(.*).+(ts|tsx|js)"
-    ],
-    "collectCoverageFrom": [
-      "**/src/**/*.[jt]s?(x)"
-    ]
-  },
   "devDependencies": {
     "@docusaurus/core": "^3.10.2",
     "@docusaurus/preset-classic": "^3.10.2",
@@ -76,12 +50,12 @@
     "@docusaurus/types": "^3.10.1",
     "@hoverkraft/docusaurus-theme": "*",
     "@mdx-js/react": "^3.1.1",
-    "@types/react": "^19.2.17",
-    "@types/react-dom": "^19.2.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
     "clsx": "^2.1.1",
     "prism-react-renderer": "^2.4.1",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "typescript": "^6.0.3"
+    "typescript": "^7.0.2"
   }
 }

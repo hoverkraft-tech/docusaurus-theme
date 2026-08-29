@@ -1,6 +1,6 @@
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import clsx from "clsx";
-import type { ReactNode } from "react";
+import type { ReactElement, ReactNode } from "react";
 import type { HoverkraftAction } from "../components.types";
 import { HoverkraftBrandHighlight } from "./HoverkraftBrandHighlight";
 import { HoverkraftButton } from "./HoverkraftButton";
@@ -20,7 +20,7 @@ export interface HoverkraftHeroProps {
   className?: string;
 }
 
-function renderAction(action: HoverkraftAction, index: number) {
+function renderAction(action: HoverkraftAction, index: number): ReactElement {
   const { id, size, ...rest } = action;
 
   return (
@@ -46,7 +46,7 @@ export function HoverkraftHero({
   tone = "midnight",
   id,
   className,
-}: HoverkraftHeroProps) {
+}: HoverkraftHeroProps): ReactElement {
   const hasSupportingVisual =
     typeof supportingVisual === "string" && supportingVisual.trim().length > 0;
   const supportingVisualUrl = useBaseUrl(

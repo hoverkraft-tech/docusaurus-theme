@@ -27,7 +27,7 @@ This repository contains the Hoverkraft-branded Docusaurus theme and its documen
 npm install                         # Install workspace dependencies
 npm run build --workspaces          # Build the theme and docs packages
 npm run lint --workspaces           # Run linting across all workspaces
-npm run test --workspaces           # Execute unit tests (ts-jest)
+npm run test --workspaces           # Execute unit tests (Vitest)
 npm run start --workspace=@hoverkraft/hoverkraft-theme-docs  # Launch docs for local QA
 ```
 

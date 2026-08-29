@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import type { CSSProperties } from "react";
+import type { CSSProperties, ReactElement } from "react";
 import type {
   HoverkraftFeatureItem,
   HoverkraftFeatureListProps,
@@ -21,7 +21,7 @@ function FeatureCard({
   eyebrow,
   title,
   description,
-}: HoverkraftFeatureItem) {
+}: HoverkraftFeatureItem): ReactElement {
   return (
     <article id={id} className={styles.featureCard}>
       {eyebrow ? <p className={styles.featureEyebrow}>{eyebrow}</p> : null}
@@ -40,7 +40,7 @@ export function HoverkraftFeatureList({
   minColumnWidth = 260,
   className,
   style,
-}: HoverkraftFeatureListProps) {
+}: HoverkraftFeatureListProps): ReactElement {
   const gridStyle: GridStyle = {
     ...style,
     "--hk-feature-min-width": `${minColumnWidth}px`,
