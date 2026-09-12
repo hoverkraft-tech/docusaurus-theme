@@ -27,7 +27,7 @@
     "prepare": "ts-dev-tools install"
   },
   "devDependencies": {
-    "@ts-dev-tools/react": "^1.11.1"
+    "@ts-dev-tools/react": "^1.11.2"
   },
   "commitlint": {
     "extends": [
