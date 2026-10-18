@@ -72,6 +72,7 @@ make lint       # Run linters
 ```
 
 - Theme unit tests are located in `packages/theme/src/__tests__`.
+- Workspace test commands use the shared root `vitest.config.mts`. Run `npm test` to test both packages or `make test` to include coverage and JUnit reports.
 - The docs site can be smoke-tested locally with `make start`.
 
 ## Releasing
