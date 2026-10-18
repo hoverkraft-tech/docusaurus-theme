@@ -4,6 +4,7 @@
     "**/coverage/**",
     "**/node_modules/**",
     "**/packages/docs/.docusaurus/**",
-    "**/packages/theme/lib/**"
+    "**/packages/theme/lib/**",
+    "**/package-lock.json"
   ]
 }
