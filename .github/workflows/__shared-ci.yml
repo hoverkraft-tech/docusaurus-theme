@@ -14,7 +14,7 @@ permissions: {}
 
 jobs:
   linter:
-    uses: hoverkraft-tech/ci-github-common/.github/workflows/linter.yml@3a27d31e9ccefbe9609cc9165017ed100ff34a22 # 0.38.0
+    uses: hoverkraft-tech/ci-github-common/.github/workflows/linter.yml@ab69f41f76e77ec84e733dedb03492b3ee95a05f # 0.39.0
     permissions:
       actions: read
       contents: read
@@ -28,7 +28,7 @@ jobs:
         FILTER_REGEX_EXCLUDE=packages/theme/lib/**/*,packages/docs/build/**/*
 
   nodejs:
-    uses: hoverkraft-tech/ci-github-nodejs/.github/workflows/continuous-integration.yml@df348077afa4e79725151d50606e9dc63f86dcb6 # 0.24.4
+    uses: hoverkraft-tech/ci-github-nodejs/.github/workflows/continuous-integration.yml@81a4bca8445b7b273455ff26a9a5c3c31c86b2a1 # 0.25.0
     permissions:
       contents: read
       id-token: write
@@ -52,7 +52,7 @@ jobs:
     steps:
       - id: package
         name: Create package tarball
-        uses: hoverkraft-tech/ci-github-nodejs/actions/package@df348077afa4e79725151d50606e9dc63f86dcb6 # 0.24.4
+        uses: hoverkraft-tech/ci-github-nodejs/actions/package@81a4bca8445b7b273455ff26a9a5c3c31c86b2a1 # 0.25.0
         with:
           working-directory: .
           package-directory: packages/theme
