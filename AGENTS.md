@@ -45,4 +45,4 @@ npm run start --workspace=@hoverkraft/hoverkraft-theme-docs  # Launch docs for l
 
 - Mirror any theme changes in `packages/docs/content` and `packages/docs/src` when user-facing behavior changes.
 - Update `README.md` and relevant guide pages if interfaces, commands, or outputs change.
-- Keep version bumps and changelog notes aligned with the release process defined in `README.md#releasing` once present.
+- Keep version bumps and changelog notes aligned with the release process defined in [the release guide](docs/development/releasing.md).
