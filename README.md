@@ -75,12 +75,9 @@ make lint       # Run linters
 - Workspace test commands use the shared root `vitest.config.mts`. Run `npm test` to test both packages or `make test` to include coverage and JUnit reports.
 - The docs site can be smoke-tested locally with `make start`.
 
-## Releasing
+## Maintainer documentation
 
-1. Update semantic versioning in `packages/theme/package.json`.
-2. Regenerate `packages/theme/lib` via `make build`.
-3. Validate docs output with `make build` when content changes.
-4. Publish the theme package via your chosen registry workflow (GitHub Actions or manual `npm publish`).
+See the [documentation index](docs/README.md) for release setup and operation.
 
 ## Contributing
 
