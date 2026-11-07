@@ -2,6 +2,9 @@ version: 2
 
 updates:
   - package-ecosystem: "npm"
+    commit-message:
+      prefix: build
+      include: scope
     open-pull-requests-limit: 20
     directory: "/"
     versioning-strategy: increase
@@ -28,6 +31,9 @@ updates:
           - "*"
 
   - package-ecosystem: github-actions
+    commit-message:
+      prefix: build
+      include: scope
     open-pull-requests-limit: 20
     directory: "/"
     cooldown:
@@ -40,6 +46,9 @@ updates:
           - "*"
 
   - package-ecosystem: "devcontainers"
+    commit-message:
+      prefix: build
+      include: scope
     open-pull-requests-limit: 20
     directory: "/"
     cooldown:
@@ -52,6 +61,9 @@ updates:
           - "*"
 
   - package-ecosystem: "docker"
+    commit-message:
+      prefix: build
+      include: scope
     open-pull-requests-limit: 20
     directory: "/"
     cooldown:
