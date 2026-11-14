@@ -13,8 +13,9 @@ on:
 permissions: {}
 
 jobs:
-  linter:
-    uses: hoverkraft-tech/ci-github-common/.github/workflows/linter.yml@66882b24f9f13e45a6541896a5a7c638cb91c94c # 4.0.0
+  lint:
+    name: linter
+    uses: hoverkraft-tech/ci-github-common/.github/workflows/linter.yml@f44e1bcc350b6bfe9e4a86a27b1d5e032e58f292 # 4.2.1
     permissions:
       actions: read
       contents: read
@@ -24,11 +25,12 @@ jobs:
       security-events: write
       statuses: write
     with:
+      comment: false
       linter-env: |
         FILTER_REGEX_EXCLUDE=packages/theme/lib/**/*,packages/docs/build/**/*
 
   nodejs:
-    uses: hoverkraft-tech/ci-github-nodejs/.github/workflows/continuous-integration.yml@18eb770c5d63c9b9809c367a91c55fb02c138ad4 # 3.0.1
+    uses: hoverkraft-tech/ci-github-nodejs/.github/workflows/continuous-integration.yml@a60704c5e9902675a1b4a5141411d95733e80ff5 # 3.0.2
     permissions:
       contents: read
       id-token: write
@@ -36,6 +38,7 @@ jobs:
       pull-requests: write
       security-events: write
     with:
+      test: '{"comment": false, "report-group": "nodejs"}'
       package: |
         {
           "test-project": "packages/docs",
@@ -45,3 +48,13 @@ jobs:
         {
           "artifact": ["packages/theme/lib", "packages/docs/build"]
         }
+
+  reports:
+    needs: [lint, nodejs]
+    if: always()
+    uses: hoverkraft-tech/ci-github-common/.github/workflows/ci-reports.yml@f44e1bcc350b6bfe9e4a86a27b1d5e032e58f292 # 4.2.1
+    permissions:
+      contents: read
+      pull-requests: write
+    with:
+      job-results: ${{ toJSON(needs) }}
